@@ -71,3 +71,10 @@ create table Genre(
 	GenreID		int				identity(1,1)	not null,	-- auto-increment feature
 	Name		varchar(max)					not null,
 );
+
+create table GameGenre(
+	GenreID		int		not null,
+	GameID		int		not null,
+
+	primary key (GenreID, GameID)
+);
