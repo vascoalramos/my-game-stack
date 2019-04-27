@@ -118,3 +118,13 @@ create table Developer (
 
 	primary key (DeveloperID)
 );
+
+create table [Platform] (
+	PlatformID		int				identity(1,1)	not null,	-- auto-increment feature
+	Name			varchar(max)					not null,
+	[Owner]			varchar(max)							,
+	Support			varchar(max)							,	-- see what to do here
+	ReleaseDate		date									,
+
+	primary key (PlatformID)
+);
