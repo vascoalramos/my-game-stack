@@ -2,7 +2,7 @@ create database Games;
 go;
 
 
-create table [User](
+create table [User] (
 	UserName		varchar(max)	not null,
 	Email			varchar(max)	not null,
 	Fname			varchar(max)			,
@@ -12,7 +12,7 @@ create table [User](
 	primary key (UserName)
 );
 
-create table EventType(
+create table EventType (
 	TypeID	int				identity(1,1)	not null,	-- auto-increment feature
 	Name	varchar(max)							,
 
@@ -29,7 +29,7 @@ create table [Event] (
 	primary key (EventID)
 );
 
-create table Game(
+create table Game (
 	GameID			int				identity(1,1)	not null,	-- auto-increment feature
 	Title			varchar(max)					not null,
 	LauchDate		date									,
@@ -41,7 +41,7 @@ create table Game(
 	primary key (GameID)	
 );
 
-create table Franchise(
+create table Franchise (
 	FranchiseID		int				identity(1,1)	not null,	-- auto-increment feature
 	Name			varchar(max)					not null,
 	NoOfGames		int										,
@@ -50,14 +50,14 @@ create table Franchise(
 	primary key(FranchiseID)
 );
 
-create table GameBelongsFranchise(
+create table GameBelongsFranchise (
 	GameID			int		not null,
 	FranchiseID		int		not null,
 
 	primary key	(GameID, FranchiseID)
 );
 
-create table Tournment(
+create table Tournment (
 	TournmentID		int				identity(1,1)	not null,	-- auto-increment feature
 	PrizePool		int										,
 	Location		varchar(max)							, -- ver notas!!! dicidir
@@ -67,19 +67,19 @@ create table Tournment(
 	primary key (TournmentID)		
 );
 
-create table Genre(
+create table Genre (
 	GenreID		int				identity(1,1)	not null,	-- auto-increment feature
 	Name		varchar(max)					not null,
 );
 
-create table GameGenre(
+create table GameGenre (
 	GenreID		int		not null,
 	GameID		int		not null,
 
 	primary key (GenreID, GameID)
 );
 
-create table Review(
+create table Review (
 	ReviewID		int				identity(1,1)	not null,	-- auto-increment feature
 	Score			int										,	-- stars
 	Title			varchar(max)					not null,
@@ -91,7 +91,7 @@ create table Review(
 	primary key (ReviewID, GameID)
 );
 
-create table Publisher(
+create table Publisher (
 	PublisherID		int				identity(1,1)	not null,	-- auto-increment feature
 	Name			varchar(max)					not null,
 	Email			varchar(max)							,
@@ -103,4 +103,18 @@ create table Publisher(
 	Logo			varchar(max)							,			
 
 	primary key (PublisherID)
+);
+
+create table Developer (
+	DeveloperID		int				identity(1,1)	not null,	-- auto-increment feature
+	Name			varchar(max)					not null,
+	Email			varchar(max)							,
+	Phone			varchar(max)							,
+	Website			varchar(max)							,
+	City			varchar(max)							,
+	Country			varchar(max)							,
+	ZipCode			varchar(max)							,
+	Logo			varchar(max)							,			
+
+	primary key (DeveloperID)
 );
