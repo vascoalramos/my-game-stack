@@ -36,6 +36,16 @@ create table Game(
 	[Description]	varchar(max)							,
 	PubID			int								not null,
 	DevID			int								not null,
+	CoverImage		varchar(max)							,
 	
 	primary key (GameID)	
+);
+
+create table Franchise(
+	FranchiseID			int				identity(1,1)	not null,	-- auto-increment feature
+	Name			varchar(max)							,
+	NoOfGames		int										,
+	Logo			varchar(max)							,
+
+	primary key(FranchiseID)
 );
