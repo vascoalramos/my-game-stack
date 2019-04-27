@@ -13,18 +13,29 @@ create table [User](
 );
 
 create table EventType(
-	TypeID	int				identity(1,1)	not null,	-- auto -increment feature
+	TypeID	int				identity(1,1)	not null,	-- auto-increment feature
 	Name	varchar(max)							,
 
 	primary key	(TypeID)
 );
 
 create table [Event] (
-	EventID		int				identity(1,1)	not null,	-- auto -increment feature
+	EventID		int				identity(1,1)	not null,	-- auto-increment feature
 	UserName	varchar(max)					not null,
 	TypeID		int								not null,
 	RegDate		date									,
 	ChangeDate	date									,
 
 	primary key (EventID)
+);
+
+create table Game(
+	GameID			int				identity(1,1)	not null,	-- auto-increment feature
+	Title			varchar(max)					not null,
+	LauchDate		date									,
+	[Description]	varchar(max)							,
+	PubID			int								not null,
+	DevID			int								not null,
+	
+	primary key (GameID)	
 );
