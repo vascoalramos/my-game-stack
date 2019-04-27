@@ -56,3 +56,13 @@ create table GameBelongsFranchise(
 
 	primary key	(GameID, FranchiseID)
 );
+
+create table Tournment(
+	TournmentID		int				identity(1,1)	not null,	-- auto-increment feature
+	PrizePool		int										,
+	Location		varchar(max)							, -- ver notas!!! dicidir
+	Name			varchar(max)							,
+	GameID			int								not null,
+	
+	primary key (TournmentID)		
+);
