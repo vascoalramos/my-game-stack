@@ -135,3 +135,10 @@ create table Releases (
 
 	primary key (GameID, PlatformID)
 );
+
+create table GameEventList (
+	GameID		int		not null,
+	EventID		int		not null,
+
+	primary key (GameID, EventID)
+);
