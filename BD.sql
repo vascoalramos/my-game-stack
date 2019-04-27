@@ -42,10 +42,17 @@ create table Game(
 );
 
 create table Franchise(
-	FranchiseID			int				identity(1,1)	not null,	-- auto-increment feature
+	FranchiseID		int				identity(1,1)	not null,	-- auto-increment feature
 	Name			varchar(max)							,
 	NoOfGames		int										,
 	Logo			varchar(max)							,
 
 	primary key(FranchiseID)
+);
+
+create table GameBelongsFranchise(
+	GameID			int		not null,
+	FranchiseID		int		not null,
+
+	primary key	(GameID, FranchiseID)
 );
