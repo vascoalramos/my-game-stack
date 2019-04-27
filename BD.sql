@@ -128,3 +128,10 @@ create table [Platform] (
 
 	primary key (PlatformID)
 );
+
+create table Releases (
+	GameID		int		not null,
+	PlatformID	int		not null,
+
+	primary key (GameID, PlatformID)
+);
