@@ -43,7 +43,7 @@ create table Game(
 
 create table Franchise(
 	FranchiseID		int				identity(1,1)	not null,	-- auto-increment feature
-	Name			varchar(max)							,
+	Name			varchar(max)					not null,
 	NoOfGames		int										,
 	Logo			varchar(max)							,
 
@@ -65,4 +65,9 @@ create table Tournment(
 	GameID			int								not null,
 	
 	primary key (TournmentID)		
+);
+
+create table Genre(
+	GenreID		int				identity(1,1)	not null,	-- auto-increment feature
+	Name		varchar(max)					not null,
 );
