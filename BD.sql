@@ -78,3 +78,15 @@ create table GameGenre(
 
 	primary key (GenreID, GameID)
 );
+
+create table Review(
+	ReviewID		int				identity(1,1)	not null,	-- auto-increment feature
+	Score			int										,	-- stars
+	Title			varchar(max)					not null,
+	[Description]	varchar(max)							,
+	[Date]			date							not null,
+	UserName		int								not null,
+	GameID			int								not null,
+
+	primary key (ReviewID, GameID)
+);
