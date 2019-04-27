@@ -90,3 +90,17 @@ create table Review(
 
 	primary key (ReviewID, GameID)
 );
+
+create table Publisher(
+	PublisherID		int				identity(1,1)	not null,	-- auto-increment feature
+	Name			varchar(max)					not null,
+	Email			varchar(max)							,
+	Phone			varchar(max)							,
+	Website			varchar(max)							,
+	City			varchar(max)							,
+	Country			varchar(max)							,
+	ZipCode			varchar(max)							,
+	Logo			varchar(max)							,			
+
+	primary key (PublisherID)
+);
