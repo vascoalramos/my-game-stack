@@ -163,3 +163,8 @@ alter table GameBelongsFranchise add constraint gameBelongsFranchiseFranchise fo
 
 alter table GameGenre add constraint gameGenreGame foreign key (GameID) references Game (GameID);
 alter table GameGenre add constraint gameGenreGenre foreign key (GenreID) references Genre (GenreID);
+
+alter table Releases add constraint releasesGame foreign key (GameID) references Game (GameID);
+alter table Releases add constraint releasesPlatform foreign key (PlatformID) references [Platform] (PlatformID);
+
+alter table Tournment add constraint tournmentGame foreign key (GameID) references Game (GameID);
