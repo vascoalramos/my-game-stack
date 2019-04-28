@@ -27,7 +27,7 @@ begin
 end
 go
 
-DECLARE @responseMsg NVARCHAR(250);
-exec dbo.uspAddUser @UserName = 'vramos99', @mail = 'vascoarlamos@ua.pt', @fname = 'Vasco', @lname = 'Ramos', @password = 'ola123password', @responseMsg=@responseMsg OUTPUT
+ -- DECLARE @responseMsg NVARCHAR(250);
+ -- exec dbo.uspAddUser @UserName = 'vramos99', @mail = 'vascoarlamos@ua.pt', @fname = 'Vasco', @lname = 'Ramos', @password = 'ola123password', @responseMsg=@responseMsg OUTPUT
 
-select * from [User]
+ -- select * from [User];
