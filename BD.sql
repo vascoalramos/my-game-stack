@@ -1,14 +1,22 @@
+use master;
+go
+
+drop database Games;
+go
+
 create database Games;
 go
 
 use Games;
+go
 
 create table [User] (
-	UserName		varchar(30)		not null,
-	Email			varchar(max)	not null,
-	Fname			varchar(max)			,
-	Lname			varchar(max)			,
-	Password_hash	binary(64)		not null,	-- secure way to store passwords
+	UserName		varchar(30)		unique		not null,
+	Email			varchar(max)				not null,
+	Fname			varchar(max)						,
+	Lname			varchar(max)						,
+	Password_hash	binary(64)					not null,	-- secure way to store passwords
+	Salt			uniqueidentifier			not null,	-- used to more secure password storing
 
 	primary key (UserName)
 );
@@ -102,7 +110,6 @@ create table Publisher (
 	Website			varchar(max)							,
 	City			varchar(max)							,
 	Country			varchar(max)							,
-	ZipCode			varchar(max)							,
 	Logo			varchar(max)							,			
 
 	primary key (PublisherID)
@@ -116,7 +123,6 @@ create table Developer (
 	Website			varchar(max)							,
 	City			varchar(max)							,
 	Country			varchar(max)							,
-	ZipCode			varchar(max)							,
 	Logo			varchar(max)							,			
 
 	primary key (DeveloperID)
@@ -128,6 +134,8 @@ create table [Platform] (
 	[Owner]			varchar(max)							,
 	Support			varchar(max)							,	-- see what to do here
 	ReleaseDate		date									,
+	City			varchar(max)							,
+	Country			varchar(max)							,
 
 	primary key (PlatformID)
 );
@@ -168,3 +176,38 @@ alter table Releases add constraint releasesGame foreign key (GameID) references
 alter table Releases add constraint releasesPlatform foreign key (PlatformID) references [Platform] (PlatformID);
 
 alter table Tournment add constraint tournmentGame foreign key (GameID) references Game (GameID);
+
+
+---------- Procedures ----------
+drop procedure dbo.uspAddUser;
+go
+
+create procedure dbo.uspAddUser
+	@mail VARCHAR(max), 
+    @password varchar(max), 
+    @fname varchar(max),
+    @lname varchar(max),
+    @UserName varchar(max),
+    @responseMsg nvarchar(250) output
+as
+begin
+	set nocount on
+
+	declare @salt uniqueidentifier=newid()
+	begin try
+
+		insert into dbo.[User] (UserName, Email, Fname, Lname, Password_hash, Salt)
+		values (@UserName, @mail, @fname, @lname, hashbytes('SHA2_512', @password + cast(@salt as nvarchar(36))), @salt)
+
+		set @responseMsg='Success'
+	end try
+	begin catch
+		set @responseMsg=error_message()
+	end catch
+end
+go
+
+DECLARE @responseMsg NVARCHAR(250);
+exec dbo.uspAddUser @UserName = 'vramos99', @mail = 'vascoarlamos@ua.pt', @fname = 'Vasco', @lname = 'Ramos', @password = 'ola123password', @responseMsg=@responseMsg OUTPUT
+
+select  from User
