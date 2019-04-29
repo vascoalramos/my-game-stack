@@ -1,0 +1,35 @@
+GenreID		Genre Name
+1	Platform games
+2	Shooter games
+3	Fighting games
+4	Beat 'em up games
+5	Stealth game
+6	Survival games
+7	Rhythm games
+8	Survival horror
+9	Metroidvania
+10	Text adventures
+11	Graphic adventures
+12	Visual novels
+13	Interactive movie
+14	Real-time 3D adventures
+15	Action RPG
+16	JRPG
+17	MMORPG
+18	Roguelikes
+19	Sandbox RPG
+20	Life simulation
+21	Vehicle simulation
+22	Tycoon
+23	Real-time strategy (RTS)
+24	Multiplayer online battle arena (MOBA)
+25	Tower defense
+26	Turn-based strategy (TBS)
+27	Racing
+28	Sports game
+29	MMO
+30	Casual games
+31	Party game
+32	Trivia game
+33	First-Person
+34	Third-Person

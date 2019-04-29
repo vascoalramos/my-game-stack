@@ -1,0 +1,2 @@
+FranchiseID		Franchise Name		NoOfGames		Logo
+1	Counter Strike
