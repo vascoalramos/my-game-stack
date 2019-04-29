@@ -18,6 +18,7 @@ create table [User] (
 	Email			varchar(max)				not null,
 	Fname			varchar(max)						,
 	Lname			varchar(max)						,
+	Photo			varchar(max)						,
 	Password_hash	binary(64)					not null,	-- secure way to store passwords
 	Salt			uniqueidentifier			not null,	-- used to more secure password storing
 

@@ -1,3 +1,0 @@
-DeveloperID		Name	EMail	Phone	Website		City	Country		Logo
-1	Valve
-2	Hidden Path Entertainment
