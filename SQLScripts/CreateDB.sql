@@ -48,7 +48,6 @@ create table Game (
 	LauchDate		date									,
 	[Description]	varchar(max)							,
 	PubID			int								not null,
-	DevID			int								not null,
 	CoverImage		varchar(max)							,
 	
 	primary key (GameID)	
@@ -158,6 +157,13 @@ create table GameEventList (
 	primary key (GameID, EventID)
 );
 
+create table GameDeveloper (
+	GameID		int		not null,
+	DeveloperID	int		not null,
+
+	primary key (GameID, DeveloperID)
+);
+
 alter table [Event] add constraint eventUser foreign key (UserName) references [User] (UserName);
 alter table [Event] add constraint event_type foreign key (TypeID) references EventType (TypeID);
 
@@ -168,7 +174,7 @@ alter table GameEventList add constraint gameEventListEvent foreign key (EventID
 alter table GameEventList add constraint gameEventListGame foreign key (GameID) references Game (GameID);
 
 alter table Game add constraint gamePublisher foreign key (PubID) references Publisher (PublisherID);
-alter table Game add constraint gameDeveloper foreign key (DevID) references Developer (DeveloperID);
+alter table Game add constraint gameeveloper foreign key (DevID) references Developer (DeveloperID);
 
 alter table GameBelongsFranchise add constraint gameBelongsFranchiseGame foreign key (GameID) references Game (GameID);
 alter table GameBelongsFranchise add constraint gameBelongsFranchiseFranchise foreign key (FranchiseID) references Franchise (FranchiseID);
