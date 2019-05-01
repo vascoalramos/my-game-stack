@@ -174,7 +174,6 @@ alter table GameEventList add constraint gameEventListEvent foreign key (EventID
 alter table GameEventList add constraint gameEventListGame foreign key (GameID) references Game (GameID);
 
 alter table Game add constraint gamePublisher foreign key (PubID) references Publisher (PublisherID);
-alter table Game add constraint gameeveloper foreign key (DevID) references Developer (DeveloperID);
 
 alter table GameBelongsFranchise add constraint gameBelongsFranchiseGame foreign key (GameID) references Game (GameID);
 alter table GameBelongsFranchise add constraint gameBelongsFranchiseFranchise foreign key (FranchiseID) references Franchise (FranchiseID);
@@ -186,3 +185,6 @@ alter table Releases add constraint releasesGame foreign key (GameID) references
 alter table Releases add constraint releasesPlatform foreign key (PlatformID) references [Platform] (PlatformID);
 
 alter table Tournment add constraint tournmentGame foreign key (GameID) references Game (GameID);
+
+alter table GameDeveloper add constraint developerGameDeveloper foreign key (DeveloperID) references Developer (DeveloperID);
+alter table GameDeveloper add constraint gameDeveloperGame foreign key (GameID) references Game (GameID);
