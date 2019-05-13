@@ -13,7 +13,7 @@ go
 use Games;
 go
 
-create table [User] (
+create table [Users] (
 	UserName		varchar(30)		unique		not null,
 	Email			varchar(max)				not null,
 	Fname			varchar(max)						,
@@ -32,7 +32,7 @@ create table EventType (
 	primary key	(TypeID)
 );
 
-create table [Event] (
+create table [Events] (
 	EventID		int				identity(1,1)	not null,	-- auto-increment feature
 	UserName	varchar(30)						not null,
 	TypeID		int								not null,
@@ -42,7 +42,7 @@ create table [Event] (
 	primary key (EventID)
 );
 
-create table Game (
+create table Games (
 	GameID			int				identity(1,1)	not null,	-- auto-increment feature
 	Title			varchar(max)					not null,
 	LauchDate		date									,
@@ -53,7 +53,7 @@ create table Game (
 	primary key (GameID)	
 );
 
-create table Franchise (
+create table Franchises (
 	FranchiseID		int				identity(1,1)	not null,	-- auto-increment feature
 	Name			varchar(max)					not null,
 	NoOfGames		int										,
@@ -69,7 +69,7 @@ create table GameBelongsFranchise (
 	primary key	(GameID, FranchiseID)
 );
 
-create table Tournment (
+create table Tournments (
 	TournmentID		int				identity(1,1)	not null,	-- auto-increment feature
 	PrizePool		int										,
 	Location		varchar(max)							, -- ver notas!!! dicidir
@@ -79,7 +79,7 @@ create table Tournment (
 	primary key (TournmentID)		
 );
 
-create table Genre (
+create table Genres (
 	GenreID		int				identity(1,1)	not null,	-- auto-increment feature
 	Name		varchar(max)					not null,
 
@@ -93,7 +93,7 @@ create table GameGenre (
 	primary key (GenreID, GameID)
 );
 
-create table Review (
+create table Reviews (
 	ReviewID		int				identity(1,1)	not null,	-- auto-increment feature
 	Score			int										,	-- stars
 	Title			varchar(max)					not null,
@@ -105,7 +105,7 @@ create table Review (
 	primary key (ReviewID, GameID)
 );
 
-create table Publisher (
+create table Publishers (
 	PublisherID		int				identity(1,1)	not null,	-- auto-increment feature
 	Name			varchar(max)					not null,
 	Email			varchar(max)							,
@@ -118,7 +118,7 @@ create table Publisher (
 	primary key (PublisherID)
 );
 
-create table Developer (
+create table Developers (
 	DeveloperID		int				identity(1,1)	not null,	-- auto-increment feature
 	Name			varchar(max)					not null,
 	Email			varchar(max)							,
@@ -131,14 +131,11 @@ create table Developer (
 	primary key (DeveloperID)
 );
 
-create table [Platform] (
+create table [Platforms] (
 	PlatformID		int				identity(1,1)	not null,	-- auto-increment feature
 	Name			varchar(max)					not null,
 	[Owner]			varchar(max)							,
-	Support			varchar(max)							,	-- see what to do here
 	ReleaseDate		date									,
-	City			varchar(max)							,
-	Country			varchar(max)							,
 
 	primary key (PlatformID)
 );
@@ -164,27 +161,27 @@ create table GameDeveloper (
 	primary key (GameID, DeveloperID)
 );
 
-alter table [Event] add constraint eventUser foreign key (UserName) references [User] (UserName);
-alter table [Event] add constraint event_type foreign key (TypeID) references EventType (TypeID);
+alter table [Events] add constraint eventUser foreign key (UserName) references [Users] (UserName);
+alter table [Events] add constraint event_type foreign key (TypeID) references EventType (TypeID);
 
-alter table Review add constraint reviewGame foreign key (GameID) references Game (GameID);
-alter table Review add constraint reviewUser foreign key (UserName) references [User] (UserName);
+alter table Reviews add constraint reviewGame foreign key (GameID) references Games (GameID);
+alter table Reviews add constraint reviewUser foreign key (UserName) references [Users] (UserName);
 
-alter table GameEventList add constraint gameEventListEvent foreign key (EventID) references [Event] (EventID);
-alter table GameEventList add constraint gameEventListGame foreign key (GameID) references Game (GameID);
+alter table GameEventList add constraint gameEventListEvent foreign key (EventID) references [Events] (EventID);
+alter table GameEventList add constraint gameEventListGame foreign key (GameID) references Games (GameID);
 
-alter table Game add constraint gamePublisher foreign key (PubID) references Publisher (PublisherID);
+alter table Games add constraint gamePublisher foreign key (PubID) references Publishers (PublisherID);
 
-alter table GameBelongsFranchise add constraint gameBelongsFranchiseGame foreign key (GameID) references Game (GameID);
-alter table GameBelongsFranchise add constraint gameBelongsFranchiseFranchise foreign key (FranchiseID) references Franchise (FranchiseID);
+alter table GameBelongsFranchise add constraint gameBelongsFranchiseGame foreign key (GameID) references Games (GameID);
+alter table GameBelongsFranchise add constraint gameBelongsFranchiseFranchise foreign key (FranchiseID) references Franchises (FranchiseID);
 
-alter table GameGenre add constraint gameGenreGame foreign key (GameID) references Game (GameID);
-alter table GameGenre add constraint gameGenreGenre foreign key (GenreID) references Genre (GenreID);
+alter table GameGenre add constraint gameGenreGame foreign key (GameID) references Games (GameID);
+alter table GameGenre add constraint gameGenreGenre foreign key (GenreID) references Genres (GenreID);
 
-alter table Releases add constraint releasesGame foreign key (GameID) references Game (GameID);
-alter table Releases add constraint releasesPlatform foreign key (PlatformID) references [Platform] (PlatformID);
+alter table Releases add constraint releasesGame foreign key (GameID) references Games (GameID);
+alter table Releases add constraint releasesPlatform foreign key (PlatformID) references [Platforms] (PlatformID);
 
-alter table Tournment add constraint tournmentGame foreign key (GameID) references Game (GameID);
+alter table Tournments add constraint tournmentGame foreign key (GameID) references Games (GameID);
 
-alter table GameDeveloper add constraint developerGameDeveloper foreign key (DeveloperID) references Developer (DeveloperID);
-alter table GameDeveloper add constraint gameDeveloperGame foreign key (GameID) references Game (GameID);
+alter table GameDeveloper add constraint developerGameDeveloper foreign key (DeveloperID) references Developers (DeveloperID);
+alter table GameDeveloper add constraint gameDeveloperGame foreign key (GameID) references Games (GameID);
