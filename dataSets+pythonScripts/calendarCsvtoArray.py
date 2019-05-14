@@ -16,5 +16,5 @@ def csv_to_array(baseFile,arrayFile,index,delimiter):
     openFile.close()
     text_file.close()
 
-# csv_to_array("calender.csv", "array.txt",1,',')
+# csv_to_array("calendar.csv", "array.txt",1,',')
 csv_to_array("DataSets/Users.csv","array.txt",0,';')
