@@ -1,0 +1,180 @@
+INSERT INTO [GameBelongsFranchise] VALUES ( 1 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 2 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 3 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 4 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 5 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 6 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 7 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 8 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 9 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 9 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 9 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 9 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 9 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 9 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 9 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 9 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 10 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 10 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 10 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 11 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 11 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 11 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 11 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 11 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 11 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 11 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 12 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 12 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 12 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 12 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 13 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 13 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 13 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 13 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 14 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 14 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 14 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 14 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 14 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 14 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 14 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 14 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 14 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 14 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 14 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 15 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 15 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 15 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 15 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 15 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 16 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 16 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 16 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 16 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 16 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 16 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 17 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 17 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 17 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 17 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 17 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 17 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 17 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 17 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 17 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 17 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 17 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 17 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 17 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 18 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 18 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 18 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 18 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 18 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 18 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 18 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 19 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 19 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 19 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 19 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 19 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 19 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 19 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 19 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 20 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 20 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 20 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 20 )
+GO
+INSERT INTO [GameBelongsFranchise] VALUES ( 20 )
+GO

@@ -62,4 +62,4 @@ def csv_to_sql(baseFile, sqlFile, tableName):
     openFile.close()
     text_file.close()
 
-csv_to_sql("User.csv", "UserSQL.txt", "User")
+csv_to_sql("DataSets/Users.csv", "UserSQL.txt", "User")

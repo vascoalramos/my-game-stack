@@ -20,7 +20,7 @@ begin
 	declare @salt uniqueidentifier=newid()
 	begin try
 
-		insert into dbo.[User] (UserName, Email, Fname, Lname, Photo, Password_hash, Salt)
+		insert into dbo.[Users] (UserName, Email, Fname, Lname, Photo, Password_hash, Salt)
 		values (@UserName, @mail, @fname, @lname, @photo, hashbytes('SHA2_512', @password + cast(@salt as nvarchar(36))), @salt)
 
 		set @responseMsg='Success'
@@ -34,4 +34,4 @@ go
  -- DECLARE @responseMsg NVARCHAR(250);
  -- exec dbo.uspAddUser @UserName = 'vramos99', @mail = 'vascoarlamos@ua.pt', @fname = 'Vasco', @lname = 'Ramos', @password = 'ola123password', @responseMsg=@responseMsg OUTPUT
 
-select * from [User];
+select * from [Users];
