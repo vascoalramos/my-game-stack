@@ -5,6 +5,9 @@ go
 drop procedure dbo.uspAddUser;
 go
 
+drop procedure dbo.uspLogin;
+go
+
 create procedure dbo.uspAddUser
 	@mail VARCHAR(max), 
     @password varchar(max), 
@@ -31,7 +34,53 @@ begin
 end
 go
 
- -- DECLARE @responseMsg NVARCHAR(250);
- -- exec dbo.uspAddUser @UserName = 'vramos99', @mail = 'vascoarlamos@ua.pt', @fname = 'Vasco', @lname = 'Ramos', @password = 'ola123password', @responseMsg=@responseMsg OUTPUT
 
-select * from [Users];
+create procedure dbo.uspLogin
+    @loginName varchar(max),
+    @password varchar(max),
+    @responseMessage varchar(250)='' output
+as
+begin
+    set nocount on
+
+	declare @userName varchar(max)
+
+    if exists (select top 1 UserName from [dbo].[Users] where UserName=@loginName)
+    begin
+		set @userName=(select UserName from [dbo].[Users] where UserName=@loginName and Password_hash=hashbytes('SHA2_512', @password+cast(Salt as nvarchar(36))))
+		
+		if(@userName is null)
+			set @responseMessage='Incorrect password'
+		else
+			set @responseMessage='User successfully logged in'
+    end
+    else
+		set @responseMessage='Invalid login'
+
+end
+
+
+--declare	@responseMessage nvarchar(250)
+
+--EXEC	dbo.uspLogin
+--		@loginName = 'adamLamb',
+--		@password = 'D3X9It57',
+--		@responseMessage = @responseMessage OUTPUT
+
+--SELECT	@responseMessage as '@responseMessage'
+
+----Incorrect login
+--EXEC	dbo.uspLogin
+--		@loginName = 'adamLamww', 
+--		@password = 'D3X9It57',
+--		@responseMessage = @responseMessage OUTPUT
+
+--SELECT	@responseMessage as '@responseMessage'
+
+----Incorrect password
+--EXEC	dbo.uspLogin
+--		@pLoginName = 'adamLamb', 
+--		@pPassword = 'D3X9It58',
+--		@responseMessage = @responseMessage OUTPUT
+
+--SELECT	@responseMessage as '@responseMessage'
