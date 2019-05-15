@@ -1,10 +1,3 @@
-Alterar multiplicidade em:
-- Game -> Event de 1 para N
-- Mudar os gameID's dos tournments
-
-Event passa a ser entididade fraca de User
-
-
 Execução ORDEM:
 - Create_DB
 - StoredProcedures

@@ -94,8 +94,6 @@ INSERT INTO [Tournments] VALUES ( 1, 'Go4CS:GO EU #348', '2019-03-24', '2019-03-
 GO
 INSERT INTO [Tournments] VALUES ( 5, 'GrubHub Sunday Showdown week 5', '2019-03-24', '2019-03-24', 'Online', 3000 )
 GO
-INSERT INTO [Tournments] VALUES ( 573, 'Madden NFL 19 Canadian Challenge', '2019-03-24', '2019-03-24', 'Toronto, Canada', 15000 )
-GO
 INSERT INTO [Tournments] VALUES ( 4, 'March of Legends (EU)', '2019-03-23', '2019-03-24', 'Online', 1000 )
 GO
 INSERT INTO [Tournments] VALUES ( 11, 'Overwatch League - Season 2 Stage 1', '2019-02-14', '2019-03-24', 'Los Angeles, United States', 500000 )

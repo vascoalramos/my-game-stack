@@ -1,6 +1,6 @@
 TournamentId,GameId,TournamentName,StartDate,EndDate,Location,TotalUSDPrize
-1,1,'ESL Mistrzostwa Polski - Spring 2019: Division 2 Playoffs (CS:GO)',2019-03-24,2019-04-02,Online,800
-2,2,'Twitch Rivals Apex Legends Rematch Challenge (EU)',2019-04-02,2019-04-02,Online,75000
+1,1,ESL Mistrzostwa Polski - Spring 2019: Division 2 Playoffs (CS:GO),2019-03-24,2019-04-02,Online,800
+2,2,Twitch Rivals Apex Legends Rematch Challenge (EU),2019-04-02,2019-04-02,Online,75000
 3,2,Twitch Rivals Apex Legends Rematch Challenge (NA),2019-04-02,2019-04-02,Online,75000
 4,1,ESEA NA CS:GO MDL Season 30 - Playoffs,2019-03-21,2019-04-01,Online,35000
 5,3,A&C Cup: Solo Edition,2019-03-31,2019-03-31,Online,1130.73
@@ -47,7 +47,6 @@ TournamentId,GameId,TournamentName,StartDate,EndDate,Location,TotalUSDPrize
 46,10,FB5,2019-03-23,2019-03-24,"Bloomington, Indiana",2530
 47,1,Go4CS:GO EU #348,2019-03-24,2019-03-24,Online,112.97
 48,5,GrubHub Sunday Showdown week 5,2019-03-24,2019-03-24,Online,3000
-49,573,Madden NFL 19 Canadian Challenge,2019-03-24,2019-03-24,"Toronto, Canada",15000
 50,4,March of Legends (EU),2019-03-23,2019-03-24,Online,1000
 51,11,Overwatch League - Season 2 Stage 1,2019-02-14,2019-03-24,"Los Angeles, United States",500000
 52,2,Strong Esports: 2k Invitational Series #2,2019-03-24,2019-03-24,Online,2000
