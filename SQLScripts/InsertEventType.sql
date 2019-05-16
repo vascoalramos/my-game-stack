@@ -1,10 +1,10 @@
-INSERT INTO [EventType] VALUES ( 'Playing' )
+INSERT INTO GamesDB.[EventType] VALUES ( 'Playing' )
 GO
-INSERT INTO [EventType] VALUES ( 'WishList' )
+INSERT INTO GamesDB.[EventType] VALUES ( 'WishList' )
 GO
-INSERT INTO [EventType] VALUES ( 'Plan To Play' )
+INSERT INTO GamesDB.[EventType] VALUES ( 'Plan To Play' )
 GO
-INSERT INTO [EventType] VALUES ( 'Dropped' )
+INSERT INTO GamesDB.[EventType] VALUES ( 'Dropped' )
 GO
-INSERT INTO [EventType] VALUES ( 'Completed' )
+INSERT INTO GamesDB.[EventType] VALUES ( 'Completed' )
 GO

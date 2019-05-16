@@ -1,74 +1,74 @@
-INSERT INTO [Genres] VALUES ( 'Platformer' )
+INSERT INTO GamesDB.[Genres] VALUES ( 'Platformer' )
 GO
-INSERT INTO [Genres] VALUES ( 'Shooter' )
+INSERT INTO GamesDB.[Genres] VALUES ( 'Shooter' )
 GO
-INSERT INTO [Genres] VALUES ( 'Fighting' )
+INSERT INTO GamesDB.[Genres] VALUES ( 'Fighting' )
 GO
-INSERT INTO [Genres] VALUES ( 'Beat em up' )
+INSERT INTO GamesDB.[Genres] VALUES ( 'Beat em up' )
 GO
-INSERT INTO [Genres] VALUES ( 'Stealth' )
+INSERT INTO GamesDB.[Genres] VALUES ( 'Stealth' )
 GO
-INSERT INTO [Genres] VALUES ( 'Survival' )
+INSERT INTO GamesDB.[Genres] VALUES ( 'Survival' )
 GO
-INSERT INTO [Genres] VALUES ( 'Rythm' )
+INSERT INTO GamesDB.[Genres] VALUES ( 'Rythm' )
 GO
-INSERT INTO [Genres] VALUES ( 'Survival Horror' )
+INSERT INTO GamesDB.[Genres] VALUES ( 'Survival Horror' )
 GO
-INSERT INTO [Genres] VALUES ( 'Metroidvania' )
+INSERT INTO GamesDB.[Genres] VALUES ( 'Metroidvania' )
 GO
-INSERT INTO [Genres] VALUES ( 'Text Adventure' )
+INSERT INTO GamesDB.[Genres] VALUES ( 'Text Adventure' )
 GO
-INSERT INTO [Genres] VALUES ( 'Visual Novel' )
+INSERT INTO GamesDB.[Genres] VALUES ( 'Visual Novel' )
 GO
-INSERT INTO [Genres] VALUES ( 'Graphic Adventure' )
+INSERT INTO GamesDB.[Genres] VALUES ( 'Graphic Adventure' )
 GO
-INSERT INTO [Genres] VALUES ( 'Interactive Movie' )
+INSERT INTO GamesDB.[Genres] VALUES ( 'Interactive Movie' )
 GO
-INSERT INTO [Genres] VALUES ( 'Action RPG' )
+INSERT INTO GamesDB.[Genres] VALUES ( 'Action RPG' )
 GO
-INSERT INTO [Genres] VALUES ( 'JRPG' )
+INSERT INTO GamesDB.[Genres] VALUES ( 'JRPG' )
 GO
-INSERT INTO [Genres] VALUES ( 'MMORPG' )
+INSERT INTO GamesDB.[Genres] VALUES ( 'MMORPG' )
 GO
-INSERT INTO [Genres] VALUES ( 'Roguelike' )
+INSERT INTO GamesDB.[Genres] VALUES ( 'Roguelike' )
 GO
-INSERT INTO [Genres] VALUES ( 'Sandbox RPG' )
+INSERT INTO GamesDB.[Genres] VALUES ( 'Sandbox RPG' )
 GO
-INSERT INTO [Genres] VALUES ( 'Life Simulator' )
+INSERT INTO GamesDB.[Genres] VALUES ( 'Life Simulator' )
 GO
-INSERT INTO [Genres] VALUES ( 'Vehicle Simulator' )
+INSERT INTO GamesDB.[Genres] VALUES ( 'Vehicle Simulator' )
 GO
-INSERT INTO [Genres] VALUES ( 'Tycoon' )
+INSERT INTO GamesDB.[Genres] VALUES ( 'Tycoon' )
 GO
-INSERT INTO [Genres] VALUES ( 'Real Time Strategy (RTS)' )
+INSERT INTO GamesDB.[Genres] VALUES ( 'Real Time Strategy (RTS)' )
 GO
-INSERT INTO [Genres] VALUES ( 'Multiplayer Online Battle Arena (MOBA)' )
+INSERT INTO GamesDB.[Genres] VALUES ( 'Multiplayer Online Battle Arena (MOBA)' )
 GO
-INSERT INTO [Genres] VALUES ( 'Tower Defense' )
+INSERT INTO GamesDB.[Genres] VALUES ( 'Tower Defense' )
 GO
-INSERT INTO [Genres] VALUES ( 'Racing' )
+INSERT INTO GamesDB.[Genres] VALUES ( 'Racing' )
 GO
-INSERT INTO [Genres] VALUES ( 'Turn Based Strategy (TBS)' )
+INSERT INTO GamesDB.[Genres] VALUES ( 'Turn Based Strategy (TBS)' )
 GO
-INSERT INTO [Genres] VALUES ( 'Sports Game' )
+INSERT INTO GamesDB.[Genres] VALUES ( 'Sports Game' )
 GO
-INSERT INTO [Genres] VALUES ( 'MMO' )
+INSERT INTO GamesDB.[Genres] VALUES ( 'MMO' )
 GO
-INSERT INTO [Genres] VALUES ( 'Casual' )
+INSERT INTO GamesDB.[Genres] VALUES ( 'Casual' )
 GO
-INSERT INTO [Genres] VALUES ( 'Party' )
+INSERT INTO GamesDB.[Genres] VALUES ( 'Party' )
 GO
-INSERT INTO [Genres] VALUES ( 'Trivia' )
+INSERT INTO GamesDB.[Genres] VALUES ( 'Trivia' )
 GO
-INSERT INTO [Genres] VALUES ( 'First Person' )
+INSERT INTO GamesDB.[Genres] VALUES ( 'First Person' )
 GO
-INSERT INTO [Genres] VALUES ( 'Third Person' )
+INSERT INTO GamesDB.[Genres] VALUES ( 'Third Person' )
 GO
-INSERT INTO [Genres] VALUES ( 'Card Game' )
+INSERT INTO GamesDB.[Genres] VALUES ( 'Card Game' )
 GO
-INSERT INTO [Genres] VALUES ( 'Action Adventure' )
+INSERT INTO GamesDB.[Genres] VALUES ( 'Action Adventure' )
 GO
-INSERT INTO [Genres] VALUES ( 'Auto Running' )
+INSERT INTO GamesDB.[Genres] VALUES ( 'Auto Running' )
 GO
-INSERT INTO [Genres] VALUES ( 'Action Role-Playing' )
+INSERT INTO GamesDB.[Genres] VALUES ( 'Action Role-Playing' )
 GO

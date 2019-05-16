@@ -1,19 +1,41 @@
-use master;
+create schema GamesDB;
 go
 
-alter database Games set single_user with rollback immediate;
-go
+alter table GamesDB.[Events] drop constraint eventUser;
+alter table GamesDB.[Events] drop constraint event_type;
+alter table GamesDB.Reviews drop constraint reviewGame;
+alter table GamesDB.Reviews drop constraint reviewUser;
+alter table GamesDB.GameEventList drop constraint gameEventListEvent;
+alter table GamesDB.GameEventList drop constraint gameEventListGame;
+alter table GamesDB.Games drop constraint gamePublisher;
+alter table GamesDB.GameBelongsFranchise drop constraint gameBelongsFranchiseGame;
+alter table GamesDB.GameBelongsFranchise drop constraint gameBelongsFranchiseFranchise;
+alter table GamesDB.GameGenre drop constraint gameGenreGame;
+alter table GamesDB.GameGenre drop constraint gameGenreGenre;
+alter table GamesDB.Releases drop constraint releasesGame;
+alter table GamesDB.Releases drop constraint releasesPlatform;
+alter table GamesDB.Tournments drop constraint tournmentGame;
+alter table GamesDB.GameDeveloper drop constraint developerGameDeveloper;
+alter table GamesDB.GameDeveloper drop constraint gameDeveloperGame;
 
-drop database Games;
-go
+drop table GamesDB.[Users];
+drop table GamesDB.EventType;
+drop table GamesDB.[Events];
+drop table GamesDB.Games;
+drop table GamesDB.Franchises;
+drop table GamesDB.GameBelongsFranchise;
+drop table GamesDB.Tournments;
+drop table GamesDB.Genres;
+drop table GamesDB.GameGenre;
+drop table GamesDB.Reviews;
+drop table GamesDB.Publishers;
+drop table GamesDB.Developers;
+drop table GamesDB.[Platforms];
+drop table GamesDB.Releases;
+drop table GamesDB.GameEventList;
+drop table GamesDB.GameDeveloper;
 
-create database Games;
-go
-
-use Games;
-go
-
-create table [Users] (
+create table GamesDB.[Users] (
 	UserName		varchar(30)		unique		not null,
 	Email			varchar(max)				not null,
 	Fname			varchar(max)						,
@@ -25,14 +47,14 @@ create table [Users] (
 	primary key (UserName)
 );
 
-create table EventType (
+create table GamesDB.EventType (
 	TypeID	int				identity(1,1)	not null,	-- auto-increment feature
 	Name	varchar(30)							,
 
 	primary key	(TypeID)
 );
 
-create table [Events] (
+create table GamesDB.[Events] (
 	EventID		int				identity(1,1)	not null,	-- auto-increment feature
 	UserName	varchar(30)						not null,
 	TypeID		int								not null,
@@ -40,7 +62,7 @@ create table [Events] (
 	primary key (EventID, UserName)
 );
 
-create table Games (
+create table GamesDB.Games (
 	GameID			int				identity(1,1)	not null,	-- auto-increment feature
 	Title			varchar(max)					not null,
 	LauchDate		date									,
@@ -51,7 +73,7 @@ create table Games (
 	primary key (GameID)	
 );
 
-create table Franchises (
+create table GamesDB.Franchises (
 	FranchiseID		int				identity(1,1)	not null,	-- auto-increment feature
 	Name			varchar(max)					not null,
 	NoOfGames		int										,
@@ -60,14 +82,14 @@ create table Franchises (
 	primary key(FranchiseID)
 );
 
-create table GameBelongsFranchise (
+create table GamesDB.GameBelongsFranchise (
 	GameID			int		not null,
 	FranchiseID		int		not null,
 
 	primary key	(GameID, FranchiseID)
 );
 
-create table Tournments (
+create table GamesDB.Tournments (
 	TournmentID		int				identity(1,1)	not null,	-- auto-increment feature
 	GameID			int								not null,
 	Name			varchar(max)							,
@@ -79,21 +101,21 @@ create table Tournments (
 	primary key (TournmentID)		
 );
 
-create table Genres (
+create table GamesDB.Genres (
 	GenreID		int				identity(1,1)	not null,	-- auto-increment feature
 	Name		varchar(max)					not null,
 
 	primary key (GenreID)
 );
 
-create table GameGenre (
+create table GamesDB.GameGenre (
 	GenreID		int		not null,
 	GameID		int		not null,
 
 	primary key (GenreID, GameID)
 );
 
-create table Reviews (
+create table GamesDB.Reviews (
 	ReviewID		int				identity(1,1)	not null,	-- auto-increment feature
 	Score			int										,	-- stars
 	Title			varchar(max)					not null,
@@ -105,7 +127,7 @@ create table Reviews (
 	primary key (ReviewID, GameID)
 );
 
-create table Publishers (
+create table GamesDB.Publishers (
 	PublisherID		int				identity(1,1)	not null,	-- auto-increment feature
 	Name			varchar(max)					not null,
 	Email			varchar(max)							,
@@ -118,7 +140,7 @@ create table Publishers (
 	primary key (PublisherID)
 );
 
-create table Developers (
+create table GamesDB.Developers (
 	DeveloperID		int				identity(1,1)	not null,	-- auto-increment feature
 	Name			varchar(max)					not null,
 	Email			varchar(max)							,
@@ -131,7 +153,7 @@ create table Developers (
 	primary key (DeveloperID)
 );
 
-create table [Platforms] (
+create table GamesDB.[Platforms] (
 	PlatformID		int				identity(1,1)	not null,	-- auto-increment feature
 	Name			varchar(max)					not null,
 	[Owner]			varchar(max)							,
@@ -140,14 +162,14 @@ create table [Platforms] (
 	primary key (PlatformID)
 );
 
-create table Releases (
+create table GamesDB.Releases (
 	GameID		int		not null,
 	PlatformID	int		not null,
 
 	primary key (GameID, PlatformID)
 );
 
-create table GameEventList (
+create table GamesDB.GameEventList (
 	GameID		int				not null,
 	EventID		int				not null,
 	UserName	varchar(30)		not null,
@@ -157,35 +179,35 @@ create table GameEventList (
 	primary key (GameID, EventID, UserName)
 );
 
-create table GameDeveloper (
+create table GamesDB.GameDeveloper (
 	GameID		int		not null,
 	DeveloperID	int		not null,
 
 	primary key (GameID, DeveloperID)
 );
 
-alter table [Events] add constraint eventUser foreign key (UserName) references [Users] (UserName);
-alter table [Events] add constraint event_type foreign key (TypeID) references EventType (TypeID);
+alter table GamesDB.[Events] add constraint eventUser foreign key (UserName) references GamesDB.[Users] (UserName);
+alter table GamesDB.[Events] add constraint event_type foreign key (TypeID) references GamesDB.EventType (TypeID);
 
-alter table Reviews add constraint reviewGame foreign key (GameID) references Games (GameID);
-alter table Reviews add constraint reviewUser foreign key (UserName) references [Users] (UserName);
+alter table GamesDB.Reviews add constraint reviewGame foreign key (GameID) references GamesDB.Games (GameID);
+alter table GamesDB.Reviews add constraint reviewUser foreign key (UserName) references GamesDB.[Users] (UserName);
 
-alter table GameEventList add constraint gameEventListEvent foreign key (EventID, UserName) references [Events] (EventID, UserName);
+alter table GamesDB.GameEventList add constraint gameEventListEvent foreign key (EventID, UserName) references GamesDB.[Events] (EventID, UserName);
 
-alter table GameEventList add constraint gameEventListGame foreign key (GameID) references Games (GameID);
+alter table GamesDB.GameEventList add constraint gameEventListGame foreign key (GameID) references GamesDB.Games (GameID);
 
-alter table Games add constraint gamePublisher foreign key (PubID) references Publishers (PublisherID);
+alter table GamesDB.Games add constraint gamePublisher foreign key (PubID) references GamesDB.Publishers (PublisherID);
 
-alter table GameBelongsFranchise add constraint gameBelongsFranchiseGame foreign key (GameID) references Games (GameID);
-alter table GameBelongsFranchise add constraint gameBelongsFranchiseFranchise foreign key (FranchiseID) references Franchises (FranchiseID);
+alter table GamesDB.GameBelongsFranchise add constraint gameBelongsFranchiseGame foreign key (GameID) references GamesDB.Games (GameID);
+alter table GamesDB.GameBelongsFranchise add constraint gameBelongsFranchiseFranchise foreign key (FranchiseID) references GamesDB.Franchises (FranchiseID);
 
-alter table GameGenre add constraint gameGenreGame foreign key (GameID) references Games (GameID);
-alter table GameGenre add constraint gameGenreGenre foreign key (GenreID) references Genres (GenreID);
+alter table GamesDB.GameGenre add constraint gameGenreGame foreign key (GameID) references GamesDB.Games (GameID);
+alter table GamesDB.GameGenre add constraint gameGenreGenre foreign key (GenreID) references GamesDB.Genres (GenreID);
 
-alter table Releases add constraint releasesGame foreign key (GameID) references Games (GameID);
-alter table Releases add constraint releasesPlatform foreign key (PlatformID) references [Platforms] (PlatformID);
+alter table GamesDB.Releases add constraint releasesGame foreign key (GameID) references GamesDB.Games (GameID);
+alter table GamesDB.Releases add constraint releasesPlatform foreign key (PlatformID) references GamesDB.[Platforms] (PlatformID);
 
-alter table Tournments add constraint tournmentGame foreign key (GameID) references Games (GameID);
+alter table GamesDB.Tournments add constraint tournmentGame foreign key (GameID) references GamesDB.Games (GameID);
 
-alter table GameDeveloper add constraint developerGameDeveloper foreign key (DeveloperID) references Developers (DeveloperID);
-alter table GameDeveloper add constraint gameDeveloperGame foreign key (GameID) references Games (GameID);
+alter table GamesDB.GameDeveloper add constraint developerGameDeveloper foreign key (DeveloperID) references GamesDB.Developers (DeveloperID);
+alter table GamesDB.GameDeveloper add constraint gameDeveloperGame foreign key (GameID) references GamesDB.Games (GameID);

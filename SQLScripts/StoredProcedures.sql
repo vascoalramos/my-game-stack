@@ -1,14 +1,11 @@
-use Games;
-go
-
 ---------- Procedure to Insert New User ----------
-drop procedure dbo.uspAddUser;
+drop procedure GamesDB.uspAddUser;
 go
 
-drop procedure dbo.uspLogin;
+drop procedure GamesDB.uspLogin;
 go
 
-create procedure dbo.uspAddUser
+create procedure GamesDB.uspAddUser
 	@mail VARCHAR(max), 
     @password varchar(max), 
     @fname varchar(max),
@@ -23,7 +20,7 @@ begin
 	declare @salt uniqueidentifier=newid()
 	begin try
 
-		insert into dbo.[Users] (UserName, Email, Fname, Lname, Photo, Password_hash, Salt)
+		insert into GamesDB.[Users] (UserName, Email, Fname, Lname, Photo, Password_hash, Salt)
 		values (@UserName, @mail, @fname, @lname, @photo, hashbytes('SHA2_512', @password + cast(@salt as nvarchar(36))), @salt)
 
 		set @responseMsg='Success'
@@ -35,7 +32,7 @@ end
 go
 
 
-create procedure dbo.uspLogin
+create procedure GamesDB.uspLogin
     @loginName varchar(max),
     @password varchar(max),
     @responseMessage varchar(250)='' output
@@ -45,9 +42,9 @@ begin
 
 	declare @userName varchar(max)
 
-    if exists (select top 1 UserName from [dbo].[Users] where UserName=@loginName)
+    if exists (select top 1 UserName from GamesDB.[Users] where UserName=@loginName)
     begin
-		set @userName=(select UserName from [dbo].[Users] where UserName=@loginName and Password_hash=hashbytes('SHA2_512', @password+cast(Salt as nvarchar(36))))
+		set @userName=(select UserName from GamesDB.[Users] where UserName=@loginName and Password_hash=hashbytes('SHA2_512', @password+cast(Salt as nvarchar(36))))
 		
 		if(@userName is null)
 			set @responseMessage='Incorrect password'
@@ -58,7 +55,7 @@ begin
 		set @responseMessage='Invalid login'
 
 end
-
+go
 
 --declare	@responseMessage nvarchar(250)
 

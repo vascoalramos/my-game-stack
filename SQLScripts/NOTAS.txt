@@ -1,4 +1,4 @@
-Execução ORDEM:
+Execuï¿½ï¿½o ORDEM:
 - Create_DB
 - StoredProcedures
 - InsertUsers
@@ -8,7 +8,7 @@ Execução ORDEM:
 - InsertGames
 - InsertPlatforms
 - InsertFranchises
-- InsertTournments (caga)
+- InsertTournments
 - InsertGameDeveloper
 - InsertGameGenre
 - InsertReleases
