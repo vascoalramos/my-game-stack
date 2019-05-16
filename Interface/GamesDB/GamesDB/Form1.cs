@@ -20,6 +20,10 @@ namespace GamesDB
 
         public Form1()
         {
+
+            this.MinimumSize = new System.Drawing.Size(this.Width, this.Height);
+            this.AutoSize = true;
+            this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             InitializeComponent();
             this.Text = "GamesDB";
         }
@@ -71,6 +75,8 @@ namespace GamesDB
             {
                 MessageBox.Show("Login sucess!");
                 current_user = user_name;
+                panel2.Visible = true;
+
             }
             else if ("" + cmd.Parameters["@responseMessage"].Value == "Incorrect password")
             {
@@ -82,7 +88,6 @@ namespace GamesDB
             }
 
             cn.Close();
-            panel2.Visible = true;
         }
 
         private void button_exit_Click(object sender, EventArgs e)
@@ -165,7 +170,6 @@ namespace GamesDB
         {
             Debug.WriteLine("HERE fired");
             textBox18.Text = current_user;
-            MessageBox.Show(current_user);
             if (!verifySGBDConnection())
                 return;
             string selectSql = "select * from [Users] where UserName = '" + current_user + "'";
@@ -278,6 +282,11 @@ namespace GamesDB
         }
 
         private void button8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage8_Click(object sender, EventArgs e)
         {
 
         }
