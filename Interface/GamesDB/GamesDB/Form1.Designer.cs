@@ -53,19 +53,30 @@
             this.button_regist_user = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.label18 = new System.Windows.Forms.Label();
-            this.textBox19 = new System.Windows.Forms.TextBox();
-            this.textBox18 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.button10 = new System.Windows.Forms.Button();
-            this.label17 = new System.Windows.Forms.Label();
-            this.button8 = new System.Windows.Forms.Button();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label11 = new System.Windows.Forms.Label();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.button20 = new System.Windows.Forms.Button();
+            this.button19 = new System.Windows.Forms.Button();
+            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.trackBar2 = new System.Windows.Forms.TrackBar();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.button9 = new System.Windows.Forms.Button();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button22 = new System.Windows.Forms.Button();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.button12 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.panel9 = new System.Windows.Forms.Panel();
             this.tabPage5 = new System.Windows.Forms.TabPage();
@@ -101,68 +112,57 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label30 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label18 = new System.Windows.Forms.Label();
+            this.textBox19 = new System.Windows.Forms.TextBox();
+            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.button10 = new System.Windows.Forms.Button();
+            this.label17 = new System.Windows.Forms.Label();
+            this.button8 = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.tabPage11 = new System.Windows.Forms.TabPage();
+            this.tabPage12 = new System.Windows.Forms.TabPage();
+            this.tabPage10 = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.panel6 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel7 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.button13 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
-            this.button22 = new System.Windows.Forms.Button();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.button9 = new System.Windows.Forms.Button();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel5 = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.trackBar2 = new System.Windows.Forms.TrackBar();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
-            this.button19 = new System.Windows.Forms.Button();
-            this.button20 = new System.Windows.Forms.Button();
-            this.label36 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
-            this.label39 = new System.Windows.Forms.Label();
-            this.label40 = new System.Windows.Forms.Label();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.tabControl2 = new System.Windows.Forms.TabControl();
-            this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.tabPage9 = new System.Windows.Forms.TabPage();
-            this.tabPage10 = new System.Windows.Forms.TabPage();
-            this.tabPage11 = new System.Windows.Forms.TabPage();
-            this.tabPage12 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel_signUp.SuspendLayout();
             this.tabControl1.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            this.tabPage2.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
-            this.tabPage1.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage7.SuspendLayout();
             this.tabControl2.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox2
@@ -446,139 +446,262 @@
             this.tabControl1.TabIndex = 1;
             this.tabControl1.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
             // 
-            // tabPage3
+            // tabPage1
             // 
-            this.tabPage3.Controls.Add(this.label18);
-            this.tabPage3.Controls.Add(this.textBox19);
-            this.tabPage3.Controls.Add(this.textBox18);
-            this.tabPage3.Controls.Add(this.textBox15);
-            this.tabPage3.Controls.Add(this.textBox14);
-            this.tabPage3.Controls.Add(this.button10);
-            this.tabPage3.Controls.Add(this.label17);
-            this.tabPage3.Controls.Add(this.button8);
-            this.tabPage3.Controls.Add(this.label14);
-            this.tabPage3.Controls.Add(this.label13);
-            this.tabPage3.Controls.Add(this.pictureBox1);
-            this.tabPage3.Controls.Add(this.label11);
-            this.tabPage3.Location = new System.Drawing.Point(4, 29);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage3.Size = new System.Drawing.Size(748, 630);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Profile";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.tabPage1.Controls.Add(this.label40);
+            this.tabPage1.Controls.Add(this.label39);
+            this.tabPage1.Controls.Add(this.label38);
+            this.tabPage1.Controls.Add(this.label36);
+            this.tabPage1.Controls.Add(this.button20);
+            this.tabPage1.Controls.Add(this.button19);
+            this.tabPage1.Controls.Add(this.richTextBox3);
+            this.tabPage1.Controls.Add(this.comboBox2);
+            this.tabPage1.Controls.Add(this.comboBox1);
+            this.tabPage1.Controls.Add(this.richTextBox2);
+            this.tabPage1.Controls.Add(this.trackBar2);
+            this.tabPage1.Controls.Add(this.richTextBox1);
+            this.tabPage1.Controls.Add(this.trackBar1);
+            this.tabPage1.Controls.Add(this.panel5);
+            this.tabPage1.Controls.Add(this.tableLayoutPanel2);
+            this.tabPage1.Controls.Add(this.button9);
+            this.tabPage1.Location = new System.Drawing.Point(4, 29);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tabPage1.Size = new System.Drawing.Size(1072, 912);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Games";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // label18
+            // label40
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(43, 371);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(82, 20);
-            this.label18.TabIndex = 24;
-            this.label18.Text = "Password:";
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(582, 14);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(0, 20);
+            this.label40.TabIndex = 18;
             // 
-            // textBox19
+            // label39
             // 
-            this.textBox19.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox19.Location = new System.Drawing.Point(151, 368);
-            this.textBox19.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox19.Name = "textBox19";
-            this.textBox19.PasswordChar = '.';
-            this.textBox19.Size = new System.Drawing.Size(174, 26);
-            this.textBox19.TabIndex = 23;
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(398, 62);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(0, 20);
+            this.label39.TabIndex = 17;
             // 
-            // textBox18
+            // label38
             // 
-            this.textBox18.Enabled = false;
-            this.textBox18.Location = new System.Drawing.Point(151, 111);
-            this.textBox18.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(174, 26);
-            this.textBox18.TabIndex = 21;
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(228, 62);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(0, 20);
+            this.label38.TabIndex = 16;
             // 
-            // textBox15
+            // label36
             // 
-            this.textBox15.Location = new System.Drawing.Point(151, 276);
-            this.textBox15.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(174, 26);
-            this.textBox15.TabIndex = 10;
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(127, 21);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(0, 20);
+            this.label36.TabIndex = 15;
             // 
-            // textBox14
+            // button20
             // 
-            this.textBox14.Location = new System.Drawing.Point(151, 195);
-            this.textBox14.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(174, 26);
-            this.textBox14.TabIndex = 8;
+            this.button20.Enabled = false;
+            this.button20.Location = new System.Drawing.Point(191, 91);
+            this.button20.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button20.Name = "button20";
+            this.button20.Size = new System.Drawing.Size(44, 29);
+            this.button20.TabIndex = 14;
+            this.button20.Text = "<";
+            this.button20.UseVisualStyleBackColor = true;
             // 
-            // button10
+            // button19
             // 
-            this.button10.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.button10.Location = new System.Drawing.Point(461, 412);
-            this.button10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(83, 36);
-            this.button10.TabIndex = 22;
-            this.button10.Text = "Image";
-            this.button10.UseVisualStyleBackColor = true;
+            this.button19.Enabled = false;
+            this.button19.Location = new System.Drawing.Point(518, 91);
+            this.button19.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button19.Name = "button19";
+            this.button19.Size = new System.Drawing.Size(44, 29);
+            this.button19.TabIndex = 13;
+            this.button19.Text = ">";
+            this.button19.UseVisualStyleBackColor = true;
             // 
-            // label17
+            // richTextBox3
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(24, 114);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(101, 20);
-            this.label17.TabIndex = 20;
-            this.label17.Text = "User Name : ";
+            this.richTextBox3.Location = new System.Drawing.Point(130, 45);
+            this.richTextBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.richTextBox3.Name = "richTextBox3";
+            this.richTextBox3.Size = new System.Drawing.Size(57, 38);
+            this.richTextBox3.TabIndex = 12;
+            this.richTextBox3.Text = "";
             // 
-            // button8
+            // comboBox2
             // 
-            this.button8.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.button8.Location = new System.Drawing.Point(299, 499);
-            this.button8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(182, 55);
-            this.button8.TabIndex = 11;
-            this.button8.Text = "Update Profile";
-            this.button8.UseVisualStyleBackColor = true;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "None",
+            "Bed",
+            "House"});
+            this.comboBox2.Location = new System.Drawing.Point(17, 31);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(94, 28);
+            this.comboBox2.TabIndex = 11;
             // 
-            // label14
+            // comboBox1
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(35, 279);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(90, 20);
-            this.label14.TabIndex = 9;
-            this.label14.Text = "Last Name:";
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "None",
+            "nameDesc",
+            "nameAsc",
+            "priceDesc",
+            "priceAsc",
+            "peopleAsc",
+            "peopleDesc"});
+            this.comboBox1.Location = new System.Drawing.Point(585, 41);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(136, 28);
+            this.comboBox1.TabIndex = 10;
             // 
-            // label13
+            // richTextBox2
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(27, 197);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(98, 20);
-            this.label13.TabIndex = 7;
-            this.label13.Text = "First Name : ";
+            this.richTextBox2.Location = new System.Drawing.Point(518, 24);
+            this.richTextBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.Size = new System.Drawing.Size(49, 59);
+            this.richTextBox2.TabIndex = 9;
+            this.richTextBox2.Text = "";
             // 
-            // pictureBox1
+            // trackBar2
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(362, 76);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(284, 278);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
+            this.trackBar2.Location = new System.Drawing.Point(412, 14);
+            this.trackBar2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.trackBar2.Maximum = 1000;
+            this.trackBar2.Name = "trackBar2";
+            this.trackBar2.Size = new System.Drawing.Size(99, 69);
+            this.trackBar2.TabIndex = 8;
+            this.trackBar2.Value = 1000;
             // 
-            // label11
+            // richTextBox1
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(125, 114);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(0, 20);
-            this.label11.TabIndex = 0;
+            this.richTextBox1.Location = new System.Drawing.Point(342, 31);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(49, 52);
+            this.richTextBox1.TabIndex = 7;
+            this.richTextBox1.Text = "";
+            // 
+            // trackBar1
+            // 
+            this.trackBar1.Location = new System.Drawing.Point(236, 14);
+            this.trackBar1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(99, 69);
+            this.trackBar1.TabIndex = 5;
+            // 
+            // panel5
+            // 
+            this.panel5.Location = new System.Drawing.Point(27, 139);
+            this.panel5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(558, 255);
+            this.panel5.TabIndex = 3;
+            this.panel5.Visible = false;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.AutoScroll = true;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 675F));
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(47, 124);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tableLayoutPanel2.MaximumSize = new System.Drawing.Size(675, 1250);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(675, 380);
+            this.tableLayoutPanel2.TabIndex = 2;
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(620, 79);
+            this.button9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(102, 29);
+            this.button9.TabIndex = 1;
+            this.button9.Text = "SEARCH";
+            this.button9.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.button22);
+            this.tabPage2.Controls.Add(this.panel7);
+            this.tabPage2.Controls.Add(this.panel6);
+            this.tabPage2.Controls.Add(this.button12);
+            this.tabPage2.Controls.Add(this.button11);
+            this.tabPage2.Location = new System.Drawing.Point(4, 29);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tabPage2.Size = new System.Drawing.Size(1072, 912);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Franchises";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // button22
+            // 
+            this.button22.Location = new System.Drawing.Point(66, 45);
+            this.button22.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button22.Name = "button22";
+            this.button22.Size = new System.Drawing.Size(161, 100);
+            this.button22.TabIndex = 4;
+            this.button22.Text = "NEW MESSAGE";
+            this.button22.UseVisualStyleBackColor = true;
+            // 
+            // panel7
+            // 
+            this.panel7.Location = new System.Drawing.Point(344, 59);
+            this.panel7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(318, 368);
+            this.panel7.TabIndex = 3;
+            // 
+            // panel6
+            // 
+            this.panel6.Location = new System.Drawing.Point(344, 62);
+            this.panel6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(318, 364);
+            this.panel6.TabIndex = 2;
+            // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(66, 329);
+            this.button12.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(161, 100);
+            this.button12.TabIndex = 1;
+            this.button12.Text = "RECEIVED MESSAGES";
+            this.button12.UseVisualStyleBackColor = true;
+            // 
+            // button11
+            // 
+            this.button11.Location = new System.Drawing.Point(66, 190);
+            this.button11.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(161, 100);
+            this.button11.TabIndex = 0;
+            this.button11.Text = "SENT MESSAGES";
+            this.button11.UseVisualStyleBackColor = true;
+            // 
+            // tabPage6
+            // 
+            this.tabPage6.Location = new System.Drawing.Point(4, 29);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Size = new System.Drawing.Size(1072, 912);
+            this.tabPage6.TabIndex = 5;
+            this.tabPage6.Text = "Developers";
+            this.tabPage6.UseVisualStyleBackColor = true;
             // 
             // tabPage4
             // 
@@ -587,7 +710,7 @@
             this.tabPage4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage4.Size = new System.Drawing.Size(748, 630);
+            this.tabPage4.Size = new System.Drawing.Size(1072, 912);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Publishers";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -635,7 +758,7 @@
             this.tabPage5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage5.Size = new System.Drawing.Size(748, 630);
+            this.tabPage5.Size = new System.Drawing.Size(1072, 912);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Tournments";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -957,6 +1080,212 @@
             this.label31.TabIndex = 25;
             this.label31.Text = "STREET : ";
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.label18);
+            this.tabPage3.Controls.Add(this.textBox19);
+            this.tabPage3.Controls.Add(this.textBox18);
+            this.tabPage3.Controls.Add(this.textBox15);
+            this.tabPage3.Controls.Add(this.textBox14);
+            this.tabPage3.Controls.Add(this.button10);
+            this.tabPage3.Controls.Add(this.label17);
+            this.tabPage3.Controls.Add(this.button8);
+            this.tabPage3.Controls.Add(this.label14);
+            this.tabPage3.Controls.Add(this.label13);
+            this.tabPage3.Controls.Add(this.pictureBox1);
+            this.tabPage3.Controls.Add(this.label11);
+            this.tabPage3.Location = new System.Drawing.Point(4, 29);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tabPage3.Size = new System.Drawing.Size(1072, 912);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Profile";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(43, 371);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(82, 20);
+            this.label18.TabIndex = 24;
+            this.label18.Text = "Password:";
+            // 
+            // textBox19
+            // 
+            this.textBox19.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBox19.Location = new System.Drawing.Point(151, 368);
+            this.textBox19.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox19.Name = "textBox19";
+            this.textBox19.PasswordChar = '.';
+            this.textBox19.Size = new System.Drawing.Size(174, 26);
+            this.textBox19.TabIndex = 23;
+            // 
+            // textBox18
+            // 
+            this.textBox18.Enabled = false;
+            this.textBox18.Location = new System.Drawing.Point(151, 111);
+            this.textBox18.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox18.Name = "textBox18";
+            this.textBox18.Size = new System.Drawing.Size(174, 26);
+            this.textBox18.TabIndex = 21;
+            // 
+            // textBox15
+            // 
+            this.textBox15.Location = new System.Drawing.Point(151, 276);
+            this.textBox15.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox15.Name = "textBox15";
+            this.textBox15.Size = new System.Drawing.Size(174, 26);
+            this.textBox15.TabIndex = 10;
+            // 
+            // textBox14
+            // 
+            this.textBox14.Location = new System.Drawing.Point(151, 195);
+            this.textBox14.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox14.Name = "textBox14";
+            this.textBox14.Size = new System.Drawing.Size(174, 26);
+            this.textBox14.TabIndex = 8;
+            // 
+            // button10
+            // 
+            this.button10.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.button10.Location = new System.Drawing.Point(461, 412);
+            this.button10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(83, 36);
+            this.button10.TabIndex = 22;
+            this.button10.Text = "Image";
+            this.button10.UseVisualStyleBackColor = true;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(24, 114);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(101, 20);
+            this.label17.TabIndex = 20;
+            this.label17.Text = "User Name : ";
+            // 
+            // button8
+            // 
+            this.button8.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.button8.Location = new System.Drawing.Point(299, 499);
+            this.button8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(182, 55);
+            this.button8.TabIndex = 11;
+            this.button8.Text = "Update Profile";
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(35, 279);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(90, 20);
+            this.label14.TabIndex = 9;
+            this.label14.Text = "Last Name:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(27, 197);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(98, 20);
+            this.label13.TabIndex = 7;
+            this.label13.Text = "First Name : ";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(362, 76);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(284, 278);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(125, 114);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(0, 20);
+            this.label11.TabIndex = 0;
+            // 
+            // tabPage7
+            // 
+            this.tabPage7.Controls.Add(this.tabControl2);
+            this.tabPage7.Location = new System.Drawing.Point(4, 29);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage7.Size = new System.Drawing.Size(1072, 912);
+            this.tabPage7.TabIndex = 6;
+            this.tabPage7.Text = "My Lists";
+            this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // tabControl2
+            // 
+            this.tabControl2.Controls.Add(this.tabPage8);
+            this.tabControl2.Controls.Add(this.tabPage9);
+            this.tabControl2.Controls.Add(this.tabPage11);
+            this.tabControl2.Controls.Add(this.tabPage12);
+            this.tabControl2.Controls.Add(this.tabPage10);
+            this.tabControl2.Location = new System.Drawing.Point(3, 3);
+            this.tabControl2.Name = "tabControl2";
+            this.tabControl2.SelectedIndex = 0;
+            this.tabControl2.Size = new System.Drawing.Size(1069, 945);
+            this.tabControl2.TabIndex = 0;
+            // 
+            // tabPage8
+            // 
+            this.tabPage8.Location = new System.Drawing.Point(4, 29);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage8.Size = new System.Drawing.Size(1061, 912);
+            this.tabPage8.TabIndex = 0;
+            this.tabPage8.Text = "Playing";
+            this.tabPage8.UseVisualStyleBackColor = true;
+            this.tabPage8.Click += new System.EventHandler(this.tabPage8_Click);
+            // 
+            // tabPage9
+            // 
+            this.tabPage9.Location = new System.Drawing.Point(4, 29);
+            this.tabPage9.Name = "tabPage9";
+            this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage9.Size = new System.Drawing.Size(1061, 912);
+            this.tabPage9.TabIndex = 1;
+            this.tabPage9.Text = "Plan To Play";
+            this.tabPage9.UseVisualStyleBackColor = true;
+            // 
+            // tabPage11
+            // 
+            this.tabPage11.Location = new System.Drawing.Point(4, 29);
+            this.tabPage11.Name = "tabPage11";
+            this.tabPage11.Size = new System.Drawing.Size(1061, 912);
+            this.tabPage11.TabIndex = 3;
+            this.tabPage11.Text = "Whishlist";
+            this.tabPage11.UseVisualStyleBackColor = true;
+            // 
+            // tabPage12
+            // 
+            this.tabPage12.Location = new System.Drawing.Point(4, 29);
+            this.tabPage12.Name = "tabPage12";
+            this.tabPage12.Size = new System.Drawing.Size(1061, 912);
+            this.tabPage12.TabIndex = 4;
+            this.tabPage12.Text = "Completed";
+            this.tabPage12.UseVisualStyleBackColor = true;
+            // 
+            // tabPage10
+            // 
+            this.tabPage10.Location = new System.Drawing.Point(4, 29);
+            this.tabPage10.Name = "tabPage10";
+            this.tabPage10.Size = new System.Drawing.Size(1061, 912);
+            this.tabPage10.TabIndex = 2;
+            this.tabPage10.Text = "Dropped";
+            this.tabPage10.UseVisualStyleBackColor = true;
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.panel2);
@@ -983,43 +1312,6 @@
             this.panel2.TabIndex = 13;
             this.panel2.Visible = false;
             // 
-            // tabPage6
-            // 
-            this.tabPage6.Location = new System.Drawing.Point(4, 29);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(748, 630);
-            this.tabPage6.TabIndex = 5;
-            this.tabPage6.Text = "Developers";
-            this.tabPage6.UseVisualStyleBackColor = true;
-            // 
-            // button11
-            // 
-            this.button11.Location = new System.Drawing.Point(66, 190);
-            this.button11.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(161, 100);
-            this.button11.TabIndex = 0;
-            this.button11.Text = "SENT MESSAGES";
-            this.button11.UseVisualStyleBackColor = true;
-            // 
-            // button12
-            // 
-            this.button12.Location = new System.Drawing.Point(66, 329);
-            this.button12.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(161, 100);
-            this.button12.TabIndex = 1;
-            this.button12.Text = "RECEIVED MESSAGES";
-            this.button12.UseVisualStyleBackColor = true;
-            // 
-            // panel6
-            // 
-            this.panel6.Location = new System.Drawing.Point(344, 62);
-            this.panel6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(318, 364);
-            this.panel6.TabIndex = 2;
-            // 
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.AutoScroll = true;
@@ -1030,14 +1322,6 @@
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.Size = new System.Drawing.Size(281, 316);
             this.tableLayoutPanel4.TabIndex = 0;
-            // 
-            // panel7
-            // 
-            this.panel7.Location = new System.Drawing.Point(344, 59);
-            this.panel7.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(318, 368);
-            this.panel7.TabIndex = 3;
             // 
             // tableLayoutPanel3
             // 
@@ -1098,62 +1382,6 @@
             this.button14.UseVisualStyleBackColor = true;
             this.button14.Visible = false;
             // 
-            // button22
-            // 
-            this.button22.Location = new System.Drawing.Point(66, 45);
-            this.button22.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(161, 100);
-            this.button22.TabIndex = 4;
-            this.button22.Text = "NEW MESSAGE";
-            this.button22.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.button22);
-            this.tabPage2.Controls.Add(this.panel7);
-            this.tabPage2.Controls.Add(this.panel6);
-            this.tabPage2.Controls.Add(this.button12);
-            this.tabPage2.Controls.Add(this.button11);
-            this.tabPage2.Location = new System.Drawing.Point(4, 29);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage2.Size = new System.Drawing.Size(748, 630);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Franchises";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // button9
-            // 
-            this.button9.Location = new System.Drawing.Point(620, 79);
-            this.button9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(102, 29);
-            this.button9.TabIndex = 1;
-            this.button9.Text = "SEARCH";
-            this.button9.UseVisualStyleBackColor = true;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.AutoScroll = true;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 675F));
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(47, 124);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tableLayoutPanel2.MaximumSize = new System.Drawing.Size(675, 1250);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(675, 380);
-            this.tableLayoutPanel2.TabIndex = 2;
-            // 
-            // panel5
-            // 
-            this.panel5.Location = new System.Drawing.Point(27, 139);
-            this.panel5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(558, 255);
-            this.panel5.TabIndex = 3;
-            this.panel5.Visible = false;
-            // 
             // pictureBox2
             // 
             this.pictureBox2.Location = new System.Drawing.Point(40, 35);
@@ -1187,234 +1415,6 @@
             this.label21.Size = new System.Drawing.Size(60, 20);
             this.label21.TabIndex = 3;
             // 
-            // trackBar1
-            // 
-            this.trackBar1.Location = new System.Drawing.Point(236, 14);
-            this.trackBar1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(99, 69);
-            this.trackBar1.TabIndex = 5;
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(342, 31);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(49, 52);
-            this.richTextBox1.TabIndex = 7;
-            this.richTextBox1.Text = "";
-            // 
-            // trackBar2
-            // 
-            this.trackBar2.Location = new System.Drawing.Point(412, 14);
-            this.trackBar2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.trackBar2.Maximum = 1000;
-            this.trackBar2.Name = "trackBar2";
-            this.trackBar2.Size = new System.Drawing.Size(99, 69);
-            this.trackBar2.TabIndex = 8;
-            this.trackBar2.Value = 1000;
-            // 
-            // richTextBox2
-            // 
-            this.richTextBox2.Location = new System.Drawing.Point(518, 24);
-            this.richTextBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(49, 59);
-            this.richTextBox2.TabIndex = 9;
-            this.richTextBox2.Text = "";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "None",
-            "nameDesc",
-            "nameAsc",
-            "priceDesc",
-            "priceAsc",
-            "peopleAsc",
-            "peopleDesc"});
-            this.comboBox1.Location = new System.Drawing.Point(585, 41);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(136, 28);
-            this.comboBox1.TabIndex = 10;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "None",
-            "Bed",
-            "House"});
-            this.comboBox2.Location = new System.Drawing.Point(17, 31);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(94, 28);
-            this.comboBox2.TabIndex = 11;
-            // 
-            // richTextBox3
-            // 
-            this.richTextBox3.Location = new System.Drawing.Point(130, 45);
-            this.richTextBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.richTextBox3.Name = "richTextBox3";
-            this.richTextBox3.Size = new System.Drawing.Size(57, 38);
-            this.richTextBox3.TabIndex = 12;
-            this.richTextBox3.Text = "";
-            // 
-            // button19
-            // 
-            this.button19.Enabled = false;
-            this.button19.Location = new System.Drawing.Point(518, 91);
-            this.button19.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(44, 29);
-            this.button19.TabIndex = 13;
-            this.button19.Text = ">";
-            this.button19.UseVisualStyleBackColor = true;
-            // 
-            // button20
-            // 
-            this.button20.Enabled = false;
-            this.button20.Location = new System.Drawing.Point(191, 91);
-            this.button20.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(44, 29);
-            this.button20.TabIndex = 14;
-            this.button20.Text = "<";
-            this.button20.UseVisualStyleBackColor = true;
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(127, 21);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(0, 20);
-            this.label36.TabIndex = 15;
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(228, 62);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(0, 20);
-            this.label38.TabIndex = 16;
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(398, 62);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(0, 20);
-            this.label39.TabIndex = 17;
-            // 
-            // label40
-            // 
-            this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(582, 14);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(0, 20);
-            this.label40.TabIndex = 18;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.label40);
-            this.tabPage1.Controls.Add(this.label39);
-            this.tabPage1.Controls.Add(this.label38);
-            this.tabPage1.Controls.Add(this.label36);
-            this.tabPage1.Controls.Add(this.button20);
-            this.tabPage1.Controls.Add(this.button19);
-            this.tabPage1.Controls.Add(this.richTextBox3);
-            this.tabPage1.Controls.Add(this.comboBox2);
-            this.tabPage1.Controls.Add(this.comboBox1);
-            this.tabPage1.Controls.Add(this.richTextBox2);
-            this.tabPage1.Controls.Add(this.trackBar2);
-            this.tabPage1.Controls.Add(this.richTextBox1);
-            this.tabPage1.Controls.Add(this.trackBar1);
-            this.tabPage1.Controls.Add(this.panel5);
-            this.tabPage1.Controls.Add(this.tableLayoutPanel2);
-            this.tabPage1.Controls.Add(this.button9);
-            this.tabPage1.Location = new System.Drawing.Point(4, 29);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage1.Size = new System.Drawing.Size(748, 630);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Games";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // tabPage7
-            // 
-            this.tabPage7.Controls.Add(this.tabControl2);
-            this.tabPage7.Location = new System.Drawing.Point(4, 29);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(1072, 912);
-            this.tabPage7.TabIndex = 6;
-            this.tabPage7.Text = "My Lists";
-            this.tabPage7.UseVisualStyleBackColor = true;
-            // 
-            // tabControl2
-            // 
-            this.tabControl2.Controls.Add(this.tabPage8);
-            this.tabControl2.Controls.Add(this.tabPage9);
-            this.tabControl2.Controls.Add(this.tabPage11);
-            this.tabControl2.Controls.Add(this.tabPage12);
-            this.tabControl2.Controls.Add(this.tabPage10);
-            this.tabControl2.Location = new System.Drawing.Point(3, 3);
-            this.tabControl2.Name = "tabControl2";
-            this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(1069, 945);
-            this.tabControl2.TabIndex = 0;
-            // 
-            // tabPage8
-            // 
-            this.tabPage8.Location = new System.Drawing.Point(4, 29);
-            this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(1061, 912);
-            this.tabPage8.TabIndex = 0;
-            this.tabPage8.Text = "Playing";
-            this.tabPage8.UseVisualStyleBackColor = true;
-            this.tabPage8.Click += new System.EventHandler(this.tabPage8_Click);
-            // 
-            // tabPage9
-            // 
-            this.tabPage9.Location = new System.Drawing.Point(4, 29);
-            this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage9.Size = new System.Drawing.Size(1061, 820);
-            this.tabPage9.TabIndex = 1;
-            this.tabPage9.Text = "Plan To Play";
-            this.tabPage9.UseVisualStyleBackColor = true;
-            // 
-            // tabPage10
-            // 
-            this.tabPage10.Location = new System.Drawing.Point(4, 29);
-            this.tabPage10.Name = "tabPage10";
-            this.tabPage10.Size = new System.Drawing.Size(1061, 820);
-            this.tabPage10.TabIndex = 2;
-            this.tabPage10.Text = "Dropped";
-            this.tabPage10.UseVisualStyleBackColor = true;
-            // 
-            // tabPage11
-            // 
-            this.tabPage11.Location = new System.Drawing.Point(4, 29);
-            this.tabPage11.Name = "tabPage11";
-            this.tabPage11.Size = new System.Drawing.Size(1061, 820);
-            this.tabPage11.TabIndex = 3;
-            this.tabPage11.Text = "Whishlist";
-            this.tabPage11.UseVisualStyleBackColor = true;
-            // 
-            // tabPage12
-            // 
-            this.tabPage12.Location = new System.Drawing.Point(4, 29);
-            this.tabPage12.Name = "tabPage12";
-            this.tabPage12.Size = new System.Drawing.Size(1061, 820);
-            this.tabPage12.TabIndex = 4;
-            this.tabPage12.Text = "Completed";
-            this.tabPage12.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -1428,26 +1428,26 @@
             this.tableLayoutPanel1.PerformLayout();
             this.panel_signUp.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            this.tabPage2.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.tabPage7.ResumeLayout(false);
+            this.tabControl2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).EndInit();
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            this.tabPage7.ResumeLayout(false);
-            this.tabControl2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

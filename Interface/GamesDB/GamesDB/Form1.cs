@@ -36,7 +36,7 @@ namespace GamesDB
 
         private SqlConnection getSGBDConnection()
         {
-            return new SqlConnection("data source=DESKTOP-LB88B3L\\SQLEXPRESS;integrated security=true;initial catalog=Games");
+            return new SqlConnection("data source=mednat.ieeta.pt\\SQLSERVER,8101;Initial Catalog=p5g4;user id=p5g4; password=urMomGay69");
         }
 
         private bool verifySGBDConnection()
@@ -57,7 +57,7 @@ namespace GamesDB
             SqlCommand cmd = new SqlCommand
             {
                 CommandType = CommandType.StoredProcedure,
-                CommandText = "dbo.uspLogin"
+                CommandText = "GamesDB.uspLogin"
             };
             cmd.Parameters.Add(new SqlParameter("@loginName", SqlDbType.VarChar));
             cmd.Parameters.Add(new SqlParameter("@password", SqlDbType.VarChar));
@@ -108,51 +108,94 @@ namespace GamesDB
             string picturePath = textBox_photo.Text;
             string picture = "";
             string username = textBox_userName.Text;
-            using (Image image = Image.FromFile(picturePath))
+            if (!(string.IsNullOrEmpty(picturePath)))
             {
-                using (MemoryStream m = new MemoryStream())
+                using (Image image = Image.FromFile(picturePath))
                 {
-                    image.Save(m, image.RawFormat);
-                    byte[] imageBytes = m.ToArray();
+                    using (MemoryStream m = new MemoryStream())
+                    {
+                        image.Save(m, image.RawFormat);
+                        byte[] imageBytes = m.ToArray();
 
-                    // Convert byte[] to Base64 String
-                    picture = Convert.ToBase64String(imageBytes);
+                        // Convert byte[] to Base64 String
+                        picture = Convert.ToBase64String(imageBytes);
+                    }
                 }
             }
             string password = textBox_pass.Text;
 
-            SqlCommand cmd = new SqlCommand
+            if (string.IsNullOrEmpty(password))
             {
-                CommandType = CommandType.StoredProcedure,
-                CommandText = "dbo.uspAddUser"
-            };
-            cmd.Parameters.Add(new SqlParameter("@mail", SqlDbType.VarChar));
-            cmd.Parameters.Add(new SqlParameter("@password", SqlDbType.VarChar));
-            cmd.Parameters.Add(new SqlParameter("@fname", SqlDbType.VarChar));
-            cmd.Parameters.Add(new SqlParameter("@lname", SqlDbType.VarChar));
-            cmd.Parameters.Add(new SqlParameter("@photo", SqlDbType.VarChar));
-            cmd.Parameters.Add(new SqlParameter("@UserName", SqlDbType.VarChar));
-            cmd.Parameters.Add(new SqlParameter("@responseMsg", SqlDbType.NVarChar, 250));
-            cmd.Parameters["@mail"].Value = mail;
-            cmd.Parameters["@password"].Value = password;
-            cmd.Parameters["@fname"].Value = first_name;
-            cmd.Parameters["@lname"].Value = last_name;
-            cmd.Parameters["@photo"].Value = picture;
-            cmd.Parameters["@UserName"].Value = username;
-            cmd.Parameters["@responseMsg"].Direction = ParameterDirection.Output;
+                MessageBox.Show("Password has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            if (string.IsNullOrEmpty(username))
+            {
+                MessageBox.Show("UserName has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            if (string.IsNullOrEmpty(mail))
+            {
+                MessageBox.Show("Email has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (!(IsEmailValid(mail)))
+            {
+                MessageBox.Show("Email inserted is invalid!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
-            if (!verifySGBDConnection())
-                return;
-            cmd.Connection = cn;
-            cmd.ExecuteNonQuery();
+            else
+            {
+                SqlCommand cmd = new SqlCommand
+                {
+                    CommandType = CommandType.StoredProcedure,
+                    CommandText = "GamesDB.uspAddUser"
+                };
+                cmd.Parameters.Add(new SqlParameter("@mail", SqlDbType.VarChar));
+                cmd.Parameters.Add(new SqlParameter("@password", SqlDbType.VarChar));
+                cmd.Parameters.Add(new SqlParameter("@fname", SqlDbType.VarChar));
+                cmd.Parameters.Add(new SqlParameter("@lname", SqlDbType.VarChar));
+                cmd.Parameters.Add(new SqlParameter("@photo", SqlDbType.VarChar));
+                cmd.Parameters.Add(new SqlParameter("@UserName", SqlDbType.VarChar));
+                cmd.Parameters.Add(new SqlParameter("@responseMsg", SqlDbType.NVarChar, 250));
+                cmd.Parameters["@mail"].Value = mail;
+                cmd.Parameters["@password"].Value = password;
+                cmd.Parameters["@fname"].Value = first_name;
+                cmd.Parameters["@lname"].Value = last_name;
+                cmd.Parameters["@photo"].Value = picture;
+                cmd.Parameters["@UserName"].Value = username;
+                cmd.Parameters["@responseMsg"].Direction = ParameterDirection.Output;
 
-            current_user = mail;
-            panel_signUp.Visible = false;
-            panel1.Visible = false;
-            cn.Close();
+                if (!verifySGBDConnection())
+                    return;
+                cmd.Connection = cn;
+                cmd.ExecuteNonQuery();
 
-            current_user = username;
-            MessageBox.Show("Sign Up succedeed! Welcome" + username + "! You are now loged in");
+                if ("" + cmd.Parameters["@responseMsg"].Value == "Success")
+                {
+                    current_user = username;
+                    MessageBox.Show("Sign Up succedeed!\nWelcome " + username + "!\nYou are now loged in");
+                    panel2.Visible = true;
+                    panel_signUp.Visible = false;
+                    panel1.Visible = false;
+                }
+                else
+                {
+                    MessageBox.Show("User Name already exists", "Registration Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+               
+                cn.Close();
+            }
+        }
+
+        public bool IsEmailValid(string emailaddress)
+        {
+            try
+            {
+                System.Net.Mail.MailAddress m = new System.Net.Mail.MailAddress(emailaddress);
+                return true;
+            }
+            catch (FormatException)
+            {
+                return false;
+            }
         }
 
         private void button_loadImage_Click(object sender, EventArgs e)
@@ -172,7 +215,7 @@ namespace GamesDB
             textBox18.Text = current_user;
             if (!verifySGBDConnection())
                 return;
-            string selectSql = "select * from [Users] where UserName = '" + current_user + "'";
+            string selectSql = "select * from GamesDB.[Users] where UserName = '" + current_user + "'";
             SqlCommand cmd = new SqlCommand(selectSql, cn);
 
             try
@@ -191,8 +234,8 @@ namespace GamesDB
                     }
                 }
             }
-            catch {
-                Debug.WriteLine("constructor fired");
+            catch
+            {
             }
 
             //button11.PerformClick();
