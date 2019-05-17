@@ -333,5 +333,11 @@ namespace GamesDB
         {
 
         }
+
+        private void button_register_exit_Click(object sender, EventArgs e)
+        {
+            this.panel_signUp.Visible = false;
+            this.panel1.Visible = true;
+        }
     }
 }

@@ -425,9 +425,9 @@
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(125, 66);
             this.button6.TabIndex = 9;
-            this.button6.Text = "Exit";
+            this.button6.Text = "Go Back";
             this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button_exit_Click);
+            this.button6.Click += new System.EventHandler(this.button_register_exit_Click);
             // 
             // tabControl1
             // 
