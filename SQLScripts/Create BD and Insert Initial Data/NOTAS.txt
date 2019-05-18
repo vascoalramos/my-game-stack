@@ -1,6 +1,5 @@
 ﻿Execu��o ORDEM:
 - Create_DB
-- StoredProcedures
 - InsertUsers
 - InsertAdmin
 - InsertDevelopers

@@ -120,8 +120,8 @@ namespace GamesDB
 
         private void button7_Click(object sender, EventArgs e)
         {
-            string userName = richTextBox3.Text;
-            if (string.IsNullOrEmpty(userName))
+            string gameID = richTextBox3.Text;
+            if (string.IsNullOrEmpty(gameID))
             {
                 MessageBox.Show("Game ID has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -132,9 +132,9 @@ namespace GamesDB
                     CommandType = CommandType.StoredProcedure,
                     CommandText = "GamesDB.removeGame"
                 };
-                cmd.Parameters.Add(new SqlParameter("@gameID", SqlDbType.VarChar));
+                cmd.Parameters.Add(new SqlParameter("@gameID", SqlDbType.Int));
                 cmd.Parameters.Add(new SqlParameter("@responseMsg", SqlDbType.NVarChar, 250));
-                cmd.Parameters["@gameID"].Value = userName;
+                cmd.Parameters["@gameID"].Value = int.Parse(gameID);
                 cmd.Parameters["@responseMsg"].Direction = ParameterDirection.Output;
 
                 if (!verifySGBDConnection())
@@ -153,6 +153,81 @@ namespace GamesDB
                 richTextBox3.Text = "";
                 cn.Close();
             }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            string franID = richTextBox4.Text;
+            if (string.IsNullOrEmpty(franID))
+            {
+                MessageBox.Show("Franchise ID has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                SqlCommand cmd = new SqlCommand
+                {
+                    CommandType = CommandType.StoredProcedure,
+                    CommandText = "GamesDB.removeFranchise"
+                };
+                cmd.Parameters.Add(new SqlParameter("@franID", SqlDbType.Int));
+                cmd.Parameters.Add(new SqlParameter("@responseMsg", SqlDbType.NVarChar, 250));
+                cmd.Parameters["@franID"].Value = int.Parse(franID);
+                cmd.Parameters["@responseMsg"].Direction = ParameterDirection.Output;
+
+                if (!verifySGBDConnection())
+                    return;
+                cmd.Connection = cn;
+                cmd.ExecuteNonQuery();
+
+                if ("" + cmd.Parameters["@responseMsg"].Value == "Success")
+                {
+                    MessageBox.Show("" + cmd.Parameters["@responseMsg"].Value);
+                }
+                else
+                {
+                    MessageBox.Show("" + cmd.Parameters["@responseMsg"].Value, "Remove Franchise", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                richTextBox4.Text = "";
+                cn.Close();
+            }
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            string devID = richTextBox5.Text;
+            if (string.IsNullOrEmpty(devID))
+            {
+                MessageBox.Show("Developer ID has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                SqlCommand cmd = new SqlCommand
+                {
+                    CommandType = CommandType.StoredProcedure,
+                    CommandText = "GamesDB.removeDeveloper"
+                };
+                cmd.Parameters.Add(new SqlParameter("@devID", SqlDbType.Int));
+                cmd.Parameters.Add(new SqlParameter("@responseMsg", SqlDbType.NVarChar, 250));
+                cmd.Parameters["@devID"].Value = int.Parse(devID);
+                cmd.Parameters["@responseMsg"].Direction = ParameterDirection.Output;
+
+                if (!verifySGBDConnection())
+                    return;
+                cmd.Connection = cn;
+                cmd.ExecuteNonQuery();
+
+                if ("" + cmd.Parameters["@responseMsg"].Value == "Success")
+                {
+                    MessageBox.Show("" + cmd.Parameters["@responseMsg"].Value);
+                }
+                else
+                {
+                    MessageBox.Show("" + cmd.Parameters["@responseMsg"].Value, "Remove Developer", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                richTextBox5.Text = "";
+                cn.Close();
+            }
+
         }
     }
 }
