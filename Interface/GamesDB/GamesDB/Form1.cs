@@ -20,17 +20,14 @@ namespace GamesDB
 
         public Form1()
         {
-
-            this.MinimumSize = new System.Drawing.Size(this.Width, this.Height);
             this.AutoSize = true;
             this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             InitializeComponent();
-            this.Text = "GamesDB";
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Debug.WriteLine("HERE fired!!!!");
+            Debug.WriteLine("Form1 Loaded!!!!");
             cn = getSGBDConnection();
         }
 
@@ -75,7 +72,18 @@ namespace GamesDB
             {
                 MessageBox.Show("Login sucess!");
                 current_user = user_name;
-                panel2.Visible = true;
+
+                SqlCommand comand = new SqlCommand("SELECT GamesDB.checkAdmin ('" + user_name + "')", cn);
+                int valor = (int)comand.ExecuteScalar();
+                if (valor == 1)
+                {
+                    admin admin = new admin();
+                    admin.ShowDialog();
+                }
+                else
+                {
+                    panel2.Visible = true;
+                }
 
             }
             else if ("" + cmd.Parameters["@responseMessage"].Value == "Incorrect password")
@@ -215,8 +223,7 @@ namespace GamesDB
             textBox18.Text = current_user;
             if (!verifySGBDConnection())
                 return;
-            string selectSql = "select * from GamesDB.[Users] where UserName = '" + current_user + "'";
-            SqlCommand cmd = new SqlCommand(selectSql, cn);
+            SqlCommand cmd = new SqlCommand("select * from GamesDB.userInfo ('" + current_user + "')", cn);
 
             try
             {
