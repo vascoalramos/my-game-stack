@@ -56,7 +56,9 @@ as
 			end try
 
 			begin catch
-				raiserror ('Error deleting user!', 16, 1)   
+				declare @ErrorMessage nvarchar(max), @ErrorSeverity int, @ErrorState int;
+				select @ErrorMessage = ERROR_MESSAGE() + ' Line ' + cast(ERROR_LINE() as nvarchar(5)), @ErrorSeverity = ERROR_SEVERITY(), @ErrorState = ERROR_STATE();
+			    raiserror (@ErrorMessage, @ErrorSeverity, @ErrorState); 
 			end catch
 		commit transaction           
 	end

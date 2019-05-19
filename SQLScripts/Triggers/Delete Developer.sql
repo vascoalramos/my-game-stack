@@ -40,7 +40,7 @@ as
 			end try
 
 			begin catch
-				raiserror ('Error deleting user!', 16, 1)   
+				raiserror ('Error deleting developer!', 16, 1)   
 			end catch
 		commit transaction           
 	end

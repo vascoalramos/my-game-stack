@@ -227,7 +227,155 @@ namespace GamesDB
                 richTextBox5.Text = "";
                 cn.Close();
             }
+        }
 
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            string pubID = richTextBox6.Text;
+            if (string.IsNullOrEmpty(pubID))
+            {
+                MessageBox.Show("Publisher ID has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                SqlCommand cmd = new SqlCommand
+                {
+                    CommandType = CommandType.StoredProcedure,
+                    CommandText = "GamesDB.removePublisher"
+                };
+                cmd.Parameters.Add(new SqlParameter("@pubID", SqlDbType.Int));
+                cmd.Parameters.Add(new SqlParameter("@responseMsg", SqlDbType.NVarChar, 250));
+                cmd.Parameters["@pubID"].Value = int.Parse(pubID);
+                cmd.Parameters["@responseMsg"].Direction = ParameterDirection.Output;
+
+                if (!verifySGBDConnection())
+                    return;
+                cmd.Connection = cn;
+                cmd.ExecuteNonQuery();
+
+                if ("" + cmd.Parameters["@responseMsg"].Value == "Success")
+                {
+                    MessageBox.Show("" + cmd.Parameters["@responseMsg"].Value);
+                }
+                else
+                {
+                    MessageBox.Show("" + cmd.Parameters["@responseMsg"].Value, "Remove Publisher", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                richTextBox6.Text = "";
+                cn.Close();
+            }
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            string tourID = richTextBox7.Text;
+            if (string.IsNullOrEmpty(tourID))
+            {
+                MessageBox.Show("Tournment ID has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                SqlCommand cmd = new SqlCommand
+                {
+                    CommandType = CommandType.StoredProcedure,
+                    CommandText = "GamesDB.removeTournment"
+                };
+                cmd.Parameters.Add(new SqlParameter("@tourID", SqlDbType.Int));
+                cmd.Parameters.Add(new SqlParameter("@responseMsg", SqlDbType.NVarChar, 250));
+                cmd.Parameters["@tourID"].Value = int.Parse(tourID);
+                cmd.Parameters["@responseMsg"].Direction = ParameterDirection.Output;
+
+                if (!verifySGBDConnection())
+                    return;
+                cmd.Connection = cn;
+                cmd.ExecuteNonQuery();
+
+                if ("" + cmd.Parameters["@responseMsg"].Value == "Success")
+                {
+                    MessageBox.Show("" + cmd.Parameters["@responseMsg"].Value);
+                }
+                else
+                {
+                    MessageBox.Show("" + cmd.Parameters["@responseMsg"].Value, "Remove Tournment", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                richTextBox7.Text = "";
+                cn.Close();
+            }
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            string genreID = richTextBox8.Text;
+            if (string.IsNullOrEmpty(genreID))
+            {
+                MessageBox.Show("Genre ID has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                SqlCommand cmd = new SqlCommand
+                {
+                    CommandType = CommandType.StoredProcedure,
+                    CommandText = "GamesDB.removeGenre"
+                };
+                cmd.Parameters.Add(new SqlParameter("@genreID", SqlDbType.Int));
+                cmd.Parameters.Add(new SqlParameter("@responseMsg", SqlDbType.NVarChar, 250));
+                cmd.Parameters["@genreID"].Value = int.Parse(genreID);
+                cmd.Parameters["@responseMsg"].Direction = ParameterDirection.Output;
+
+                if (!verifySGBDConnection())
+                    return;
+                cmd.Connection = cn;
+                cmd.ExecuteNonQuery();
+
+                if ("" + cmd.Parameters["@responseMsg"].Value == "Success")
+                {
+                    MessageBox.Show("" + cmd.Parameters["@responseMsg"].Value);
+                }
+                else
+                {
+                    MessageBox.Show("" + cmd.Parameters["@responseMsg"].Value, "Remove Genre", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                richTextBox8.Text = "";
+                cn.Close();
+            }
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            string platID = richTextBox9.Text;
+            if (string.IsNullOrEmpty(platID))
+            {
+                MessageBox.Show("Platform ID has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                SqlCommand cmd = new SqlCommand
+                {
+                    CommandType = CommandType.StoredProcedure,
+                    CommandText = "GamesDB.removePlatform"
+                };
+                cmd.Parameters.Add(new SqlParameter("@platID", SqlDbType.Int));
+                cmd.Parameters.Add(new SqlParameter("@responseMsg", SqlDbType.NVarChar, 250));
+                cmd.Parameters["@platID"].Value = int.Parse(platID);
+                cmd.Parameters["@responseMsg"].Direction = ParameterDirection.Output;
+
+                if (!verifySGBDConnection())
+                    return;
+                cmd.Connection = cn;
+                cmd.ExecuteNonQuery();
+
+                if ("" + cmd.Parameters["@responseMsg"].Value == "Success")
+                {
+                    MessageBox.Show("" + cmd.Parameters["@responseMsg"].Value);
+                }
+                else
+                {
+                    MessageBox.Show("" + cmd.Parameters["@responseMsg"].Value, "Remove Platform", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                richTextBox9.Text = "";
+                cn.Close();
+            }
         }
     }
 }
