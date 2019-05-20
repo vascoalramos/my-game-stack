@@ -3,12 +3,12 @@ go
 
 go
 create trigger GamesDB.deleteGame on GamesDB.[Games]
-instead of delete
+after delete
 as
 	begin
 	    begin transaction
 			declare @gameID as int;
-			select @gameID = GameID FROM deleted;
+			select @gameID = GameID from deleted;
 
 			if( not exists( select * from information_schema.tables
 							where table_schema = 'GamesDB' and table_name = 'Games_deleted'

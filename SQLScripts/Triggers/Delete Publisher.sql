@@ -34,7 +34,12 @@ as
 				select * from deleted
 
 				if exists ( select 1 from GamesDB.[Games] where PubID = @pubID )
-					delete from GamesDB.[Games] where PubID = @pubID
+				begin
+					declare @responseMsg nvarchar(250)
+					exec GamesDB.removeGame @gameID=@pubID, @responseMsg=@responseMsg
+
+					select * from GamesDB.[Games] where PubID=2
+				end
 
 				delete from GamesDB.[Publishers] where PublisherID = @pubID
 			end try
@@ -47,3 +52,7 @@ as
 		commit transaction           
 	end
 go
+
+
+select * from GamesDB.[Publishers]
+delete from GamesDB.Publishers where PublisherID=2

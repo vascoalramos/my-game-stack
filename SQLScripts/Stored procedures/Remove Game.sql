@@ -10,7 +10,7 @@ as
 		set nocount on
 		
 		begin try
-			delete from GamesDB.[Games] where GameID = @gameID
+			delete from GamesDB.[Games] where PubID = @gameID
 			set @responseMsg='Success'
 		end try
 		begin catch
