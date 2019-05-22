@@ -1,15 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
-using System.Diagnostics;
 
 namespace GamesDB
 {
@@ -28,7 +22,6 @@ namespace GamesDB
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Debug.WriteLine("Form1 Loaded!!!!");
             cn = getSGBDConnection();
         }
 
@@ -84,9 +77,8 @@ namespace GamesDB
                 else
                 {
                     panel2.Visible = true;
-                    this.tabControl1.SelectedTab = tabPage1;
+                    this.tabControl1.SelectTab(6);
                 }
-
             }
             else if ("" + cmd.Parameters["@responseMessage"].Value == "Incorrect password")
             {
@@ -220,113 +212,40 @@ namespace GamesDB
 
         public void tabControl1_Selected(object sender, TabControlEventArgs e)
         {
-            load_game(1);
-
-
-            Debug.WriteLine("HERE fired");
-            textBox18.Text = current_user;
-            if (!verifySGBDConnection())
-                return;
-            SqlCommand cmd = new SqlCommand("select * from GamesDB.userInfo ('" + current_user + "')", cn);
-
-            try
+            switch ((sender as TabControl).SelectedIndex)
             {
-                using (SqlDataReader reader = cmd.ExecuteReader())
-                {
-                    while (reader.Read())
+                case 0:
+                    load_game(1);
+                    break;
+                case 5:
+                    textBox18.Text = current_user;
+                    if (!verifySGBDConnection())
+                        return;
+                    SqlCommand cmd = new SqlCommand("select * from GamesDB.userInfo ('" + current_user + "')", cn);
+
+                    try
                     {
-                        textBox14.Text = reader["Fname"].ToString();
-                        textBox15.Text = reader["Lname"].ToString();
-                        byte[] bytes = System.Convert.FromBase64String(reader["Photo"].ToString());
-                        var image = new MemoryStream(bytes);
-                        Image imgStream = Image.FromStream(image);
-                        pictureBox1.Image = imgStream;
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                textBox14.Text = reader["Fname"].ToString();
+                                textBox15.Text = reader["Lname"].ToString();
+                                byte[] bytes = System.Convert.FromBase64String(reader["Photo"].ToString());
+                                var image = new MemoryStream(bytes);
+                                Image imgStream = Image.FromStream(image);
+                                pictureBox1.Image = imgStream;
 
+                            }
+                        }
                     }
-                }
+                    catch
+                    {
+                    }
+
+                    cn.Close();
+                    break;
             }
-            catch
-            {
-            }
-
-            //button11.PerformClick();
-            //TableLayoutPanel tableLayoutPanel5 = new TableLayoutPanel();
-            //tableLayoutPanel5.AutoScroll = true;
-            //tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            //tableLayoutPanel5.Location = new System.Drawing.Point(23, 70);
-            //tableLayoutPanel5.MaximumSize = new System.Drawing.Size(600, 1000);
-            //tableLayoutPanel5.Name = "tableLayoutPanel5";
-            //tableLayoutPanel5.Size = new System.Drawing.Size(600, 304);
-            //tableLayoutPanel5.TabIndex = 2;
-            //tableLayoutPanel5.CellPaint += new System.Windows.Forms.TableLayoutCellPaintEventHandler(this.tableLayoutPanel5_CellPaint);
-            //tableLayoutPanel5.Controls.Clear();
-            //tableLayoutPanel5.RowStyles.Clear();
-            //tableLayoutPanel5.ColumnStyles.Clear();
-            //tableLayoutPanel5.ColumnCount = 0;
-            //tableLayoutPanel5.RowCount = 0;
-            //selectSql = "select [ID], [Advertisement_title], [Start_date], [End_date], Comments from ([RENTALS] JOIN PROPERTY ON Property_ID = PROPERTY.ID) LEFT OUTER JOIN REVIEW ON REVIEW.Person_ID = RENTALS.Person_ID AND REVIEW.Rental_Start_date = RENTALS.Start_date WHERE RENTALS.Person_ID = '" + current_id + "'";
-            //cmd = new SqlCommand(selectSql, con);
-            //try
-            //{
-
-            //    using (SqlDataReader read = cmd.ExecuteReader())
-            //    {
-            //        while (read.Read())
-            //        {
-            //            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 100));
-            //            Panel x = new Panel();
-            //            Label lb9 = new Label();
-            //            Label lb10 = new Label();
-            //            Label lb11 = new Label();
-            //            MyButton btn1 = new MyButton();
-            //            btn1.AutoSize = true;
-            //            btn1.Location = new System.Drawing.Point(320, 33);
-            //            btn1.TabIndex = 3;
-            //            btn1.Text = "WRITE REVIEW";
-            //            btn1.PersonID = current_id;
-            //            btn1.PropertyID = Int32.Parse(read["ID"].ToString());
-            //            btn1.StartDate = read["Start_date"].ToString().Split(' ')[0];
-            //            btn1.Click += new EventHandler(writeClick);
-            //            lb11.AutoSize = true;
-            //            lb11.Location = new System.Drawing.Point(100, 53);
-            //            lb11.TabIndex = 3;
-            //            lb11.MaximumSize = new System.Drawing.Size(100, 20);
-            //            lb10.AutoSize = true;
-            //            lb10.Location = new System.Drawing.Point(150, 53);
-            //            lb10.TabIndex = 2;
-            //            lb10.MaximumSize = new System.Drawing.Size(200, 85);
-            //            lb9.AutoSize = true;
-            //            lb9.Location = new System.Drawing.Point(100, 28);
-            //            lb9.MaximumSize = new System.Drawing.Size(200, 15);
-            //            lb9.TabIndex = 1;
-            //            lb9.Text = read["Advertisement_title"].ToString();
-            //            lb10.Text = read["Start_date"].ToString().Split(' ')[0];
-            //            lb11.Text = read["End_date"].ToString().Split(' ')[0];
-            //            if (!(read["Comments"].ToString() == ""))
-            //            {
-            //                btn1.Enabled = false;
-            //            }
-            //            x.Location = new System.Drawing.Point(45, 65);
-            //            x.Size = new System.Drawing.Size(576, 110);
-            //            x.TabIndex = 3;
-            //            x.Controls.Add(lb9);
-            //            x.Controls.Add(lb10);
-            //            x.Controls.Add(lb11);
-            //            x.Controls.Add(btn1);
-            //            tableLayoutPanel5.Controls.Add(x, 0, tableLayoutPanel5.RowCount - 1);
-
-            //        }
-            //    }
-            //}
-            //finally
-            //{
-            //    this.tabPage4.Controls.Clear();
-            //    this.tabPage4.Controls.Add(tableLayoutPanel5);
-
-            //}
-            cn.Close();
-
-
         }
 
         private void button_register_exit_Click(object sender, EventArgs e)
@@ -357,7 +276,6 @@ namespace GamesDB
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             SqlCommand cmd = new SqlCommand("exec GamesDB.uspSearchGames " + pageSize + ", " + paginacao, cn);
         
-
             if (!verifySGBDConnection())
                 return;
             cmd.Connection = cn;
@@ -375,7 +293,7 @@ namespace GamesDB
                     x.Location = new System.Drawing.Point(24, 111);
                     x.Size = new System.Drawing.Size(1010, 204);
                     x.TabIndex = 3;
-                    byte[] bytes = System.Convert.FromBase64String(reader["CoverImage"].ToString() + "=");
+                    byte[] bytes = System.Convert.FromBase64String(reader["CoverImage"].ToString());
                     var image = new MemoryStream(bytes);
                     Image imgStream = Image.FromStream(image);
                     pic.Image = imgStream;
@@ -404,7 +322,7 @@ namespace GamesDB
                     lb10.AutoSize = true;
                     lb10.Location = new System.Drawing.Point(220, 53);
                     lb10.TabIndex = 2;
-                    lb10.MaximumSize = new System.Drawing.Size(425, 100);
+                    lb10.MaximumSize = new System.Drawing.Size(425, 80);
 
                     lb9.AutoSize = true;
                     lb9.Font = new Font(lb9.Font, FontStyle.Bold);
@@ -416,8 +334,6 @@ namespace GamesDB
                     lb10.Name = "label10_" + tableLayoutPanel2.RowCount;
                     lb11.Name = "label11_" + tableLayoutPanel2.RowCount;
                     lb12.Name = "label12_" + tableLayoutPanel2.RowCount;
-
- 
 
                     lb9.Text = reader["GameID"].ToString() + " - " + reader["Title"].ToString();
                     lb10.Text = reader["Description"].ToString();
@@ -433,11 +349,7 @@ namespace GamesDB
 
                     tableLayoutPanel2.Controls.Add(x, 0, tableLayoutPanel2.RowCount-1);
                     string ola = reader["GameID"].ToString();
-                    Debug.WriteLine(ola);
                 }
-        
-            
-           
             }
 
             cn.Close();
@@ -448,5 +360,10 @@ namespace GamesDB
             myPicture temp = (myPicture)sender;
             MessageBox.Show("image click");
 ;        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+            load_game(10);
+        }
     }
 }
