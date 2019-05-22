@@ -11,6 +11,7 @@ namespace GamesDB
     {
         private SqlConnection cn;
         private int pageSize = 10;
+        private int pageNumber = 1;
         String current_user = "";
 
         public Form1()
@@ -212,10 +213,15 @@ namespace GamesDB
 
         public void tabControl1_Selected(object sender, TabControlEventArgs e)
         {
+            if (pageNumber == 1)
+            {
+                this.button20.Enabled = false;
+            }
             switch ((sender as TabControl).SelectedIndex)
             {
                 case 0:
-                    load_game(1);
+                    pageNumber = 1;
+                    load_games(pageNumber);
                     break;
                 case 5:
                     textBox18.Text = current_user;
@@ -239,9 +245,7 @@ namespace GamesDB
                             }
                         }
                     }
-                    catch
-                    {
-                    }
+                    catch { }
 
                     cn.Close();
                     break;
@@ -266,8 +270,10 @@ namespace GamesDB
             public bool Bed { get => bed; set => bed = value; }
         }
 
-        private void load_game(int paginacao)
+        private void load_games(int paginacao)
         {
+            int nGames = 0;
+
             tableLayoutPanel2.Controls.Clear();
             tableLayoutPanel2.RowStyles.Clear();
             tableLayoutPanel2.ColumnStyles.Clear();
@@ -348,7 +354,11 @@ namespace GamesDB
                     x.Controls.Add(lb12);
 
                     tableLayoutPanel2.Controls.Add(x, 0, tableLayoutPanel2.RowCount-1);
-                    string ola = reader["GameID"].ToString();
+                    nGames++;
+                }
+                if (nGames < pageSize)
+                {
+                    button19.Enabled = false;
                 }
             }
 
@@ -361,9 +371,23 @@ namespace GamesDB
             MessageBox.Show("image click");
 ;        }
 
-        private void tabPage1_Click(object sender, EventArgs e)
+        private void button19_Click(object sender, EventArgs e)
         {
-            load_game(10);
+            pageNumber++;
+            load_games(pageNumber);
+            if (pageNumber > 1)
+            {
+                button20.Enabled = true;
+            }
+        }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+            pageNumber--;
+            load_games(pageNumber);
+            if (pageNumber == 1) {
+                button20.Enabled = false;
+            }
         }
     }
 }

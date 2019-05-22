@@ -519,7 +519,6 @@
             // 
             // button20
             // 
-            this.button20.Enabled = false;
             this.button20.Location = new System.Drawing.Point(190, 91);
             this.button20.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.button20.Name = "button20";
@@ -527,10 +526,10 @@
             this.button20.TabIndex = 14;
             this.button20.Text = "<";
             this.button20.UseVisualStyleBackColor = true;
+            this.button20.Click += new System.EventHandler(this.button20_Click);
             // 
             // button19
             // 
-            this.button19.Enabled = false;
             this.button19.Location = new System.Drawing.Point(518, 91);
             this.button19.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.button19.Name = "button19";
@@ -538,6 +537,7 @@
             this.button19.TabIndex = 13;
             this.button19.Text = ">";
             this.button19.UseVisualStyleBackColor = true;
+            this.button19.Click += new System.EventHandler(this.button19_Click);
             // 
             // richTextBox3
             // 
