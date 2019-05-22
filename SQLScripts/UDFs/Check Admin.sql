@@ -14,6 +14,3 @@ as
 		return 1
 	end
 go
-
-select GamesDB.checkAdmin ('admin1');
-go

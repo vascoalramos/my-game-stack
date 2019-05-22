@@ -16,6 +16,7 @@ namespace GamesDB
     public partial class Form1 : Form
     {
         private SqlConnection cn;
+        private int pageSize = 10;
         String current_user = "";
 
         public Form1()
@@ -73,7 +74,7 @@ namespace GamesDB
                 MessageBox.Show("Login sucess!");
                 current_user = user_name;
 
-                SqlCommand comand = new SqlCommand("SELECT GamesDB.checkAdmin ('" + user_name + "')", cn);
+                SqlCommand comand = new SqlCommand("select GamesDB.checkAdmin ('" + user_name + "')", cn);
                 int valor = (int)comand.ExecuteScalar();
                 if (valor == 1)
                 {
@@ -83,6 +84,7 @@ namespace GamesDB
                 else
                 {
                     panel2.Visible = true;
+                    this.tabControl1.SelectedTab = tabPage1;
                 }
 
             }
@@ -180,9 +182,8 @@ namespace GamesDB
                 {
                     current_user = username;
                     MessageBox.Show("Sign Up succedeed!\nWelcome " + username + "!\nYou are now loged in");
-                    panel2.Visible = true;
                     panel_signUp.Visible = false;
-                    panel1.Visible = false;
+                    panel2.Visible = true;
                 }
                 else
                 {
@@ -219,6 +220,9 @@ namespace GamesDB
 
         public void tabControl1_Selected(object sender, TabControlEventArgs e)
         {
+            load_game(1);
+
+
             Debug.WriteLine("HERE fired");
             textBox18.Text = current_user;
             if (!verifySGBDConnection())
@@ -325,26 +329,124 @@ namespace GamesDB
 
         }
 
-
-        private void button10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabPage8_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button_register_exit_Click(object sender, EventArgs e)
         {
             this.panel_signUp.Visible = false;
             this.panel1.Visible = true;
         }
+
+        class myPicture : PictureBox
+        {
+            private int property, total_people;
+            private Image property_Image;
+            private bool bed;
+
+            public Image Property_Image { get => property_Image; set => property_Image = value; }
+            public int Property { get => property; set => property = value; }
+            public int Total_people { get => total_people; set => total_people = value; }
+            public bool Bed { get => bed; set => bed = value; }
+        }
+
+        private void load_game(int paginacao)
+        {
+            tableLayoutPanel2.Controls.Clear();
+            tableLayoutPanel2.RowStyles.Clear();
+            tableLayoutPanel2.ColumnStyles.Clear();
+            tableLayoutPanel2.ColumnCount = 1;
+            tableLayoutPanel2.RowCount = 0 ;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            SqlCommand cmd = new SqlCommand("exec GamesDB.uspSearchGames " + pageSize + ", " + paginacao, cn);
+        
+
+            if (!verifySGBDConnection())
+                return;
+            cmd.Connection = cn;
+
+            using(SqlDataReader reader = cmd.ExecuteReader())
+            {
+                while(reader.Read())
+                {             
+                    tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 206));
+                    Panel x = new Panel();
+                    myPicture pic = new myPicture();
+                    pic.Click += new EventHandler(pic_Click);
+
+                    tableLayoutPanel2.RowCount++;
+                    x.Location = new System.Drawing.Point(24, 111);
+                    x.Size = new System.Drawing.Size(1010, 204);
+                    x.TabIndex = 3;
+                    byte[] bytes = System.Convert.FromBase64String(reader["CoverImage"].ToString() + "=");
+                    var image = new MemoryStream(bytes);
+                    Image imgStream = Image.FromStream(image);
+                    pic.Image = imgStream;
+                    pic.SizeMode = PictureBoxSizeMode.StretchImage;
+                    pic.Location = new System.Drawing.Point(20, 28);
+                    pic.Size = new System.Drawing.Size(180, 150);
+                    pic.Name = "pic_" + tableLayoutPanel2.RowCount;
+                    pic.TabIndex = 3;
+                    pic.TabStop = false;
+
+                    Label lb9 = new Label();
+                    Label lb10 = new Label();
+                    Label lb11 = new Label();
+                    Label lb12 = new Label();
+
+                    lb12.AutoSize = true;
+                    lb12.Location = new System.Drawing.Point(305, 140);
+                    lb12.TabIndex = 3;
+                    lb12.MaximumSize = new System.Drawing.Size(100, 20);
+
+                    lb11.AutoSize = true;
+                    lb11.Location = new System.Drawing.Point(220, 140);
+                    lb11.TabIndex = 3;
+                    lb11.MaximumSize = new System.Drawing.Size(100, 20);
+
+                    lb10.AutoSize = true;
+                    lb10.Location = new System.Drawing.Point(220, 53);
+                    lb10.TabIndex = 2;
+                    lb10.MaximumSize = new System.Drawing.Size(425, 100);
+
+                    lb9.AutoSize = true;
+                    lb9.Font = new Font(lb9.Font, FontStyle.Bold);
+                    lb9.Location = new System.Drawing.Point(220, 28);
+                    lb9.MaximumSize = new System.Drawing.Size(200, 15);
+                    lb9.TabIndex = 1;
+
+                    lb9.Name = "label9_" + tableLayoutPanel2.RowCount;
+                    lb10.Name = "label10_" + tableLayoutPanel2.RowCount;
+                    lb11.Name = "label11_" + tableLayoutPanel2.RowCount;
+                    lb12.Name = "label12_" + tableLayoutPanel2.RowCount;
+
+ 
+
+                    lb9.Text = reader["GameID"].ToString() + " - " + reader["Title"].ToString();
+                    lb10.Text = reader["Description"].ToString();
+                    lb11.Font = new Font(lb11.Font, FontStyle.Bold);
+                    lb11.Text = "Launch Date:";
+                    lb12.Text = reader["LauchDate"].ToString();
+
+                    x.Controls.Add(pic);
+                    x.Controls.Add(lb9);
+                    x.Controls.Add(lb10);
+                    x.Controls.Add(lb11);
+                    x.Controls.Add(lb12);
+
+                    tableLayoutPanel2.Controls.Add(x, 0, tableLayoutPanel2.RowCount-1);
+                    string ola = reader["GameID"].ToString();
+                    Debug.WriteLine(ola);
+                }
+        
+            
+           
+            }
+
+            cn.Close();
+        }
+
+        private void pic_Click(object sender, EventArgs e)
+        {
+            myPicture temp = (myPicture)sender;
+            MessageBox.Show("image click");
+;        }
     }
 }

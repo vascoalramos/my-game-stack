@@ -3,7 +3,7 @@ go
 
 go
 create trigger GamesDB.deleteGame on GamesDB.[Games]
-after delete
+instead of delete
 as
 	begin
 	    begin transaction

@@ -1,5 +1,5 @@
-create schema GamesDB;
-go
+--create schema GamesDB;
+--go
 
 alter table GamesDB.[Events] drop constraint eventUser;
 alter table GamesDB.[Events] drop constraint event_type;
@@ -195,30 +195,30 @@ create table GamesDB.GameDeveloper (
 	primary key (GameID, DeveloperID)
 );
 
-alter table GamesDB.[Events] add constraint eventUser foreign key (UserName) references GamesDB.[Users] (UserName);
-alter table GamesDB.[Events] add constraint event_type foreign key (TypeID) references GamesDB.EventType (TypeID);
+alter table GamesDB.[Events] add constraint eventUser foreign key (UserName) references GamesDB.[Users] (UserName) on delete cascade;
+alter table GamesDB.[Events] add constraint event_type foreign key (TypeID) references GamesDB.EventType (TypeID) on delete cascade;
 
-alter table GamesDB.[Admin] add constraint admin_user foreign key (UserName) references GamesDB.[Users] (UserName);
+alter table GamesDB.[Admin] add constraint admin_user foreign key (UserName) references GamesDB.[Users] (UserName) on delete cascade;
 
-alter table GamesDB.Reviews add constraint reviewGame foreign key (GameID) references GamesDB.Games (GameID);
-alter table GamesDB.Reviews add constraint reviewUser foreign key (UserName) references GamesDB.[Users] (UserName);
+alter table GamesDB.Reviews add constraint reviewGame foreign key (GameID) references GamesDB.Games (GameID) on delete cascade;
+alter table GamesDB.Reviews add constraint reviewUser foreign key (UserName) references GamesDB.[Users] (UserName) on delete cascade;
 
-alter table GamesDB.GameEventList add constraint gameEventListEvent foreign key (EventID, UserName) references GamesDB.[Events] (EventID, UserName);
+alter table GamesDB.GameEventList add constraint gameEventListEvent foreign key (EventID, UserName) references GamesDB.[Events] (EventID, UserName) on delete cascade;
 
-alter table GamesDB.GameEventList add constraint gameEventListGame foreign key (GameID) references GamesDB.Games (GameID);
+alter table GamesDB.GameEventList add constraint gameEventListGame foreign key (GameID) references GamesDB.Games (GameID) on delete cascade;
 
-alter table GamesDB.Games add constraint gamePublisher foreign key (PubID) references GamesDB.Publishers (PublisherID);
+alter table GamesDB.Games add constraint gamePublisher foreign key (PubID) references GamesDB.Publishers (PublisherID) on delete cascade;
 
-alter table GamesDB.GameBelongsFranchise add constraint gameBelongsFranchiseGame foreign key (GameID) references GamesDB.Games (GameID);
-alter table GamesDB.GameBelongsFranchise add constraint gameBelongsFranchiseFranchise foreign key (FranchiseID) references GamesDB.Franchises (FranchiseID);
+alter table GamesDB.GameBelongsFranchise add constraint gameBelongsFranchiseGame foreign key (GameID) references GamesDB.Games (GameID) on delete cascade;
+alter table GamesDB.GameBelongsFranchise add constraint gameBelongsFranchiseFranchise foreign key (FranchiseID) references GamesDB.Franchises (FranchiseID) on delete cascade;
 
-alter table GamesDB.GameGenre add constraint gameGenreGame foreign key (GameID) references GamesDB.Games (GameID);
-alter table GamesDB.GameGenre add constraint gameGenreGenre foreign key (GenreID) references GamesDB.Genres (GenreID);
+alter table GamesDB.GameGenre add constraint gameGenreGame foreign key (GameID) references GamesDB.Games (GameID) on delete cascade;
+alter table GamesDB.GameGenre add constraint gameGenreGenre foreign key (GenreID) references GamesDB.Genres (GenreID) on delete cascade;
 
-alter table GamesDB.Releases add constraint releasesGame foreign key (GameID) references GamesDB.Games (GameID);
-alter table GamesDB.Releases add constraint releasesPlatform foreign key (PlatformID) references GamesDB.[Platforms] (PlatformID);
+alter table GamesDB.Releases add constraint releasesGame foreign key (GameID) references GamesDB.Games (GameID) on delete cascade;
+alter table GamesDB.Releases add constraint releasesPlatform foreign key (PlatformID) references GamesDB.[Platforms] (PlatformID) on delete cascade;
 
-alter table GamesDB.Tournments add constraint tournmentGame foreign key (GameID) references GamesDB.Games (GameID);
+alter table GamesDB.Tournments add constraint tournmentGame foreign key (GameID) references GamesDB.Games (GameID) on delete cascade;
 
-alter table GamesDB.GameDeveloper add constraint developerGameDeveloper foreign key (DeveloperID) references GamesDB.Developers (DeveloperID);
-alter table GamesDB.GameDeveloper add constraint gameDeveloperGame foreign key (GameID) references GamesDB.Games (GameID);
+alter table GamesDB.GameDeveloper add constraint developerGameDeveloper foreign key (DeveloperID) references GamesDB.Developers (DeveloperID) on delete cascade;
+alter table GamesDB.GameDeveloper add constraint gameDeveloperGame foreign key (GameID) references GamesDB.Games (GameID) on delete cascade;
