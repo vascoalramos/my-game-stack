@@ -377,5 +377,440 @@ namespace GamesDB
                 cn.Close();
             }
         }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            this.panel1.Visible = false;
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            this.panel1.Visible = true;
+        }
+
+        //Register Genre
+        private void button_regist_user_Click(object sender, EventArgs e)
+        {      
+            string genreName = textBox_userName.Text;
+
+            if (string.IsNullOrEmpty(genreName))
+            {
+                MessageBox.Show("Genre Name has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            else
+            {
+                SqlCommand cmd = new SqlCommand
+                {
+                    CommandType = CommandType.StoredProcedure,
+                    CommandText = "GamesDB.uspAddGenre"
+                };
+
+                cmd.Parameters.Add(new SqlParameter("@Name", SqlDbType.VarChar));
+                cmd.Parameters.Add(new SqlParameter("@responseMsg", SqlDbType.NVarChar, 250));
+                cmd.Parameters["@Name"].Value = genreName;
+                cmd.Parameters["@responseMsg"].Direction = ParameterDirection.Output;
+
+                if (!verifySGBDConnection())
+                    return;
+                cmd.Connection = cn;
+                cmd.ExecuteNonQuery();
+
+                if ("" + cmd.Parameters["@responseMsg"].Value == "Success")
+                {
+                    MessageBox.Show("Successfully created new genre: " + genreName);
+                    panel1.Visible = false;
+                }
+                else
+                {
+                    MessageBox.Show("Error: Genre name already exists", "Registration Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                cn.Close();
+            }
+        }
+
+        public bool IsEmailValid(string emailaddress)
+        {
+            try
+            {
+                System.Net.Mail.MailAddress m = new System.Net.Mail.MailAddress(emailaddress);
+                return true;
+            }
+            catch (FormatException)
+            {
+                return false;
+            }
+        }
+
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+            this.panel2.Visible = false;
+        }
+
+        //Register Developer
+        private void button_regist_developer_Click(object sender, EventArgs e)
+        {
+            string mail = textBox_email.Text;
+            string dev_name = textBox1.Text;
+            string phone = textBox_fName.Text;
+            string picturePath = textBox_photo.Text;
+            string picture = "";
+            string website = textBox_lName.Text;
+            string city = textBox3.Text;
+            string country = textBox2.Text;
+
+            if (!(string.IsNullOrEmpty(picturePath)))
+            {
+                using (Image image = Image.FromFile(picturePath))
+                {
+                    using (MemoryStream m = new MemoryStream())
+                    {
+                        image.Save(m, image.RawFormat);
+                        byte[] imageBytes = m.ToArray();
+
+                        // Convert byte[] to Base64 String
+                        picture = Convert.ToBase64String(imageBytes);
+                    }
+                }
+            }
+
+
+            if (string.IsNullOrEmpty(dev_name))
+            {
+                MessageBox.Show("Developer name has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+            else
+            {
+                SqlCommand cmd = new SqlCommand
+                {
+                    CommandType = CommandType.StoredProcedure,
+                    CommandText = "GamesDB.uspAddDeveloper"
+                };
+                cmd.Parameters.Add(new SqlParameter("@mail", SqlDbType.VarChar));
+                cmd.Parameters.Add(new SqlParameter("@dev_name", SqlDbType.VarChar));
+                cmd.Parameters.Add(new SqlParameter("@phone", SqlDbType.VarChar));
+                cmd.Parameters.Add(new SqlParameter("@photo", SqlDbType.VarChar));
+                cmd.Parameters.Add(new SqlParameter("@website", SqlDbType.VarChar));
+                cmd.Parameters.Add(new SqlParameter("@city", SqlDbType.VarChar));
+                cmd.Parameters.Add(new SqlParameter("@country", SqlDbType.VarChar));
+
+                cmd.Parameters.Add(new SqlParameter("@responseMsg", SqlDbType.NVarChar, 250));
+                cmd.Parameters["@mail"].Value = mail;
+                cmd.Parameters["@dev_name"].Value = dev_name;
+                cmd.Parameters["@phone"].Value = phone;
+                cmd.Parameters["@photo"].Value = picture;
+                cmd.Parameters["@website"].Value = website;
+                cmd.Parameters["@city"].Value = city;
+                cmd.Parameters["@country"].Value = country;
+
+                cmd.Parameters["@responseMsg"].Direction = ParameterDirection.Output;
+
+                if (!verifySGBDConnection())
+                    return;
+                cmd.Connection = cn;
+                cmd.ExecuteNonQuery();
+
+                if ("" + cmd.Parameters["@responseMsg"].Value == "Success")
+                {
+                    MessageBox.Show("Successfully registered new developer: " + dev_name);
+                    panel2.Visible = false;
+                }
+                else
+                {
+                    MessageBox.Show("Developer Name already exists", "Registration Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                cn.Close();
+            }
+        }
+
+        private void button_loadImage_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFile = new OpenFileDialog();
+            if (openFile.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string fileName = openFile.FileName;
+                textBox_photo.Text = fileName;
+
+            }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            this.panel2.Visible = true;
+        }
+
+        //Register Publisher
+        private void button_regist_Publisher_Click(object sender, EventArgs e)
+        {
+            string mail = textBox8.Text;
+            string pub_name = textBox9.Text;
+            string phone = textBox7.Text;
+            string picturePath = textBox5.Text;
+            string picture = "";
+            string website = textBox6.Text;
+            string city = textBox10.Text;
+            string country = textBox4.Text;
+
+            if (!(string.IsNullOrEmpty(picturePath)))
+            {
+                using (Image image = Image.FromFile(picturePath))
+                {
+                    using (MemoryStream m = new MemoryStream())
+                    {
+                        image.Save(m, image.RawFormat);
+                        byte[] imageBytes = m.ToArray();
+
+                        // Convert byte[] to Base64 String
+                        picture = Convert.ToBase64String(imageBytes);
+                    }
+                }
+            }
+
+
+            if (string.IsNullOrEmpty(pub_name))
+            {
+                MessageBox.Show("Publisher name has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+            else
+            {
+                SqlCommand cmd = new SqlCommand
+                {
+                    CommandType = CommandType.StoredProcedure,
+                    CommandText = "GamesDB.uspAddPublisher"
+                };
+                cmd.Parameters.Add(new SqlParameter("@mail", SqlDbType.VarChar));
+                cmd.Parameters.Add(new SqlParameter("@pub_name", SqlDbType.VarChar));
+                cmd.Parameters.Add(new SqlParameter("@phone", SqlDbType.VarChar));
+                cmd.Parameters.Add(new SqlParameter("@photo", SqlDbType.VarChar));
+                cmd.Parameters.Add(new SqlParameter("@website", SqlDbType.VarChar));
+                cmd.Parameters.Add(new SqlParameter("@city", SqlDbType.VarChar));
+                cmd.Parameters.Add(new SqlParameter("@country", SqlDbType.VarChar));
+
+                cmd.Parameters.Add(new SqlParameter("@responseMsg", SqlDbType.NVarChar, 250));
+                cmd.Parameters["@mail"].Value = mail;
+                cmd.Parameters["@pub_name"].Value = pub_name;
+                cmd.Parameters["@phone"].Value = phone;
+                cmd.Parameters["@photo"].Value = picture;
+                cmd.Parameters["@website"].Value = website;
+                cmd.Parameters["@city"].Value = city;
+                cmd.Parameters["@country"].Value = country;
+
+                cmd.Parameters["@responseMsg"].Direction = ParameterDirection.Output;
+
+                if (!verifySGBDConnection())
+                    return;
+                cmd.Connection = cn;
+                cmd.ExecuteNonQuery();
+
+                if ("" + cmd.Parameters["@responseMsg"].Value == "Success")
+                {
+                    MessageBox.Show("Successfully registered new publisher: " + pub_name);
+                    panel3.Visible = false;
+                }
+                else
+                {
+                    MessageBox.Show("Publisher Name already exists", "Registration Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                cn.Close();
+            }
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            this.panel3.Visible = true;
+        }
+
+        private void button_loadImage_ClickPublisher(object sender, EventArgs e)
+        {
+            OpenFileDialog openFile = new OpenFileDialog();
+            if (openFile.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string fileName = openFile.FileName;
+                textBox5.Text = fileName;
+
+            }
+        }
+
+
+        private void button23_Click(object sender, EventArgs e)
+        {
+            this.panel3.Visible = false;
+        }
+
+
+        //Register Platform
+
+        private void button_regist_platfrom_Click(object sender, EventArgs e)
+        {
+            string platformName = textBox16.Text;
+            string owner = textBox15.Text;
+            string releaseDate = textBox14.Text;
+
+            if (string.IsNullOrEmpty(platformName))
+            {
+                MessageBox.Show("Genre Name has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            if (string.IsNullOrEmpty(owner))
+            {
+                MessageBox.Show("Platform manufactor has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            if (string.IsNullOrEmpty(releaseDate))
+            {
+                MessageBox.Show("Release Date has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            else
+            {
+                SqlCommand cmd = new SqlCommand
+                {
+                    CommandType = CommandType.StoredProcedure,
+                    CommandText = "GamesDB.uspAddPlatform"
+                };
+
+                cmd.Parameters.Add(new SqlParameter("@Name", SqlDbType.VarChar));
+                cmd.Parameters.Add(new SqlParameter("@Owner", SqlDbType.VarChar));
+                cmd.Parameters.Add(new SqlParameter("@ReleaseDate", SqlDbType.VarChar));
+
+                cmd.Parameters.Add(new SqlParameter("@responseMsg", SqlDbType.NVarChar, 250));
+                cmd.Parameters["@Name"].Value = platformName;
+                cmd.Parameters["@Owner"].Value = owner;
+                cmd.Parameters["@ReleaseDate"].Value = releaseDate;
+
+                cmd.Parameters["@responseMsg"].Direction = ParameterDirection.Output;
+
+                if (!verifySGBDConnection())
+                    return;
+                cmd.Connection = cn;
+                cmd.ExecuteNonQuery();
+
+                if ("" + cmd.Parameters["@responseMsg"].Value == "Success")
+                {
+                    MessageBox.Show("Successfully registered new platform: " + platformName);
+                    panel5.Visible = false;
+                }
+                else
+                {
+                    MessageBox.Show("Error: Platform name already exists", "Registration Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                cn.Close();
+            }
+        }
+
+        private void button26_Click(object sender, EventArgs e)
+        {
+            panel5.Visible = false;
+        }
+
+        private void admin_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            panel5.Visible = true;
+        }
+
+
+        //Franchise
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            panel7.Visible = true;
+        }
+
+        private void button28_Click(object sender, EventArgs e)
+        {
+            panel7.Visible = false;
+        }
+
+        private void button_loadImage_Click_Franchise(object sender, EventArgs e)
+        {
+            OpenFileDialog openFile = new OpenFileDialog();
+            if (openFile.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string fileName = openFile.FileName;
+                textBox12.Text = fileName;
+
+            }
+        }
+
+
+        private void button_regist_franchise_Click(object sender, EventArgs e)
+        {
+            string franchiseName = textBox19.Text;
+            string picturePath = textBox12.Text;
+            string picture = "";
+
+            if (!(string.IsNullOrEmpty(picturePath)))
+            {
+                using (Image image = Image.FromFile(picturePath))
+                {
+                    using (MemoryStream m = new MemoryStream())
+                    {
+                        image.Save(m, image.RawFormat);
+                        byte[] imageBytes = m.ToArray();
+
+                        // Convert byte[] to Base64 String
+                        picture = Convert.ToBase64String(imageBytes);
+                    }
+                }
+            }
+
+
+            if (string.IsNullOrEmpty(franchiseName))
+            {
+                MessageBox.Show("Franchise Name has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
+
+
+            else
+            {
+                SqlCommand cmd = new SqlCommand
+                {
+                    CommandType = CommandType.StoredProcedure,
+                    CommandText = "GamesDB.uspAddFranchise"
+                };
+
+                cmd.Parameters.Add(new SqlParameter("@Name", SqlDbType.VarChar));
+                cmd.Parameters.Add(new SqlParameter("@photo", SqlDbType.VarChar));
+
+                cmd.Parameters.Add(new SqlParameter("@responseMsg", SqlDbType.NVarChar, 250));
+                cmd.Parameters["@Name"].Value = franchiseName;
+                cmd.Parameters["@photo"].Value = picture;
+
+                cmd.Parameters["@responseMsg"].Direction = ParameterDirection.Output;
+
+                if (!verifySGBDConnection())
+                    return;
+                cmd.Connection = cn;
+                cmd.ExecuteNonQuery();
+
+                if ("" + cmd.Parameters["@responseMsg"].Value == "Success")
+                {
+                    MessageBox.Show("Successfully registered new franchise: " + franchiseName);
+                    panel7.Visible = false;
+                }
+                else
+                {
+                    MessageBox.Show("Error: Franchise name already exists", "Registration Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                cn.Close();
+            }
+        }
     }
+
 }
