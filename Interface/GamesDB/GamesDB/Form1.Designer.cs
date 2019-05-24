@@ -126,8 +126,8 @@
             this.label11 = new System.Windows.Forms.Label();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
-            this.tabPage8 = new System.Windows.Forms.TabPage();
             this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
             this.tabPage11 = new System.Windows.Forms.TabPage();
             this.tabPage12 = new System.Windows.Forms.TabPage();
             this.tabPage10 = new System.Windows.Forms.TabPage();
@@ -566,12 +566,8 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "None",
-            "nameDesc",
-            "nameAsc",
-            "priceDesc",
-            "priceAsc",
-            "peopleAsc",
-            "peopleDesc"});
+            "LaunchDateDesc",
+            "LaunchDateAsc"});
             this.comboBox1.Location = new System.Drawing.Point(585, 42);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.comboBox1.Name = "comboBox1";
@@ -623,6 +619,7 @@
             this.button9.TabIndex = 1;
             this.button9.Text = "SEARCH";
             this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // tabPage2
             // 
@@ -1230,16 +1227,6 @@
             this.tabControl2.Size = new System.Drawing.Size(1070, 945);
             this.tabControl2.TabIndex = 0;
             // 
-            // tabPage8
-            // 
-            this.tabPage8.Location = new System.Drawing.Point(4, 29);
-            this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(1062, 912);
-            this.tabPage8.TabIndex = 0;
-            this.tabPage8.Text = "Playing";
-            this.tabPage8.UseVisualStyleBackColor = true;
-            // 
             // tabPage9
             // 
             this.tabPage9.Location = new System.Drawing.Point(4, 29);
@@ -1249,6 +1236,16 @@
             this.tabPage9.TabIndex = 1;
             this.tabPage9.Text = "Plan To Play";
             this.tabPage9.UseVisualStyleBackColor = true;
+            // 
+            // tabPage8
+            // 
+            this.tabPage8.Location = new System.Drawing.Point(4, 29);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage8.Size = new System.Drawing.Size(1062, 912);
+            this.tabPage8.TabIndex = 0;
+            this.tabPage8.Text = "Playing";
+            this.tabPage8.UseVisualStyleBackColor = true;
             // 
             // tabPage11
             // 

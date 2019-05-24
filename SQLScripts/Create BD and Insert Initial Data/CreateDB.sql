@@ -112,7 +112,7 @@ create table GamesDB.Tournments (
 
 create table GamesDB.Genres (
 	GenreID		int				identity(1,1)	not null,	-- auto-increment feature
-	Name		varchar(max)					not null,
+	Name		varchar(max)	unique			not null,
 
 	primary key (GenreID)
 );

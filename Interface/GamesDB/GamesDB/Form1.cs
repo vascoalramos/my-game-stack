@@ -389,5 +389,106 @@ namespace GamesDB
                 button20.Enabled = false;
             }
         }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            pageNumber = 1;
+            this.button20.Enabled = false;
+        }
+
+        private void filter_games(int paginacao, string opt)
+        {
+            int nGames = 0;
+
+            tableLayoutPanel2.Controls.Clear();
+            tableLayoutPanel2.RowStyles.Clear();
+            tableLayoutPanel2.ColumnStyles.Clear();
+            tableLayoutPanel2.ColumnCount = 1;
+            tableLayoutPanel2.RowCount = 0;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            SqlCommand cmd = new SqlCommand("exec GamesDB.uspfilterGames " + pageSize + ", " + paginacao, cn);
+
+            if (!verifySGBDConnection())
+                return;
+            cmd.Connection = cn;
+
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 206));
+                    Panel x = new Panel();
+                    myPicture pic = new myPicture();
+                    pic.Click += new EventHandler(pic_Click);
+
+                    tableLayoutPanel2.RowCount++;
+                    x.Location = new System.Drawing.Point(24, 111);
+                    x.Size = new System.Drawing.Size(1010, 204);
+                    x.TabIndex = 3;
+                    byte[] bytes = System.Convert.FromBase64String(reader["CoverImage"].ToString());
+                    var image = new MemoryStream(bytes);
+                    Image imgStream = Image.FromStream(image);
+                    pic.Image = imgStream;
+                    pic.SizeMode = PictureBoxSizeMode.StretchImage;
+                    pic.Location = new System.Drawing.Point(20, 28);
+                    pic.Size = new System.Drawing.Size(180, 150);
+                    pic.Name = "pic_" + tableLayoutPanel2.RowCount;
+                    pic.TabIndex = 3;
+                    pic.TabStop = false;
+
+                    Label lb9 = new Label();
+                    Label lb10 = new Label();
+                    Label lb11 = new Label();
+                    Label lb12 = new Label();
+
+                    lb12.AutoSize = true;
+                    lb12.Location = new System.Drawing.Point(305, 140);
+                    lb12.TabIndex = 3;
+                    lb12.MaximumSize = new System.Drawing.Size(100, 20);
+
+                    lb11.AutoSize = true;
+                    lb11.Location = new System.Drawing.Point(220, 140);
+                    lb11.TabIndex = 3;
+                    lb11.MaximumSize = new System.Drawing.Size(100, 20);
+
+                    lb10.AutoSize = true;
+                    lb10.Location = new System.Drawing.Point(220, 53);
+                    lb10.TabIndex = 2;
+                    lb10.MaximumSize = new System.Drawing.Size(425, 80);
+
+                    lb9.AutoSize = true;
+                    lb9.Font = new Font(lb9.Font, FontStyle.Bold);
+                    lb9.Location = new System.Drawing.Point(220, 28);
+                    lb9.MaximumSize = new System.Drawing.Size(200, 15);
+                    lb9.TabIndex = 1;
+
+                    lb9.Name = "label9_" + tableLayoutPanel2.RowCount;
+                    lb10.Name = "label10_" + tableLayoutPanel2.RowCount;
+                    lb11.Name = "label11_" + tableLayoutPanel2.RowCount;
+                    lb12.Name = "label12_" + tableLayoutPanel2.RowCount;
+
+                    lb9.Text = reader["GameID"].ToString() + " - " + reader["Title"].ToString();
+                    lb10.Text = reader["Description"].ToString();
+                    lb11.Font = new Font(lb11.Font, FontStyle.Bold);
+                    lb11.Text = "Launch Date:";
+                    lb12.Text = reader["LauchDate"].ToString();
+
+                    x.Controls.Add(pic);
+                    x.Controls.Add(lb9);
+                    x.Controls.Add(lb10);
+                    x.Controls.Add(lb11);
+                    x.Controls.Add(lb12);
+
+                    tableLayoutPanel2.Controls.Add(x, 0, tableLayoutPanel2.RowCount - 1);
+                    nGames++;
+                }
+                if (nGames < pageSize)
+                {
+                    button19.Enabled = false;
+                }
+            }
+
+            cn.Close();
+        }
     }
 }

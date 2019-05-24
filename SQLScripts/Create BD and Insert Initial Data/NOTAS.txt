@@ -1,5 +1,6 @@
-﻿Execu��o ORDEM:
+﻿Execucao ORDEM:
 - Create_DB
+- InsertEventType
 - InsertUsers
 - InsertAdmin
 - InsertDevelopers
@@ -14,6 +15,4 @@
 - InsertReleases
 - InsertGameBelongsFranchise
 - InsertReviews
-- InsertEventType
-- InsertEvents
 - InsertGameEventList
