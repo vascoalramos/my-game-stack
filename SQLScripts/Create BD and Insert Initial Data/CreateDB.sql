@@ -73,7 +73,7 @@ create table GamesDB.[Events] (
 
 create table GamesDB.Games (
 	GameID			int				identity(1,1)	not null,	-- auto-increment feature
-	Title			varchar(max)					not null,
+	Title			varchar(max)	unique			not null,
 	LauchDate		date									,
 	[Description]	varchar(max)							,
 	PubID			int										,
@@ -84,7 +84,7 @@ create table GamesDB.Games (
 
 create table GamesDB.Franchises (
 	FranchiseID		int				identity(1,1)	not null,	-- auto-increment feature
-	Name			varchar(max)					not null,
+	Name			varchar(max)	unique			not null,
 	NoOfGames		int										,
 	Logo			varchar(max)							,
 
@@ -101,7 +101,7 @@ create table GamesDB.GameBelongsFranchise (
 create table GamesDB.Tournments (
 	TournmentID		int				identity(1,1)	not null,	-- auto-increment feature
 	GameID			int								not null,
-	Name			varchar(max)							,
+	Name			varchar(max)	unique			not null,
 	StartDate		date									,
 	EndDate			date									,
 	Location		varchar(max)							, -- ver notas!!! dicidir
@@ -138,7 +138,7 @@ create table GamesDB.Reviews (
 
 create table GamesDB.Publishers (
 	PublisherID		int				identity(1,1)	not null,	-- auto-increment feature
-	Name			varchar(max)					not null,
+	Name			varchar(max)	unique			not null,
 	Email			varchar(max)							,
 	Phone			varchar(max)							,
 	Website			varchar(max)							,
@@ -151,7 +151,7 @@ create table GamesDB.Publishers (
 
 create table GamesDB.Developers (
 	DeveloperID		int				identity(1,1)	not null,	-- auto-increment feature
-	Name			varchar(max)					not null,
+	Name			varchar(max)	unique			not null,
 	Email			varchar(max)							,
 	Phone			varchar(max)							,
 	Website			varchar(max)							,
@@ -164,7 +164,7 @@ create table GamesDB.Developers (
 
 create table GamesDB.[Platforms] (
 	PlatformID		int				identity(1,1)	not null,	-- auto-increment feature
-	Name			varchar(max)					not null,
+	Name			varchar(max)	unique			not null,
 	[Owner]			varchar(max)							,
 	ReleaseDate		date									,
 

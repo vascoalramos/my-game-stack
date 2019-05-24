@@ -4,6 +4,8 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
+using System.Diagnostics;
+
 
 namespace GamesDB
 {
@@ -220,14 +222,74 @@ namespace GamesDB
             switch ((sender as TabControl).SelectedIndex)
             {
                 case 0:
+                    SqlCommand cmd;
                     pageNumber = 1;
+                    textBox3.Text = "";
+                    comboBox1.Text = "None";
+                    comboBox2.Text = "None";
+                    comboBox6.Text = "None";
+                    comboBox7.Text = "None";
                     load_games(pageNumber);
+                    if (!verifySGBDConnection())
+                        return;
+                    string id, name;
+
+                    cmd = new SqlCommand("select * from GamesDB.Genres", cn);
+                    try
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                id = reader["GenreID"].ToString();
+                                name = reader["Name"].ToString();
+                                comboBox2.Items.Add(id + " - " + name);
+                            }
+                        }
+                    }
+                    catch { }
+
+                    if (!verifySGBDConnection())
+                        return;
+                    cmd = new SqlCommand("select * from GamesDB.Franchises", cn);
+                    try
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                id = reader["FranchiseID"].ToString();
+                                name = reader["Name"].ToString();
+                                comboBox6.Items.Add(id + " - " + name);
+                                Debug.WriteLine(id + " - " + name);
+                            }
+                        }
+                    }
+                    catch { }
+
+                    if (!verifySGBDConnection())
+                        return;
+                    cmd = new SqlCommand("select * from GamesDB.Publishers", cn);
+                    try
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                id = reader["PublisherID"].ToString();
+                                name = reader["Name"].ToString();
+                                comboBox7.Items.Add(id + " - " + name);
+                            }
+                        }
+                    }
+                    catch { }
+                    cn.Close();
                     break;
                 case 5:
                     textBox18.Text = current_user;
                     if (!verifySGBDConnection())
                         return;
-                    SqlCommand cmd = new SqlCommand("select * from GamesDB.userInfo ('" + current_user + "')", cn);
+                    cmd = new SqlCommand("select * from GamesDB.userInfo ('" + current_user + "')", cn);
 
                     try
                     {
@@ -273,7 +335,6 @@ namespace GamesDB
         private void load_games(int paginacao)
         {
             int nGames = 0;
-
             tableLayoutPanel2.Controls.Clear();
             tableLayoutPanel2.RowStyles.Clear();
             tableLayoutPanel2.ColumnStyles.Clear();
@@ -374,7 +435,29 @@ namespace GamesDB
         private void button19_Click(object sender, EventArgs e)
         {
             pageNumber++;
-            load_games(pageNumber);
+            string option = comboBox1.Text;
+            string title = textBox3.Text;
+            string genreID = comboBox2.Text;
+            string franID = comboBox6.Text;
+            string pubID = comboBox7.Text;
+            if (genreID != "None")
+            {
+                genreID = genreID.Split('-')[0].ToString();
+            }
+            if (franID != "None")
+            {
+                franID = franID.Split('-')[0].ToString();
+            }
+            if (pubID != "None")
+            {
+                pubID = pubID.Split('-')[0].ToString();
+            }
+            if (string.IsNullOrEmpty(title))
+            {
+                title = "None";
+            }
+            filter_games(pageNumber, option, title, genreID, franID, pubID);
+
             if (pageNumber > 1)
             {
                 button20.Enabled = true;
@@ -384,7 +467,29 @@ namespace GamesDB
         private void button20_Click(object sender, EventArgs e)
         {
             pageNumber--;
-            load_games(pageNumber);
+            string option = comboBox1.Text;
+            string title = textBox3.Text;
+            string genreID = comboBox2.Text;
+            string franID = comboBox6.Text;
+            string pubID = comboBox7.Text;
+            if (genreID != "None")
+            {
+                genreID = genreID.Split('-')[0].ToString();
+            }
+            if (franID != "None")
+            {
+                franID = franID.Split('-')[0].ToString();
+            }
+            if (pubID != "None")
+            {
+                pubID = pubID.Split('-')[0].ToString();
+            }
+            if (string.IsNullOrEmpty(title))
+            {
+                title = "None";
+            }
+            filter_games(pageNumber, option, title, genreID, franID, pubID);
+
             if (pageNumber == 1) {
                 button20.Enabled = false;
             }
@@ -394,19 +499,50 @@ namespace GamesDB
         {
             pageNumber = 1;
             this.button20.Enabled = false;
+            string option = comboBox1.Text;
+            string title = textBox3.Text;
+            string genreID = comboBox2.Text;
+            string franID = comboBox6.Text;
+            string pubID = comboBox7.Text;
+            if (genreID != "None")
+            {
+                genreID = genreID.Split('-')[0].ToString();
+            }
+            if (franID != "None")
+            {
+                franID = franID.Split('-')[0].ToString();
+            }
+            if (pubID != "None")
+            {
+                pubID = pubID.Split('-')[0].ToString();
+            }
+            if (string.IsNullOrEmpty(title))
+            {
+                title = "None";
+            }
+            filter_games(pageNumber, option, title, genreID, franID, pubID);
+
+            if (pageNumber == 1)
+            {
+                button20.Enabled = false;
+            }
         }
 
-        private void filter_games(int paginacao, string opt)
+        private void filter_games(int paginacao, string opt, string title, string genreID, string franID, string pubID)
         {
             int nGames = 0;
 
+            if (paginacao == 1)
+            {
+                button19.Enabled = true;
+            }
             tableLayoutPanel2.Controls.Clear();
             tableLayoutPanel2.RowStyles.Clear();
             tableLayoutPanel2.ColumnStyles.Clear();
             tableLayoutPanel2.ColumnCount = 1;
             tableLayoutPanel2.RowCount = 0;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            SqlCommand cmd = new SqlCommand("exec GamesDB.uspfilterGames " + pageSize + ", " + paginacao, cn);
+            SqlCommand cmd = new SqlCommand(cmdText: "exec GamesDB.uspfilterGames " + pageSize + ", " + paginacao + ", " + opt + ", " + title + ", " + genreID + ", " + franID + ", " + pubID, connection: cn);
 
             if (!verifySGBDConnection())
                 return;
@@ -471,7 +607,7 @@ namespace GamesDB
                     lb10.Text = reader["Description"].ToString();
                     lb11.Font = new Font(lb11.Font, FontStyle.Bold);
                     lb11.Text = "Launch Date:";
-                    lb12.Text = reader["LauchDate"].ToString();
+                    lb12.Text = reader["LaunchDate"].ToString();
 
                     x.Controls.Add(pic);
                     x.Controls.Add(lb9);
@@ -482,10 +618,10 @@ namespace GamesDB
                     tableLayoutPanel2.Controls.Add(x, 0, tableLayoutPanel2.RowCount - 1);
                     nGames++;
                 }
-                if (nGames < pageSize)
-                {
-                    button19.Enabled = false;
-                }
+            }
+            if (nGames < pageSize)
+            {
+                button19.Enabled = false;
             }
 
             cn.Close();
