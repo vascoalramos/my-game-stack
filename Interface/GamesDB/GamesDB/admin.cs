@@ -12,6 +12,7 @@ using System.IO;
 using System.Diagnostics;
 
 
+
 namespace GamesDB
 {
     public partial class admin : Form
@@ -22,6 +23,7 @@ namespace GamesDB
             InitializeComponent();
         }
 
+        
         private void admin_Load(object sender, EventArgs e)
         {
             Debug.WriteLine("Admin Loaded!!!!");
@@ -811,6 +813,380 @@ namespace GamesDB
                 cn.Close();
             }
         }
-    }
 
+
+        //Tournment
+        private void button31_Click(object sender, EventArgs e)
+        {
+            panel9.Visible = false;
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            panel9.Visible = true;
+            if (!verifySGBDConnection())
+                return;
+            SqlCommand cmd = new SqlCommand("select * from GamesDB.Games", cn);
+            try
+            {
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        String id = reader["GameID"].ToString();
+                        String name = reader["Title"].ToString();
+                        comboBox7.Items.Add(id + " - " + name);
+                    }
+                }
+            }
+            catch { }
+            cn.Close();
+        }
+
+        private void regist_tournment(object sender, EventArgs e)
+        {
+            string tourn_name = textBox21.Text;
+            string prize = textBox20.Text;
+            string location = textBox18.Text;
+            string start_date = textBox17.Text;
+            string end_date = textBox13.Text;
+            string game_title = comboBox7.Text;
+
+
+
+            if (string.IsNullOrEmpty(tourn_name))
+            {
+                MessageBox.Show("Tournment name has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            if (string.IsNullOrEmpty(prize))
+            {
+                MessageBox.Show("Prize pool has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            try
+            {
+                Convert.ToInt64(prize);
+            }
+            catch
+            {
+                MessageBox.Show("Prize pool has to be a number!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            if (string.IsNullOrEmpty(location))
+            {
+                MessageBox.Show("Tournment location has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            if (string.IsNullOrEmpty(start_date))
+            {
+                MessageBox.Show("Starting date has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            if (string.IsNullOrEmpty(end_date))
+            {
+                MessageBox.Show("Ending date name has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            if (string.IsNullOrEmpty(game_title) || game_title == "None")
+            {
+                MessageBox.Show("Tournment's game has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            else
+            {
+                game_title = game_title.Split('-')[0].ToString();
+                SqlCommand cmd = new SqlCommand
+                {
+                    CommandType = CommandType.StoredProcedure,
+                    CommandText = "GamesDB.uspAddTournment"
+                };
+                cmd.Parameters.Add(new SqlParameter("@tourn_name", SqlDbType.VarChar));
+                cmd.Parameters.Add(new SqlParameter("@prize", SqlDbType.VarChar));
+                cmd.Parameters.Add(new SqlParameter("@location", SqlDbType.VarChar));
+                cmd.Parameters.Add(new SqlParameter("@start_date", SqlDbType.VarChar));
+                cmd.Parameters.Add(new SqlParameter("@end_date", SqlDbType.VarChar));
+                cmd.Parameters.Add(new SqlParameter("@game_title", SqlDbType.VarChar));
+
+                cmd.Parameters.Add(new SqlParameter("@responseMsg", SqlDbType.NVarChar, 250));
+                cmd.Parameters["@tourn_name"].Value = tourn_name;
+                cmd.Parameters["@prize"].Value = prize;
+                cmd.Parameters["@location"].Value = location;
+                cmd.Parameters["@start_date"].Value = start_date;
+                cmd.Parameters["@end_date"].Value = end_date;
+                cmd.Parameters["@game_title"].Value = game_title;
+
+                cmd.Parameters["@responseMsg"].Direction = ParameterDirection.Output;
+
+                if (!verifySGBDConnection())
+                    return;
+                cmd.Connection = cn;
+                cmd.ExecuteNonQuery();
+
+                if ("" + cmd.Parameters["@responseMsg"].Value == "Success")
+                {
+                    MessageBox.Show("Successfully registered new tournment: " + tourn_name);
+                    panel9.Visible = false;
+                }
+                else
+                {
+                    MessageBox.Show("Error registering tournment!", "Registration Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                cn.Close();
+            }
+        }
+
+
+        //Game
+
+        private void button_loadImage_Click_Games(object sender, EventArgs e)
+        {
+            OpenFileDialog openFile = new OpenFileDialog();
+            if (openFile.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string fileName = openFile.FileName;
+                textBox22.Text = fileName;
+
+            }
+        }
+
+
+        private void button33_Click(object sender, EventArgs e)
+        {
+            panel11.Visible = false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            panel11.Visible = true;
+            if (!verifySGBDConnection())
+                return;
+            SqlCommand cmd = new SqlCommand("select * from GamesDB.Publishers", cn);
+            try
+            {
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        String id = reader["PublisherID"].ToString();
+                        String name = reader["Name"].ToString();
+                        comboBox2.Items.Add(id + " - " + name);
+                    }
+                }
+            }
+            catch { }
+
+            cmd = new SqlCommand("select * from GamesDB.Developers", cn);
+            try
+            {
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        String id = reader["DeveloperID"].ToString();
+                        String name = reader["Name"].ToString();
+                        comboBox3.Items.Add(id + " - " + name);
+                    }
+                }
+            }
+            catch { }
+
+            cmd = new SqlCommand("select * from GamesDB.Genres", cn);
+            try
+            {
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        String id = reader["GenreID"].ToString();
+                        String name = reader["Name"].ToString();
+                        comboBox4.Items.Add(id + " - " + name);
+                    }
+                }
+            }
+            catch { }
+
+            cmd = new SqlCommand("select * from GamesDB.Franchises", cn);
+            try
+            {
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        String id = reader["FranchiseID"].ToString();
+                        String name = reader["Name"].ToString();
+                        comboBox5.Items.Add(id + " - " + name);
+                    }
+                }
+            }
+            catch { }
+        }
+
+        private void button39_Click(object sender, EventArgs e)
+        {
+            if (comboBox3.Text != "None"){
+                textBox27.Text = textBox27.Text + comboBox3.Text + " ; ";
+            }
+        }
+
+        private void button38_Click(object sender, EventArgs e)
+        {
+            if (comboBox4.Text != "None")
+            {
+                textBox23.Text = textBox23.Text + comboBox4.Text + " ; ";
+            }
+        }
+
+
+        private void button34_Click(object sender, EventArgs e)
+        {
+            textBox27.Text = "";
+        }
+
+        private void button35_Click(object sender, EventArgs e)
+        {
+            textBox23.Text = "";
+        }
+
+
+
+        private void button_regist_Game(object sender, EventArgs e)
+        {
+            string game_name = textBox26.Text;
+            string launch_date = textBox25.Text;
+            string publisher = comboBox2.Text;
+            string picturePath = textBox22.Text;
+            string picture = "";
+            string developers = textBox27.Text;
+            string genres = textBox23.Text;
+            string franchise = comboBox5.Text;
+            string description = textBox24.Text;
+
+
+            if (!(string.IsNullOrEmpty(picturePath)))
+            {
+                using (Image image = Image.FromFile(picturePath))
+                {
+                    using (MemoryStream m = new MemoryStream())
+                    {
+                        image.Save(m, image.RawFormat);
+                        byte[] imageBytes = m.ToArray();
+
+                        // Convert byte[] to Base64 String
+                        picture = Convert.ToBase64String(imageBytes);
+                    }
+                }
+            }
+
+
+            if (string.IsNullOrEmpty(game_name))
+            {
+                MessageBox.Show("Game name has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            if (string.IsNullOrEmpty(launch_date))
+            {
+                MessageBox.Show("Launch date has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            if (string.IsNullOrEmpty(publisher))
+            {
+                MessageBox.Show("Publisher has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            if (string.IsNullOrEmpty(developers))
+            {
+                MessageBox.Show("Developer(s) has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            if (string.IsNullOrEmpty(genres))
+            {
+                MessageBox.Show("Genre has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            if (string.IsNullOrEmpty(description))
+            {
+                MessageBox.Show("Description has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+            else
+            {
+                SqlCommand cmd = new SqlCommand
+                {
+                    CommandType = CommandType.StoredProcedure,
+                    CommandText = "GamesDB.uspAddGame"
+                };
+
+                String temp = "";
+                Debug.WriteLine("OIOIOIOI\n\n" + textBox27.Text);
+
+                for (int i = 0; i < developers.Split(';').Length; i++)
+                {
+                    String dev = developers.Split(';')[i].Split('-')[0].Replace(" ","");
+                    if(dev.Length>0)
+                        temp = temp + dev + ";";
+                }
+
+                Debug.WriteLine("OIOIOIOI\n\n"+ developers);
+
+                temp = "";
+                for (int i = 0; i < genres.Split(';').Length; i++)
+                {
+                    String gen = genres.Split(';')[i].Split('-')[0].Replace(" ", "");
+                    if (gen.Length > 0)
+                        temp = temp + gen + " ; ";
+                }
+                genres = temp;
+
+                cmd.Parameters.Add(new SqlParameter("@game_name", SqlDbType.VarChar));
+                cmd.Parameters.Add(new SqlParameter("@launch_date", SqlDbType.VarChar));
+                cmd.Parameters.Add(new SqlParameter("@publisher", SqlDbType.VarChar));
+                cmd.Parameters.Add(new SqlParameter("@photo", SqlDbType.VarChar));
+                cmd.Parameters.Add(new SqlParameter("@developers", SqlDbType.VarChar));
+                cmd.Parameters.Add(new SqlParameter("@genres", SqlDbType.VarChar));
+                cmd.Parameters.Add(new SqlParameter("@franchise", SqlDbType.VarChar));
+                cmd.Parameters.Add(new SqlParameter("@description", SqlDbType.VarChar));
+
+                cmd.Parameters.Add(new SqlParameter("@responseMsg", SqlDbType.NVarChar, 250));
+                cmd.Parameters.Add(new SqlParameter("@addedGameID", SqlDbType.Int, 250));
+
+                cmd.Parameters["@game_name"].Value = game_name;
+                cmd.Parameters["@launch_date"].Value = launch_date;
+                cmd.Parameters["@publisher"].Value = publisher.Split('-')[0];
+                cmd.Parameters["@photo"].Value = picture;
+                cmd.Parameters["@developers"].Value = developers;
+                cmd.Parameters["@genres"].Value = genres;
+                cmd.Parameters["@description"].Value = description;
+
+                if (franchise != "")
+                {
+                    cmd.Parameters["@franchise"].Value = franchise;
+                }
+
+                cmd.Parameters["@responseMsg"].Direction = ParameterDirection.Output;
+                cmd.Parameters["@addedGameID"].Direction = ParameterDirection.Output;
+
+                if (!verifySGBDConnection())
+                    return;
+                cmd.Connection = cn;
+                cmd.ExecuteNonQuery();
+
+                if ("" + cmd.Parameters["@responseMsg"].Value == "Success")
+                {
+                    MessageBox.Show("Successfully registered new game: " + game_name);
+                    panel3.Visible = false;
+                }
+                else
+                {
+                    MessageBox.Show("Error registering game", "Registration Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                cn.Close();
+                panel11.Visible = false;
+
+            }
+        }
+    }
 }
