@@ -184,7 +184,7 @@ namespace GamesDB
                 {
                     MessageBox.Show("User Name already exists", "Registration Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-               
+
                 cn.Close();
             }
         }
@@ -217,7 +217,8 @@ namespace GamesDB
         {
             if (pageNumber == 1)
             {
-                this.button20.Enabled = false;
+                button20.Enabled = false;
+                button1.Enabled = false;
             }
             switch ((sender as TabControl).SelectedIndex)
             {
@@ -285,6 +286,23 @@ namespace GamesDB
                     catch { }
                     cn.Close();
                     break;
+
+                case 1:
+                    pageNumber = 1;
+                    textBox4.Text = "";
+                    comboBox11.Text = "None";
+                    load_franchises(pageNumber);
+                    break;
+
+                case 2:
+                    break;
+
+                case 3:
+                    break;
+
+                case 4:
+                    break;
+
                 case 5:
                     textBox18.Text = current_user;
                     if (!verifySGBDConnection())
@@ -310,6 +328,12 @@ namespace GamesDB
                     catch { }
 
                     cn.Close();
+                    break;
+
+                case 6:
+                    break;
+
+                case 7:
                     break;
             }
         }
@@ -339,18 +363,26 @@ namespace GamesDB
             tableLayoutPanel2.RowStyles.Clear();
             tableLayoutPanel2.ColumnStyles.Clear();
             tableLayoutPanel2.ColumnCount = 1;
-            tableLayoutPanel2.RowCount = 0 ;
+            tableLayoutPanel2.RowCount = 0;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            SqlCommand cmd = new SqlCommand("exec GamesDB.uspSearchGames " + pageSize + ", " + paginacao, cn);
-        
+            SqlCommand cmd = new SqlCommand
+            {
+                CommandType = CommandType.StoredProcedure,
+                CommandText = "GamesDB.uspSearchGames"
+            };
+            cmd.Parameters.Add(new SqlParameter("@pageSize", SqlDbType.Int));
+            cmd.Parameters.Add(new SqlParameter("@pageNumber", SqlDbType.Int));
+            cmd.Parameters["@pageSize"].Value = pageSize;
+            cmd.Parameters["@pageNumber"].Value = paginacao;
+
             if (!verifySGBDConnection())
                 return;
             cmd.Connection = cn;
 
-            using(SqlDataReader reader = cmd.ExecuteReader())
+            using (SqlDataReader reader = cmd.ExecuteReader())
             {
-                while(reader.Read())
-                {             
+                while (reader.Read())
+                {
                     tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 206));
                     Panel x = new Panel();
                     myPicture pic = new myPicture();
@@ -414,7 +446,7 @@ namespace GamesDB
                     x.Controls.Add(lb11);
                     x.Controls.Add(lb12);
 
-                    tableLayoutPanel2.Controls.Add(x, 0, tableLayoutPanel2.RowCount-1);
+                    tableLayoutPanel2.Controls.Add(x, 0, tableLayoutPanel2.RowCount - 1);
                     nGames++;
                 }
                 if (nGames < pageSize)
@@ -430,7 +462,8 @@ namespace GamesDB
         {
             myPicture temp = (myPicture)sender;
             MessageBox.Show("image click");
-;        }
+            ;
+        }
 
         private void button19_Click(object sender, EventArgs e)
         {
@@ -490,7 +523,8 @@ namespace GamesDB
             }
             filter_games(pageNumber, option, title, genreID, franID, pubID);
 
-            if (pageNumber == 1) {
+            if (pageNumber == 1)
+            {
                 button20.Enabled = false;
             }
         }
@@ -521,11 +555,6 @@ namespace GamesDB
                 title = "None";
             }
             filter_games(pageNumber, option, title, genreID, franID, pubID);
-
-            if (pageNumber == 1)
-            {
-                button20.Enabled = false;
-            }
         }
 
         private void filter_games(int paginacao, string opt, string title, string genreID, string franID, string pubID)
@@ -542,7 +571,25 @@ namespace GamesDB
             tableLayoutPanel2.ColumnCount = 1;
             tableLayoutPanel2.RowCount = 0;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            SqlCommand cmd = new SqlCommand(cmdText: "exec GamesDB.uspfilterGames " + pageSize + ", " + paginacao + ", " + opt + ", " + title + ", " + genreID + ", " + franID + ", " + pubID, connection: cn);
+            SqlCommand cmd = new SqlCommand
+            {
+                CommandType = CommandType.StoredProcedure,
+                CommandText = "GamesDB.uspSearchGames"
+            };
+            cmd.Parameters.Add(new SqlParameter("@pageSize", SqlDbType.Int));
+            cmd.Parameters.Add(new SqlParameter("@pageNumber", SqlDbType.Int));
+            cmd.Parameters.Add(new SqlParameter("@opt", SqlDbType.VarChar));
+            cmd.Parameters.Add(new SqlParameter("@name", SqlDbType.VarChar));
+            cmd.Parameters.Add(new SqlParameter("@genreID", SqlDbType.VarChar));
+            cmd.Parameters.Add(new SqlParameter("@franID", SqlDbType.VarChar));
+            cmd.Parameters.Add(new SqlParameter("@pubID", SqlDbType.VarChar));
+            cmd.Parameters["@pageSize"].Value = pageSize;
+            cmd.Parameters["@pageNumber"].Value = paginacao;
+            cmd.Parameters["@opt"].Value = opt;
+            cmd.Parameters["@name"].Value = title;
+            cmd.Parameters["@genreID"].Value = genreID;
+            cmd.Parameters["@franID"].Value = franID;
+            cmd.Parameters["@pubID"].Value = pubID;
 
             if (!verifySGBDConnection())
                 return;
@@ -625,6 +672,253 @@ namespace GamesDB
             }
 
             cn.Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            pageNumber = 1;
+            button1.Enabled = false;
+            string option = comboBox11.Text;
+            string title = textBox4.Text;
+            if (string.IsNullOrEmpty(title))
+            {
+                title = "None";
+            }
+            filter_franchises(pageNumber, option, title);
+        }
+
+        private void load_franchises(int paginacao)
+        {
+            int nFranchises = 0;
+
+            if (paginacao == 1)
+            {
+                button2.Enabled = true;
+            }
+            tableLayoutPanel5.Controls.Clear();
+            tableLayoutPanel5.RowStyles.Clear();
+            tableLayoutPanel5.ColumnStyles.Clear();
+            tableLayoutPanel5.ColumnCount = 1;
+            tableLayoutPanel5.RowCount = 0;
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            SqlCommand cmd = new SqlCommand
+            {
+                CommandType = CommandType.StoredProcedure,
+                CommandText = "GamesDB.uspSearchFranchises"
+            };
+            cmd.Parameters.Add(new SqlParameter("@pageSize", SqlDbType.Int));
+            cmd.Parameters.Add(new SqlParameter("@pageNumber", SqlDbType.Int));
+            cmd.Parameters["@pageSize"].Value = pageSize;
+            cmd.Parameters["@pageNumber"].Value = paginacao;
+
+            if (!verifySGBDConnection())
+                return;
+            cmd.Connection = cn;
+
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 206));
+                    Panel x = new Panel();
+                    myPicture pic = new myPicture();
+                    pic.Click += new EventHandler(pic_Click);
+
+                    tableLayoutPanel5.RowCount++;
+                    x.Location = new System.Drawing.Point(24, 111);
+                    x.Size = new System.Drawing.Size(1010, 204);
+                    x.TabIndex = 3;
+                    byte[] bytes = System.Convert.FromBase64String(reader["Logo"].ToString());
+                    var image = new MemoryStream(bytes);
+                    Image imgStream = Image.FromStream(image);
+                    pic.Image = imgStream;
+                    pic.SizeMode = PictureBoxSizeMode.StretchImage;
+                    pic.Location = new System.Drawing.Point(20, 28);
+                    pic.Size = new System.Drawing.Size(350, 175);
+                    pic.Name = "pic_" + tableLayoutPanel2.RowCount;
+                    pic.TabIndex = 3;
+                    pic.TabStop = false;
+
+                    Label lb9 = new Label();
+                    Label lb11 = new Label();
+                    Label lb12 = new Label();
+
+                    lb12.AutoSize = true;
+                    lb12.Location = new System.Drawing.Point(510, 100);
+                    lb12.TabIndex = 3;
+                    lb12.MaximumSize = new System.Drawing.Size(100, 20);
+
+                    lb11.AutoSize = true;
+                    lb11.Location = new System.Drawing.Point(400, 100);
+                    lb11.TabIndex = 3;
+                    lb11.MaximumSize = new System.Drawing.Size(100, 20);
+
+                    lb9.AutoSize = true;
+                    lb9.Font = new Font(lb9.Font, FontStyle.Bold);
+                    lb9.Location = new System.Drawing.Point(400, 75);
+                    lb9.MaximumSize = new System.Drawing.Size(200, 15);
+                    lb9.TabIndex = 1;
+
+                    lb9.Name = "label9_" + tableLayoutPanel5.RowCount;
+                    lb11.Name = "label11_" + tableLayoutPanel5.RowCount;
+
+
+                    lb9.Text = reader["FranchiseID"].ToString() + " - " + reader["Name"].ToString();
+                    lb11.Text = "Number of Games:";
+                    lb12.Text = reader["NoOfGames"].ToString();
+
+                    x.Controls.Add(pic);
+                    x.Controls.Add(lb9);
+                    x.Controls.Add(lb11);
+                    x.Controls.Add(lb12);
+
+                    tableLayoutPanel5.Controls.Add(x, 0, tableLayoutPanel5.RowCount - 1);
+                    nFranchises++;
+                }
+            }
+            if (nFranchises < pageSize)
+            {
+                button2.Enabled = false;
+            }
+
+            cn.Close();
+        }
+
+        private void filter_franchises(int paginacao, string opt, string title)
+        {
+            int nFranchises = 0;
+
+            if (paginacao == 1)
+            {
+                button2.Enabled = true;
+            }
+            tableLayoutPanel5.Controls.Clear();
+            tableLayoutPanel5.RowStyles.Clear();
+            tableLayoutPanel5.ColumnStyles.Clear();
+            tableLayoutPanel5.ColumnCount = 1;
+            tableLayoutPanel5.RowCount = 0;
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            SqlCommand cmd = new SqlCommand
+            {
+                CommandType = CommandType.StoredProcedure,
+                CommandText = "GamesDB.uspfilterFranchises"
+            };
+            cmd.Parameters.Add(new SqlParameter("@pageSize", SqlDbType.Int));
+            cmd.Parameters.Add(new SqlParameter("@pageNumber", SqlDbType.Int));
+            cmd.Parameters.Add(new SqlParameter("@opt", SqlDbType.VarChar));
+            cmd.Parameters.Add(new SqlParameter("@name", SqlDbType.VarChar));
+            cmd.Parameters["@pageSize"].Value = pageSize;
+            cmd.Parameters["@pageNumber"].Value = paginacao;
+            cmd.Parameters["@opt"].Value = opt;
+            cmd.Parameters["@name"].Value = title;
+
+            if (!verifySGBDConnection())
+                return;
+            cmd.Connection = cn;
+
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 206));
+                    Panel x = new Panel();
+                    myPicture pic = new myPicture();
+                    pic.Click += new EventHandler(pic_Click);
+
+                    tableLayoutPanel5.RowCount++;
+                    x.Location = new System.Drawing.Point(24, 111);
+                    x.Size = new System.Drawing.Size(1010, 204);
+                    x.TabIndex = 3;
+                    byte[] bytes = System.Convert.FromBase64String(reader["Logo"].ToString());
+                    var image = new MemoryStream(bytes);
+                    Image imgStream = Image.FromStream(image);
+                    pic.Image = imgStream;
+                    pic.SizeMode = PictureBoxSizeMode.StretchImage;
+                    pic.Location = new System.Drawing.Point(20, 28);
+                    pic.Size = new System.Drawing.Size(350, 175);
+                    pic.Name = "pic_" + tableLayoutPanel2.RowCount;
+                    pic.TabIndex = 3;
+                    pic.TabStop = false;
+
+                    Label lb9 = new Label();
+                    Label lb11 = new Label();
+                    Label lb12 = new Label();
+
+                    lb12.AutoSize = true;
+                    lb12.Location = new System.Drawing.Point(510, 100);
+                    lb12.TabIndex = 3;
+                    lb12.MaximumSize = new System.Drawing.Size(100, 20);
+
+                    lb11.AutoSize = true;
+                    lb11.Location = new System.Drawing.Point(400, 100);
+                    lb11.TabIndex = 3;
+                    lb11.MaximumSize = new System.Drawing.Size(100, 20);
+
+                    lb9.AutoSize = true;
+                    lb9.Font = new Font(lb9.Font, FontStyle.Bold);
+                    lb9.Location = new System.Drawing.Point(400, 75);
+                    lb9.MaximumSize = new System.Drawing.Size(200, 15);
+                    lb9.TabIndex = 1;
+
+                    lb9.Name = "label9_" + tableLayoutPanel5.RowCount;
+                    lb11.Name = "label11_" + tableLayoutPanel5.RowCount;
+
+
+                    lb9.Text = reader["FranchiseID"].ToString() + " - " + reader["Name"].ToString();
+                    lb11.Text = "Number of Games:";
+                    lb12.Text = reader["NoOfGames"].ToString();
+
+                    x.Controls.Add(pic);
+                    x.Controls.Add(lb9);
+                    x.Controls.Add(lb11);
+                    x.Controls.Add(lb12);
+
+                    tableLayoutPanel5.Controls.Add(x, 0, tableLayoutPanel5.RowCount - 1);
+                    nFranchises++;
+                }
+            }
+            if (nFranchises < pageSize)
+            {
+                button2.Enabled = false;
+            }
+
+            cn.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            pageNumber++;
+            string option = comboBox11.Text;
+            string title = textBox4.Text;
+
+            if (string.IsNullOrEmpty(title))
+            {
+                title = "None";
+            }
+            filter_franchises(pageNumber, option, title);
+
+            if (pageNumber > 1)
+            {
+                button1.Enabled = true;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            pageNumber--;
+            string option = comboBox11.Text;
+            string title = textBox4.Text;
+
+            if (string.IsNullOrEmpty(title))
+            {
+                title = "None";
+            }
+            filter_franchises(pageNumber, option, title);
+
+            if (pageNumber == 1)
+            {
+                button1.Enabled = false;
+            }
         }
     }
 }
