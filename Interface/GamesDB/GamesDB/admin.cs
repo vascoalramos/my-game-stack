@@ -530,7 +530,12 @@ namespace GamesDB
             }
         }
 
-        private void button_loadImage_Click(object sender, EventArgs e)
+        private void button8_Click(object sender, EventArgs e)
+        {
+            this.panel2.Visible = true;
+        }
+
+        private void button_loadImage_Developer(object sender, EventArgs e)
         {
             OpenFileDialog openFile = new OpenFileDialog();
             if (openFile.ShowDialog() == System.Windows.Forms.DialogResult.OK)
@@ -539,11 +544,6 @@ namespace GamesDB
                 textBox_photo.Text = fileName;
 
             }
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-            this.panel2.Visible = true;
         }
 
         //Register Publisher
@@ -992,7 +992,7 @@ namespace GamesDB
             }
             catch { }
 
-            cmd = new SqlCommand("select * from GamesDB.Genres", cn);
+            cmd = new SqlCommand("select * from GamesDB.Genres order by GenreID", cn);
             try
             {
                 using (SqlDataReader reader = cmd.ExecuteReader())
@@ -1002,6 +1002,21 @@ namespace GamesDB
                         String id = reader["GenreID"].ToString();
                         String name = reader["Name"].ToString();
                         comboBox4.Items.Add(id + " - " + name);
+                    }
+                }
+            }
+            catch { }
+
+            cmd = new SqlCommand("select * from GamesDB.Platforms order by PlatformID", cn);
+            try
+            {
+                using (SqlDataReader reader = cmd.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        String id = reader["PlatformID"].ToString();
+                        String name = reader["Name"].ToString();
+                        comboBox6.Items.Add(id + " - " + name);
                     }
                 }
             }
@@ -1062,6 +1077,7 @@ namespace GamesDB
             string genres = textBox23.Text;
             string franchise = comboBox5.Text;
             string description = textBox24.Text;
+            string platforms = textBox11.Text;
 
 
             if (!(string.IsNullOrEmpty(picturePath)))
@@ -1110,6 +1126,11 @@ namespace GamesDB
                 MessageBox.Show("Description has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+            if (string.IsNullOrEmpty(platforms))
+            {
+                MessageBox.Show("Platform has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
 
             else
             {
@@ -1128,7 +1149,7 @@ namespace GamesDB
                     if(dev.Length>0)
                         temp = temp + dev + ";";
                 }
-
+                developers = temp;
                 Debug.WriteLine("OIOIOIOI\n\n"+ developers);
 
                 temp = "";
@@ -1136,18 +1157,30 @@ namespace GamesDB
                 {
                     String gen = genres.Split(';')[i].Split('-')[0].Replace(" ", "");
                     if (gen.Length > 0)
-                        temp = temp + gen + " ; ";
+                        temp = temp + gen + ";";
                 }
                 genres = temp;
+                Debug.WriteLine("OIOIOIOI\n\n" + genres);
+
+                temp = "";
+                for (int i = 0; i < platforms.Split(';').Length; i++)
+                {
+                    String plat = platforms.Split(';')[i].Split('-')[0].Replace(" ", "");
+                    if (plat.Length > 0)
+                        plat = temp + plat + ";";
+                }
+                platforms = temp;
 
                 cmd.Parameters.Add(new SqlParameter("@game_name", SqlDbType.VarChar));
                 cmd.Parameters.Add(new SqlParameter("@launch_date", SqlDbType.VarChar));
                 cmd.Parameters.Add(new SqlParameter("@publisher", SqlDbType.VarChar));
                 cmd.Parameters.Add(new SqlParameter("@photo", SqlDbType.VarChar));
-                cmd.Parameters.Add(new SqlParameter("@developers", SqlDbType.VarChar));
-                cmd.Parameters.Add(new SqlParameter("@genres", SqlDbType.VarChar));
                 cmd.Parameters.Add(new SqlParameter("@franchise", SqlDbType.VarChar));
                 cmd.Parameters.Add(new SqlParameter("@description", SqlDbType.VarChar));
+
+                cmd.Parameters.Add(new SqlParameter("@developers", SqlDbType.VarChar));
+                cmd.Parameters.Add(new SqlParameter("@genres", SqlDbType.VarChar));
+                cmd.Parameters.Add(new SqlParameter("@platforms", SqlDbType.VarChar));
 
                 cmd.Parameters.Add(new SqlParameter("@responseMsg", SqlDbType.NVarChar, 250));
                 cmd.Parameters.Add(new SqlParameter("@addedGameID", SqlDbType.Int, 250));
@@ -1158,17 +1191,18 @@ namespace GamesDB
                 cmd.Parameters["@photo"].Value = picture;
                 cmd.Parameters["@developers"].Value = developers;
                 cmd.Parameters["@genres"].Value = genres;
+                cmd.Parameters["@platforms"].Value = platforms;
                 cmd.Parameters["@description"].Value = description;
 
                 if (franchise != "")
                 {
-                    cmd.Parameters["@franchise"].Value = franchise;
+                    cmd.Parameters["@franchise"].Value = franchise.Split('-')[0];
                 }
 
                 cmd.Parameters["@responseMsg"].Direction = ParameterDirection.Output;
                 cmd.Parameters["@addedGameID"].Direction = ParameterDirection.Output;
 
-                if (!verifySGBDConnection())
+                if (!verifySGBDConnection())    
                     return;
                 cmd.Connection = cn;
                 cmd.ExecuteNonQuery();
@@ -1187,6 +1221,19 @@ namespace GamesDB
                 panel11.Visible = false;
 
             }
+        }
+
+        private void button36_Click(object sender, EventArgs e)
+        {
+            if(comboBox6.Text != "None")
+            {
+                textBox11.Text = textBox23.Text + comboBox6.Text + " ; ";
+            }
+        }
+
+        private void button37_Click(object sender, EventArgs e)
+        {
+            textBox11.Text = "";
         }
     }
 }

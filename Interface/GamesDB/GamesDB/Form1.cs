@@ -317,6 +317,7 @@ namespace GamesDB
                             {
                                 textBox14.Text = reader["Fname"].ToString();
                                 textBox15.Text = reader["Lname"].ToString();
+                                textBox7.Text = reader["Email"].ToString();
                                 byte[] bytes = System.Convert.FromBase64String(reader["Photo"].ToString());
                                 var image = new MemoryStream(bytes);
                                 Image imgStream = Image.FromStream(image);
@@ -392,16 +393,29 @@ namespace GamesDB
                     x.Location = new System.Drawing.Point(24, 111);
                     x.Size = new System.Drawing.Size(1010, 204);
                     x.TabIndex = 3;
-                    byte[] bytes = System.Convert.FromBase64String(reader["CoverImage"].ToString());
-                    var image = new MemoryStream(bytes);
-                    Image imgStream = Image.FromStream(image);
-                    pic.Image = imgStream;
-                    pic.SizeMode = PictureBoxSizeMode.StretchImage;
-                    pic.Location = new System.Drawing.Point(20, 28);
-                    pic.Size = new System.Drawing.Size(180, 150);
-                    pic.Name = "pic_" + tableLayoutPanel2.RowCount;
-                    pic.TabIndex = 3;
-                    pic.TabStop = false;
+                    try
+                    {
+                        byte[] bytes = System.Convert.FromBase64String(reader["CoverImage"].ToString());
+                        var image = new MemoryStream(bytes);
+                        Image imgStream = Image.FromStream(image);
+                        pic.Image = imgStream;
+                        pic.SizeMode = PictureBoxSizeMode.StretchImage;
+                        pic.Location = new System.Drawing.Point(20, 28);
+                        pic.Size = new System.Drawing.Size(180, 150);
+                        pic.Name = "pic_" + tableLayoutPanel2.RowCount;
+                        pic.TabIndex = 3;
+                        pic.TabStop = false;
+                    }
+                    catch
+                    {
+                        pic.Image = null;
+                        pic.SizeMode = PictureBoxSizeMode.StretchImage;
+                        pic.Location = new System.Drawing.Point(20, 28);
+                        pic.Size = new System.Drawing.Size(180, 150);
+                        pic.Name = "pic_" + tableLayoutPanel2.RowCount;
+                        pic.TabIndex = 3;
+                        pic.TabStop = false;
+                    }
 
                     Label lb9 = new Label();
                     Label lb10 = new Label();
@@ -574,7 +588,7 @@ namespace GamesDB
             SqlCommand cmd = new SqlCommand
             {
                 CommandType = CommandType.StoredProcedure,
-                CommandText = "GamesDB.uspSearchGames"
+                CommandText = "GamesDB.uspFilterGames"
             };
             cmd.Parameters.Add(new SqlParameter("@pageSize", SqlDbType.Int));
             cmd.Parameters.Add(new SqlParameter("@pageNumber", SqlDbType.Int));
@@ -608,16 +622,29 @@ namespace GamesDB
                     x.Location = new System.Drawing.Point(24, 111);
                     x.Size = new System.Drawing.Size(1010, 204);
                     x.TabIndex = 3;
-                    byte[] bytes = System.Convert.FromBase64String(reader["CoverImage"].ToString());
-                    var image = new MemoryStream(bytes);
-                    Image imgStream = Image.FromStream(image);
-                    pic.Image = imgStream;
-                    pic.SizeMode = PictureBoxSizeMode.StretchImage;
-                    pic.Location = new System.Drawing.Point(20, 28);
-                    pic.Size = new System.Drawing.Size(180, 150);
-                    pic.Name = "pic_" + tableLayoutPanel2.RowCount;
-                    pic.TabIndex = 3;
-                    pic.TabStop = false;
+                    try
+                    {
+                        byte[] bytes = System.Convert.FromBase64String(reader["CoverImage"].ToString());
+                        var image = new MemoryStream(bytes);
+                        Image imgStream = Image.FromStream(image);
+                        pic.Image = imgStream;
+                        pic.SizeMode = PictureBoxSizeMode.StretchImage;
+                        pic.Location = new System.Drawing.Point(20, 28);
+                        pic.Size = new System.Drawing.Size(180, 150);
+                        pic.Name = "pic_" + tableLayoutPanel2.RowCount;
+                        pic.TabIndex = 3;
+                        pic.TabStop = false;
+                    }
+                    catch
+                    {
+                        pic.Image = null;
+                        pic.SizeMode = PictureBoxSizeMode.StretchImage;
+                        pic.Location = new System.Drawing.Point(20, 28);
+                        pic.Size = new System.Drawing.Size(180, 150);
+                        pic.Name = "pic_" + tableLayoutPanel2.RowCount;
+                        pic.TabIndex = 3;
+                        pic.TabStop = false;
+                    }
 
                     Label lb9 = new Label();
                     Label lb10 = new Label();
@@ -728,16 +755,29 @@ namespace GamesDB
                     x.Location = new System.Drawing.Point(24, 111);
                     x.Size = new System.Drawing.Size(1010, 204);
                     x.TabIndex = 3;
-                    byte[] bytes = System.Convert.FromBase64String(reader["Logo"].ToString());
-                    var image = new MemoryStream(bytes);
-                    Image imgStream = Image.FromStream(image);
-                    pic.Image = imgStream;
-                    pic.SizeMode = PictureBoxSizeMode.StretchImage;
-                    pic.Location = new System.Drawing.Point(20, 28);
-                    pic.Size = new System.Drawing.Size(350, 175);
-                    pic.Name = "pic_" + tableLayoutPanel2.RowCount;
-                    pic.TabIndex = 3;
-                    pic.TabStop = false;
+                    try
+                    {
+                        byte[] bytes = System.Convert.FromBase64String(reader["Logo"].ToString());
+                        var image = new MemoryStream(bytes);
+                        Image imgStream = Image.FromStream(image);
+                        pic.Image = imgStream;
+                        pic.SizeMode = PictureBoxSizeMode.StretchImage;
+                        pic.Location = new System.Drawing.Point(20, 28);
+                        pic.Size = new System.Drawing.Size(180, 150);
+                        pic.Name = "pic_" + tableLayoutPanel2.RowCount;
+                        pic.TabIndex = 3;
+                        pic.TabStop = false;
+                    }
+                    catch
+                    {
+                        pic.Image = null;
+                        pic.SizeMode = PictureBoxSizeMode.StretchImage;
+                        pic.Location = new System.Drawing.Point(20, 28);
+                        pic.Size = new System.Drawing.Size(180, 150);
+                        pic.Name = "pic_" + tableLayoutPanel2.RowCount;
+                        pic.TabIndex = 3;
+                        pic.TabStop = false;
+                    }
 
                     Label lb9 = new Label();
                     Label lb11 = new Label();
@@ -829,16 +869,29 @@ namespace GamesDB
                     x.Location = new System.Drawing.Point(24, 111);
                     x.Size = new System.Drawing.Size(1010, 204);
                     x.TabIndex = 3;
-                    byte[] bytes = System.Convert.FromBase64String(reader["Logo"].ToString());
-                    var image = new MemoryStream(bytes);
-                    Image imgStream = Image.FromStream(image);
-                    pic.Image = imgStream;
-                    pic.SizeMode = PictureBoxSizeMode.StretchImage;
-                    pic.Location = new System.Drawing.Point(20, 28);
-                    pic.Size = new System.Drawing.Size(350, 175);
-                    pic.Name = "pic_" + tableLayoutPanel2.RowCount;
-                    pic.TabIndex = 3;
-                    pic.TabStop = false;
+                    try
+                    {
+                        byte[] bytes = System.Convert.FromBase64String(reader["Logo"].ToString());
+                        var image = new MemoryStream(bytes);
+                        Image imgStream = Image.FromStream(image);
+                        pic.Image = imgStream;
+                        pic.SizeMode = PictureBoxSizeMode.StretchImage;
+                        pic.Location = new System.Drawing.Point(20, 28);
+                        pic.Size = new System.Drawing.Size(180, 150);
+                        pic.Name = "pic_" + tableLayoutPanel2.RowCount;
+                        pic.TabIndex = 3;
+                        pic.TabStop = false;
+                    }
+                    catch
+                    {
+                        pic.Image = null;
+                        pic.SizeMode = PictureBoxSizeMode.StretchImage;
+                        pic.Location = new System.Drawing.Point(20, 28);
+                        pic.Size = new System.Drawing.Size(180, 150);
+                        pic.Name = "pic_" + tableLayoutPanel2.RowCount;
+                        pic.TabIndex = 3;
+                        pic.TabStop = false;
+                    }
 
                     Label lb9 = new Label();
                     Label lb11 = new Label();
@@ -919,6 +972,99 @@ namespace GamesDB
             {
                 button1.Enabled = false;
             }
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFile = new OpenFileDialog();
+            if (openFile.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string fileName = openFile.FileName;
+                textBox6.Text = fileName;
+            }
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            string first_name = textBox14.Text;
+            string last_name = textBox15.Text;
+            string email = textBox7.Text;
+            string picturePath = textBox6.Text;
+            string picture = "";
+            string userName = textBox18.Text;
+            if (!(string.IsNullOrEmpty(picturePath)))
+            {
+                using (Image image = Image.FromFile(picturePath))
+                {
+                    using (MemoryStream m = new MemoryStream())
+                    {
+                        image.Save(m, image.RawFormat);
+                        byte[] imageBytes = m.ToArray();
+
+                        // Convert byte[] to Base64 String
+                        picture = Convert.ToBase64String(imageBytes);
+                    }
+                }
+            }
+            string password = textBox_pass.Text;
+
+            if (string.IsNullOrEmpty(password))
+            {
+                password = "None";
+            }
+            if (string.IsNullOrEmpty(first_name))
+            {
+                first_name = "None";
+            }
+            if (string.IsNullOrEmpty(last_name))
+            {
+                last_name = "None";
+            }
+            if (string.IsNullOrEmpty(email))
+            {
+                email = "None";
+            }
+            if (picture == "")
+            {
+                picture = "None";
+            }
+
+            SqlCommand cmd = new SqlCommand
+            {
+                CommandType = CommandType.StoredProcedure,
+                CommandText = "GamesDB.uspUpdateUser"
+            };
+            cmd.Parameters.Add(new SqlParameter("@UserName", SqlDbType.VarChar));
+            cmd.Parameters.Add(new SqlParameter("@mail", SqlDbType.VarChar));
+            cmd.Parameters.Add(new SqlParameter("@password", SqlDbType.VarChar));
+            cmd.Parameters.Add(new SqlParameter("@fname", SqlDbType.VarChar));
+            cmd.Parameters.Add(new SqlParameter("@lname", SqlDbType.VarChar));
+            cmd.Parameters.Add(new SqlParameter("@photo", SqlDbType.VarChar));
+            cmd.Parameters.Add(new SqlParameter("@responseMsg", SqlDbType.NVarChar, 250));
+            cmd.Parameters["@password"].Value = password;
+            cmd.Parameters["@UserName"].Value = userName;
+            cmd.Parameters["@fname"].Value = first_name;
+            cmd.Parameters["@lname"].Value = last_name;
+            cmd.Parameters["@photo"].Value = picture;
+            cmd.Parameters["@mail"].Value = email;
+            cmd.Parameters["@responseMsg"].Direction = ParameterDirection.Output;
+
+            if (!verifySGBDConnection())
+                return;
+            cmd.Connection = cn;
+            cmd.ExecuteNonQuery();  
+
+            if ("" + cmd.Parameters["@responseMsg"].Value == "Success")
+            {
+                MessageBox.Show("Success");
+            }
+            else
+            {
+                MessageBox.Show("Error");
+            }
+
+            cn.Close();
+
         }
     }
 }
