@@ -421,7 +421,7 @@
             this.panel_signUp.Controls.Add(this.button_regist_user);
             this.panel_signUp.Controls.Add(this.tableLayoutPanel1);
             this.panel_signUp.Controls.Add(this.button6);
-            this.panel_signUp.Location = new System.Drawing.Point(244, 0);
+            this.panel_signUp.Location = new System.Drawing.Point(206, 0);
             this.panel_signUp.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.panel_signUp.Name = "panel_signUp";
             this.panel_signUp.Size = new System.Drawing.Size(764, 889);
@@ -1598,7 +1598,7 @@
             this.panel1.Location = new System.Drawing.Point(2, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1329, 945);
+            this.panel1.Size = new System.Drawing.Size(1252, 945);
             this.panel1.TabIndex = 13;
             // 
             // panel2
@@ -1607,7 +1607,7 @@
             this.panel2.Location = new System.Drawing.Point(2, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1306, 889);
+            this.panel2.Size = new System.Drawing.Size(1241, 889);
             this.panel2.TabIndex = 13;
             this.panel2.Visible = false;
             // 
