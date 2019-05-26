@@ -17,7 +17,7 @@ alter table GamesDB.Releases drop constraint releasesPlatform;
 alter table GamesDB.Tournments drop constraint tournmentGame;
 alter table GamesDB.GameDeveloper drop constraint developerGameDeveloper;
 alter table GamesDB.GameDeveloper drop constraint gameDeveloperGame;
-alter table GamesDB.[Admin] drop constraint admin_user
+alter table GamesDB.[Admin] drop constraint admin_user;
 
 drop table GamesDB.[Users];
 drop table GamesDB.[Admin];

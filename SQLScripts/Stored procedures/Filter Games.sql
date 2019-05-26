@@ -36,7 +36,7 @@ as
 		if @genreID <> 'None'
 		begin
 			insert into @tempTable
-			select tt.*
+			select distinct tt.*
 			from @tempTable tt join GamesDB.GameGenre on tt.GameID=GamesDB.GameGenre.GameID
 			where GenreID = @genreID and not exists (select * from GamesDB.Games where GameID=GamesDB.GameGenre.GameID)
 
