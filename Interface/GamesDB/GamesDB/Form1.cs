@@ -359,14 +359,11 @@ namespace GamesDB
 
         class myPicture : PictureBox
         {
-            private int property, total_people;
-            private Image property_Image;
-            private bool bed;
+            private int id;
+            private Image image;
 
-            public Image Property_Image { get => property_Image; set => property_Image = value; }
-            public int Property { get => property; set => property = value; }
-            public int Total_people { get => total_people; set => total_people = value; }
-            public bool Bed { get => bed; set => bed = value; }
+            public Image MyImage { get => image; set => image = value; }
+            public int ID { get => id; set => id = value; }
         }
 
         private void load_games(int paginacao)
@@ -400,6 +397,7 @@ namespace GamesDB
                     Panel x = new Panel();
                     myPicture pic = new myPicture();
                     pic.Click += new EventHandler(pic_Click);
+                    pic.ID = (int)reader["GameID"];
 
                     tableLayoutPanel2.RowCount++;
                     x.Location = new System.Drawing.Point(24, 111);
@@ -487,8 +485,10 @@ namespace GamesDB
         private void pic_Click(object sender, EventArgs e)
         {
             myPicture temp = (myPicture)sender;
-            MessageBox.Show("image click");
-            ;
+            int id = (int)temp.GetType().GetProperty("ID").GetValue(obj: temp, index: null);
+            Image img = (Image)temp.GetType().GetProperty("Image").GetValue(obj: temp, index: null);
+            Form2 new_form = new Form2(id, img);
+            new_form.ShowDialog();
         }
 
         private void button19_Click(object sender, EventArgs e)
