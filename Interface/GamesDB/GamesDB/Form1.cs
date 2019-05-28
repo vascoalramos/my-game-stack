@@ -14,7 +14,7 @@ namespace GamesDB
         private SqlConnection cn;
         private int pageSize = 10;
         private int pageNumber = 1;
-        String current_user = "";
+        private String current_user = "";
 
         public Form1()
         {
@@ -234,60 +234,63 @@ namespace GamesDB
                     comboBox6.Text = "None";
                     comboBox7.Text = "None";
                     load_games(pageNumber);
-                    if (!verifySGBDConnection())
-                        return;
-                    string id, name;
-
-                    cmd = new SqlCommand("select * from GamesDB.Genres", cn);
-                    try
+                    if (comboBox2.Items.Count == 1 && comboBox6.Items.Count == 1 && comboBox7.Items.Count == 1)
                     {
-                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        if (!verifySGBDConnection())
+                            return;
+                        string id, name;
+
+                        cmd = new SqlCommand("select * from GamesDB.Genres", cn);
+                        try
                         {
-                            while (reader.Read())
+                            using (SqlDataReader reader = cmd.ExecuteReader())
                             {
-                                id = reader["GenreID"].ToString();
-                                name = reader["Name"].ToString();
-                                comboBox2.Items.Add(id + " - " + name);
+                                while (reader.Read())
+                                {
+                                    id = reader["GenreID"].ToString();
+                                    name = reader["Name"].ToString();
+                                    comboBox2.Items.Add(id + " - " + name);
+                                }
                             }
                         }
-                    }
-                    catch { }
+                        catch { }
 
-                    if (!verifySGBDConnection())
-                        return;
-                    cmd = new SqlCommand("select * from GamesDB.Franchises", cn);
-                    try
-                    {
-                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        if (!verifySGBDConnection())
+                            return;
+                        cmd = new SqlCommand("select * from GamesDB.Franchises", cn);
+                        try
                         {
-                            while (reader.Read())
+                            using (SqlDataReader reader = cmd.ExecuteReader())
                             {
-                                id = reader["FranchiseID"].ToString();
-                                name = reader["Name"].ToString();
-                                comboBox6.Items.Add(id + " - " + name);
-                                Debug.WriteLine(id + " - " + name);
+                                while (reader.Read())
+                                {
+                                    id = reader["FranchiseID"].ToString();
+                                    name = reader["Name"].ToString();
+                                    comboBox6.Items.Add(id + " - " + name);
+                                }
                             }
                         }
-                    }
-                    catch { }
+                        catch { }
 
-                    if (!verifySGBDConnection())
-                        return;
-                    cmd = new SqlCommand("select * from GamesDB.Publishers", cn);
-                    try
-                    {
-                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        if (!verifySGBDConnection())
+                            return;
+                        cmd = new SqlCommand("select * from GamesDB.Publishers", cn);
+                        try
                         {
-                            while (reader.Read())
+                            using (SqlDataReader reader = cmd.ExecuteReader())
                             {
-                                id = reader["PublisherID"].ToString();
-                                name = reader["Name"].ToString();
-                                comboBox7.Items.Add(id + " - " + name);
+                                while (reader.Read())
+                                {
+                                    id = reader["PublisherID"].ToString();
+                                    name = reader["Name"].ToString();
+                                    comboBox7.Items.Add(id + " - " + name);
+                                }
                             }
                         }
+                        catch { }
+                        cn.Close();
                     }
-                    catch { }
-                    cn.Close();
+                   
                     break;
 
                 case 1:
@@ -487,7 +490,7 @@ namespace GamesDB
             myPicture temp = (myPicture)sender;
             int id = (int)temp.GetType().GetProperty("ID").GetValue(obj: temp, index: null);
             Image img = (Image)temp.GetType().GetProperty("Image").GetValue(obj: temp, index: null);
-            Form2 new_form = new Form2(id, img);
+            Form2 new_form = new Form2(id, img, current_user);
             new_form.ShowDialog();
         }
 
@@ -629,6 +632,7 @@ namespace GamesDB
                     Panel x = new Panel();
                     myPicture pic = new myPicture();
                     pic.Click += new EventHandler(pic_Click);
+                    pic.ID = (int)reader["GameID"];
 
                     tableLayoutPanel2.RowCount++;
                     x.Location = new System.Drawing.Point(24, 111);
