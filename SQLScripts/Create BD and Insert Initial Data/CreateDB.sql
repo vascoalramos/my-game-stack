@@ -76,7 +76,7 @@ create table GamesDB.Games (
 	Title			varchar(100)	unique			not null,
 	LauchDate		date									,
 	[Description]	varchar(max)							,
-	PubID			int										,
+	PubID			int								not null,
 	CoverImage		varchar(max)							,
 	
 	primary key (GameID)	

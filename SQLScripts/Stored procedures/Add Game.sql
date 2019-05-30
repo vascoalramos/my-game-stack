@@ -60,6 +60,11 @@ BEGIN
 	SET NOCOUNT ON
 	BEGIN TRANSACTION
 		BEGIN TRY
+			IF @franchise = ''
+			BEGIN
+				SET @franchise = NULL
+			END
+
 			INSERT INTO GamesDB.[Games] (Title, LauchDate, [Description], PubID, CoverImage)
 			VALUES (@game_name, @launch_date, @description, @publisher, @photo)
 	

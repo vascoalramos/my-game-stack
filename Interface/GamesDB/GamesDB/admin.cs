@@ -656,22 +656,70 @@ namespace GamesDB
             string owner = textBox15.Text;
             string releaseDate = textBox14.Text;
 
+            Boolean error = false;
+
+
+            if (!string.IsNullOrEmpty(releaseDate))
+            {
+                Boolean errorFound = false;
+                if (releaseDate.Split('-').Length < 3)
+                {
+                    MessageBox.Show("Invalid date! Format should be: yyyy-mm-dd", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    errorFound = true;
+                }
+                else if (!errorFound && (releaseDate.Split('-')[0].Length < 4 || Convert.ToInt16(releaseDate.Split('-')[0]) < 0))
+                {
+                    MessageBox.Show("Invalid date: invalid YEAR! Format should be: yyyy-mm-dd", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    errorFound = true;
+                }
+
+                else if (!errorFound && (releaseDate.Split('-')[1].Length < 2 || Convert.ToInt16(releaseDate.Split('-')[1]) < 1 || Convert.ToInt16(releaseDate.Split('-')[1]) > 12))
+                {
+                    MessageBox.Show("Invalid date: invalid MONTH! Format should be: yyyy-mm-dd", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    errorFound = true;
+                }
+
+                else if (!errorFound && releaseDate.Split('-')[2].Length < 2)
+                {
+                    MessageBox.Show("Invalid date: invalid DAY! Format should be: yyyy-mm-dd", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    errorFound = true;
+                }
+                else
+                {
+                    int month = Convert.ToInt16(releaseDate.Split('-')[1]);
+
+                    if (!errorFound && (releaseDate.Split('-')[2].Length < 2 || Convert.ToInt16(releaseDate.Split('-')[2]) < 1 || Convert.ToInt16(releaseDate.Split('-')[1]) > 12))
+                    {
+                        MessageBox.Show("Invalid date: invalid DAY! Format should be: yyyy-mm-dd", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else if (!errorFound && (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) && Convert.ToInt16(releaseDate.Split('-')[2]) > 31)
+                    {
+
+                        MessageBox.Show("Invalid date: invalid DAY (month doesn't have that many days)! Format should be: yyyy-mm-dd", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        errorFound = true;
+                    }
+                    else if (!errorFound && (month == 4 || month == 6 || month == 9 || month == 11) && Convert.ToInt16(releaseDate.Split('-')[2]) > 30)
+                    {
+                        MessageBox.Show("Invalid date: invalid DAY (month doesn't have that many days)! Format should be: yyyy-mm-dd", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        errorFound = true;
+                    }
+                    else if (!errorFound && month == 4 && Convert.ToInt16(releaseDate.Split('-')[2]) > 28)
+                        MessageBox.Show("Invalid date: invalid DAY (month doesn't have that many days)! Format should be: yyyy-mm-dd", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    if(errorFound)
+                        error = true;
+
+                }
+
+            }
+
             if (string.IsNullOrEmpty(platformName))
             {
-                MessageBox.Show("Genre Name has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Platform Name has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                error = true;
             }
 
-            if (string.IsNullOrEmpty(owner))
-            {
-                MessageBox.Show("Platform manufactor has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            if (string.IsNullOrEmpty(releaseDate))
-            {
-                MessageBox.Show("Release Date has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            else
+            if (!error)
             {
                 SqlCommand cmd = new SqlCommand
                 {
@@ -770,14 +818,10 @@ namespace GamesDB
                 }
             }
 
-
-            if (string.IsNullOrEmpty(franchiseName))
+                if (string.IsNullOrEmpty(franchiseName))
             {
                 MessageBox.Show("Franchise Name has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
-
-
             else
             {
                 SqlCommand cmd = new SqlCommand
@@ -852,48 +896,139 @@ namespace GamesDB
             string end_date = textBox13.Text;
             string game_title = comboBox7.Text;
 
-
+            Boolean error = false;
 
             if (string.IsNullOrEmpty(tourn_name))
             {
                 MessageBox.Show("Tournment name has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                error = true;
             }
 
-            if (string.IsNullOrEmpty(prize))
+            if (!string.IsNullOrEmpty(prize))
             {
-                MessageBox.Show("Prize pool has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            try
-            {
-                Convert.ToInt64(prize);
-            }
-            catch
-            {
-                MessageBox.Show("Prize pool has to be a number!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            if (string.IsNullOrEmpty(location))
-            {
-                MessageBox.Show("Tournment location has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            if (string.IsNullOrEmpty(start_date))
-            {
-                MessageBox.Show("Starting date has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            if (string.IsNullOrEmpty(end_date))
-            {
-                MessageBox.Show("Ending date name has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                try
+                {
+                    Convert.ToInt64(prize);
+                }
+                catch
+                {
+                    MessageBox.Show("Prize pool has to be a number!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    error = true;
+                }
             }
 
             if (string.IsNullOrEmpty(game_title) || game_title == "None")
             {
                 MessageBox.Show("Tournment's game has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                error = true;
             }
 
-            else
+            if (!string.IsNullOrEmpty(end_date))
+            {
+                Boolean errorFound2 = false;
+                if (end_date.Split('-').Length < 3)
+                {
+                    MessageBox.Show("Invalid end date! Format should be: yyyy-mm-dd", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    errorFound2 = true;
+                }
+                else if (!errorFound2 && (end_date.Split('-')[0].Length < 4 || Convert.ToInt16(end_date.Split('-')[0]) < 0))
+                {
+                    MessageBox.Show("Invalid end date: invalid YEAR! Format should be: yyyy-mm-dd", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    errorFound2 = true;
+                }
+
+                else if (!errorFound2 && (end_date.Split('-')[1].Length < 2 || Convert.ToInt16(end_date.Split('-')[1]) < 1 || Convert.ToInt16(end_date.Split('-')[1]) > 12))
+                {
+                    MessageBox.Show("Invalid end date: invalid MONTH! Format should be: yyyy-mm-dd", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    errorFound2 = true;
+                }
+
+                else if (!errorFound2 && end_date.Split('-')[2].Length < 2)
+                {
+                    MessageBox.Show("Invalid end date: invalid DAY! Format should be: yyyy-mm-dd", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    errorFound2 = true;
+                }
+                else
+                {
+                    int month = Convert.ToInt16(end_date.Split('-')[1]);
+
+                    if (!errorFound2 && (end_date.Split('-')[2].Length < 2 || Convert.ToInt16(end_date.Split('-')[2]) < 1 || Convert.ToInt16(end_date.Split('-')[1]) > 12))
+                    {
+                        MessageBox.Show("Invalid end date: invalid DAY! Format should be: yyyy-mm-dd", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else if (!errorFound2 && (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) && Convert.ToInt16(end_date.Split('-')[2]) > 31)
+                    {
+
+                        MessageBox.Show("Invalid end date: invalid DAY (month doesn't have that many days)! Format should be: yyyy-mm-dd", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        errorFound2 = true;
+                    }
+                    else if (!errorFound2 && (month == 4 || month == 6 || month == 9 || month == 11) && Convert.ToInt16(end_date.Split('-')[2]) > 30)
+                    {
+                        MessageBox.Show("Invalid end date: invalid DAY (month doesn't have that many days)! Format should be: yyyy-mm-dd", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        errorFound2 = true;
+                    }
+                    else if (!errorFound2 && month == 4 && Convert.ToInt16(end_date.Split('-')[2]) > 28)
+                        MessageBox.Show("Invalid end date: invalid DAY (month doesn't have that many days)! Format should be: yyyy-mm-dd", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    if (errorFound2)
+                        error = true;
+
+                }
+            }
+
+            if (!string.IsNullOrEmpty(start_date))
+                {
+                Boolean errorFound = false;
+                    if (start_date.Split('-').Length < 3)
+                    {
+                        MessageBox.Show("Invalid start date! Format should be: yyyy-mm-dd", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        errorFound = true;
+                    }
+                    else if (!errorFound && (start_date.Split('-')[0].Length < 4 || Convert.ToInt16(start_date.Split('-')[0]) < 0))
+                    {
+                        MessageBox.Show("Invalid start date: invalid YEAR! Format should be: yyyy-mm-dd", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        errorFound = true;
+                    }
+
+                    else if (!errorFound && (start_date.Split('-')[1].Length < 2 || Convert.ToInt16(start_date.Split('-')[1]) < 1 || Convert.ToInt16(start_date.Split('-')[1]) > 12))
+                    {
+                        MessageBox.Show("Invalid start date: invalid MONTH! Format should be: yyyy-mm-dd", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        errorFound = true;
+                    }
+
+                    else if (!errorFound && start_date.Split('-')[2].Length < 2)
+                    {
+                        MessageBox.Show("Invalid start date: invalid DAY! Format should be: yyyy-mm-dd", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        errorFound = true;
+                    }
+                    else
+                    {
+                        int month = Convert.ToInt16(start_date.Split('-')[1]);
+
+                        if (!errorFound && (start_date.Split('-')[2].Length < 2 || Convert.ToInt16(start_date.Split('-')[2]) < 1 || Convert.ToInt16(start_date.Split('-')[1]) > 12))
+                        {
+                            MessageBox.Show("Invalid start date: invalid DAY! Format should be: yyyy-mm-dd", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else if (!errorFound && (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) && Convert.ToInt16(start_date.Split('-')[2]) > 31)
+                        {
+
+                            MessageBox.Show("Invalid start date: invalid DAY (month doesn't have that many days)! Format should be: yyyy-mm-dd", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            errorFound = true;
+                        }
+                        else if (!errorFound && (month == 4 || month == 6 || month == 9 || month == 11) && Convert.ToInt16(start_date.Split('-')[2]) > 30)
+                        {
+                            MessageBox.Show("Invalid start date: invalid DAY (month doesn't have that many days)! Format should be: yyyy-mm-dd", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            errorFound = true;
+                        }
+                        else if (!errorFound && month == 4 && Convert.ToInt16(start_date.Split('-')[2]) > 28)
+                            MessageBox.Show("Invalid start date: invalid DAY (month doesn't have that many days)! Format should be: yyyy-mm-dd", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        if (errorFound)
+                            error = true;
+                    }
+                }
+
+            if (!error)
             {
                 game_title = game_title.Split('-')[0].ToString();
                 SqlCommand cmd = new SqlCommand
@@ -1095,34 +1230,95 @@ namespace GamesDB
                 }
             }
 
-
+            Boolean error = false;
             if (string.IsNullOrEmpty(game_name))
             {
                 MessageBox.Show("Game name has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                error = true;
             }
 
             if (string.IsNullOrEmpty(publisher))
             {
                 MessageBox.Show("Publisher has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                error = true;
             }
 
             if (string.IsNullOrEmpty(developers))
             {
                 MessageBox.Show("Developer(s) has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                error = true;
+
             }
 
             if (string.IsNullOrEmpty(genres))
             {
                 MessageBox.Show("Genre has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                error = true;
             }
+
+            if (!string.IsNullOrEmpty(launch_date))
+            {
+                Boolean errorFound = false;
+                if (launch_date.Split('-').Length < 3)
+                {
+                    MessageBox.Show("Invalid launch date! Format should be: yyyy-mm-dd", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    errorFound = true;
+                }
+                else if (!errorFound && (launch_date.Split('-')[0].Length < 4 || Convert.ToInt16(launch_date.Split('-')[0]) < 0))
+                {
+                    MessageBox.Show("Invalid launch date: invalid YEAR! Format should be: yyyy-mm-dd", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    errorFound = true;
+                }
+
+                else if (!errorFound && (launch_date.Split('-')[1].Length < 2 || Convert.ToInt16(launch_date.Split('-')[1]) < 1 || Convert.ToInt16(launch_date.Split('-')[1]) > 12))
+                {
+                    MessageBox.Show("Invalid launch date: invalid MONTH! Format should be: yyyy-mm-dd", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    errorFound = true;
+                }
+
+                else if (!errorFound && launch_date.Split('-')[2].Length < 2)
+                {
+                    MessageBox.Show("Invalid launch date: invalid DAY! Format should be: yyyy-mm-dd", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    errorFound = true;
+                }
+                else
+                {
+                    int month = Convert.ToInt16(launch_date.Split('-')[1]);
+
+                    if (!errorFound && (launch_date.Split('-')[2].Length < 2 || Convert.ToInt16(launch_date.Split('-')[2]) < 1 || Convert.ToInt16(launch_date.Split('-')[1]) > 12))
+                    {
+                        MessageBox.Show("Invalid launch date: invalid DAY! Format should be: yyyy-mm-dd", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else if (!errorFound && (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) && Convert.ToInt16(launch_date.Split('-')[2]) > 31)
+                    {
+
+                        MessageBox.Show("Invalid launch date: invalid DAY (month doesn't have that many days)! Format should be: yyyy-mm-dd", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        errorFound = true;
+                    }
+                    else if (!errorFound && (month == 4 || month == 6 || month == 9 || month == 11) && Convert.ToInt16(launch_date.Split('-')[2]) > 30)
+                    {
+                        MessageBox.Show("Invalid launch date: invalid DAY (month doesn't have that many days)! Format should be: yyyy-mm-dd", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        errorFound = true;
+                    }
+                    else if (!errorFound && month == 4 && Convert.ToInt16(launch_date.Split('-')[2]) > 28)
+                        MessageBox.Show("Invalid launch date: invalid DAY (month doesn't have that many days)! Format should be: yyyy-mm-dd", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    if (errorFound)
+                        error = true;
+                }
+            }
+
 
             if (string.IsNullOrEmpty(platforms))
             {
                 MessageBox.Show("Platform has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                error = true;
+
             }
 
 
-            else
+            if(!error)
             {
                 SqlCommand cmd = new SqlCommand
                 {
