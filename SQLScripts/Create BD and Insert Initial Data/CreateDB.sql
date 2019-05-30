@@ -126,7 +126,7 @@ create table GamesDB.GameGenre (
 
 create table GamesDB.Reviews (
 	ReviewID		int				identity(1,1)	not null,	-- auto-increment feature
-	Score			int										,	-- stars
+	Score			int								not null,	-- stars
 	Title			varchar(max)					not null,
 	[Description]	varchar(max)							,
 	[Date]			date							not null,

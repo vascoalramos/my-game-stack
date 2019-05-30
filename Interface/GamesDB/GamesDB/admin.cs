@@ -1101,11 +1101,6 @@ namespace GamesDB
                 MessageBox.Show("Game name has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            if (string.IsNullOrEmpty(launch_date))
-            {
-                MessageBox.Show("Launch date has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
             if (string.IsNullOrEmpty(publisher))
             {
                 MessageBox.Show("Publisher has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -1119,11 +1114,6 @@ namespace GamesDB
             if (string.IsNullOrEmpty(genres))
             {
                 MessageBox.Show("Genre has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            if (string.IsNullOrEmpty(description))
-            {
-                MessageBox.Show("Description has to be defined!", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             if (string.IsNullOrEmpty(platforms))
@@ -1170,6 +1160,10 @@ namespace GamesDB
                         plat = temp + plat + ";";
                 }
                 platforms = temp;
+
+                if (string.IsNullOrEmpty(franchise)) {
+                    franchise = "None";
+                }
 
                 cmd.Parameters.Add(new SqlParameter("@game_name", SqlDbType.VarChar));
                 cmd.Parameters.Add(new SqlParameter("@launch_date", SqlDbType.VarChar));

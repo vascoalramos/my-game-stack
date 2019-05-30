@@ -21,8 +21,8 @@ namespace GamesDB
         public Form3(int gameID, String user)
         {
             InitializeComponent();
-            load_reviews(gameID);
             this.current_user = user;
+            load_reviews(gameID);
         }
 
         private SqlConnection getSGBDConnection()
@@ -45,13 +45,11 @@ namespace GamesDB
         {
             SqlCommand cmd;
             cmd = new SqlCommand("select * from GamesDB.gameReviews ('" + gameID + "')", cn);
-
             if (!verifySGBDConnection())
                 return;
             cmd.Connection = cn;
 
             listView1.Items.Clear();
-            int count = 0;
             using (SqlDataReader reader = cmd.ExecuteReader())
             {
                 
@@ -66,10 +64,10 @@ namespace GamesDB
                     var lvi = new ListViewItem(row);
                     listView1.View = View.Details;
                     listView1.Items.Add(lvi);
-                    count++;
+                    if (current_user == userName)
+                        button1.Enabled = true;
                 }
             }
-            Debug.WriteLine(count);
             cn.Close();
 
         }

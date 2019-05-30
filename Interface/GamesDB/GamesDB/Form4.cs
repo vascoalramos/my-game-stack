@@ -20,7 +20,6 @@ namespace GamesDB
         {
             InitializeComponent();
             this.current_user = user;
-            MessageBox.Show(current_user);
         }
     }
 }

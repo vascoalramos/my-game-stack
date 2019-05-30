@@ -418,6 +418,7 @@ namespace GamesDB
                         pic.Name = "pic_" + tableLayoutPanel2.RowCount;
                         pic.TabIndex = 3;
                         pic.TabStop = false;
+
                     }
                     catch
                     {
@@ -650,6 +651,7 @@ namespace GamesDB
                         pic.Name = "pic_" + tableLayoutPanel2.RowCount;
                         pic.TabIndex = 3;
                         pic.TabStop = false;
+                        Application.DoEvents();
                     }
                     catch
                     {

@@ -66,9 +66,11 @@ BEGIN
 			SELECT TOP 1 @addedGameID=GameID FROM GamesDB.Games ORDER BY GameID DESC
 	
 			-- Franchise
-			insert into GamesDB.GameBelongsFranchise (GameID, FranchiseID)
-			values (@addedGameID, @franchise)
-
+			if @franchise <> 'None'
+			begin
+				insert into GamesDB.GameBelongsFranchise (GameID, FranchiseID)
+				values (@addedGameID, @franchise)
+			end
 
 			--Developer
 	
