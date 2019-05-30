@@ -35,7 +35,7 @@ def csv_to_sql(baseFile, sqlFile, tableName):
 
         else:
             #begin the line
-            line = "exec dbo.uspAddUser "
+            line = "exec dbo.uspAddFranchise "
 
             #counter
             
@@ -46,13 +46,14 @@ def csv_to_sql(baseFile, sqlFile, tableName):
                     line += '@responseMsg = @responseMessage OUTPUT\nprint @responseMessage'
 
                 else:
-                    value = row[i]
-                    value = value.replace("'","''")
-                    line += '@'+args[i]+' = '
-                    if(isint(value) or isfloat(value)):
-                        line += value + " , "
-                    else:
-                        line+="'"+value+"'" + " , "
+                    if i != 2:
+                        value = row[i]
+                        value = value.replace("'","''")
+                        line += '@'+args[i]+' = '
+                        if(isint(value) or isfloat(value)):
+                            line += value + " , "
+                        else:
+                            line+="'"+value+"'" + " , "
 
             # print(line)
             text_file.write(line+"\n")

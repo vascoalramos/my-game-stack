@@ -1318,7 +1318,7 @@ namespace GamesDB
             }
 
 
-            if(!error)
+            if (!error)
             {
                 SqlCommand cmd = new SqlCommand
                 {
@@ -1331,12 +1331,12 @@ namespace GamesDB
 
                 for (int i = 0; i < developers.Split(';').Length; i++)
                 {
-                    String dev = developers.Split(';')[i].Split('-')[0].Replace(" ","");
-                    if(dev.Length>0)
+                    String dev = developers.Split(';')[i].Split('-')[0].Replace(" ", "");
+                    if (dev.Length > 0)
                         temp = temp + dev + ";";
                 }
                 developers = temp;
-                Debug.WriteLine("OIOIOIOI\n\n"+ developers);
+                Debug.WriteLine("OIOIOIOI\n\n" + developers);
 
                 temp = "";
                 for (int i = 0; i < genres.Split(';').Length; i++)
@@ -1357,7 +1357,8 @@ namespace GamesDB
                 }
                 platforms = temp;
 
-                if (string.IsNullOrEmpty(franchise)) {
+                if (string.IsNullOrEmpty(franchise))
+                {
                     franchise = "None";
                 }
 
@@ -1384,15 +1385,20 @@ namespace GamesDB
                 cmd.Parameters["@platforms"].Value = platforms;
                 cmd.Parameters["@description"].Value = description;
 
-                if (franchise != "")
+                if (franchise != "None")
                 {
                     cmd.Parameters["@franchise"].Value = franchise.Split('-')[0];
                 }
+                else
+                {
+                    cmd.Parameters["@franchise"].Value = franchise;
+                }
+
 
                 cmd.Parameters["@responseMsg"].Direction = ParameterDirection.Output;
                 cmd.Parameters["@addedGameID"].Direction = ParameterDirection.Output;
 
-                if (!verifySGBDConnection())    
+                if (!verifySGBDConnection())
                     return;
                 cmd.Connection = cn;
                 cmd.ExecuteNonQuery();
@@ -1411,6 +1417,7 @@ namespace GamesDB
                 panel11.Visible = false;
 
             }
+        
         }
 
         private void button36_Click(object sender, EventArgs e)

@@ -3,17 +3,18 @@ go
 
 go
 create trigger GamesDB.OnAddToFranchise on GamesDB.GameBelongsFranchise
-instead of insert
+after insert
 as
 	begin
 		begin transaction
 			declare @franchiseID int;
 
-			SELECT @franchiseID AS FranchiseID FROM inserted;
+			SELECT @franchiseID=FranchiseID FROM inserted;
 
 			UPDATE GamesDB.Franchises
-			SET NoOfGames = (SELECT NoOfGames
+			SET NoOfGames = (SELECT distinct NoOfGames
 							FROM GamesDB.Franchises JOIN GamesDB.GameBelongsFranchise ON GamesDB.Franchises.FranchiseID = GamesDB.GameBelongsFranchise.FranchiseID
+							WHERE GamesDB.Franchises.FranchiseID = @franchiseID
 							) + 1
 			WHERE FranchiseID = @franchiseID
 

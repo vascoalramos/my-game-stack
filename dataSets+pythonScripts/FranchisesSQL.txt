@@ -1,0 +1,3 @@
+declare @responseMessage nvarchar(250);
+
+
