@@ -17,6 +17,31 @@ BEGIN
 
 	BEGIN TRY
 
+		IF @mail = ''
+		BEGIN
+			SET @mail = NULL
+		END
+
+		IF @phone = ''
+		BEGIN
+			SET @phone = NULL
+		END
+
+		IF @photo = ''
+		BEGIN
+			SET @photo = NULL
+		END
+
+		IF @city = ''
+		BEGIN
+			SET @city = NULL
+		END
+
+		IF @country = ''
+		BEGIN
+			SET @country = NULL
+		END
+
 		INSERT INTO GamesDB.[Publishers] ([Name], Email, Phone, Website, Logo, City, Country)
 		VALUES (@pub_name, @mail, @phone, @website, @photo, @city, @country)
 

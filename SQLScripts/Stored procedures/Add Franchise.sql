@@ -12,8 +12,13 @@ BEGIN
 
 	BEGIN TRY
 
+		IF @photo = ''
+		BEGIN
+			SET @photo = NULL
+		END
+
 		INSERT INTO GamesDB.[Franchises] ([Name],NoOfGames,Logo)
-		VALUES (@Name, 0, @Photo)
+		VALUES (@Name, 0, @photo)
 
 		SET @responseMsg='Success'
 	END TRY

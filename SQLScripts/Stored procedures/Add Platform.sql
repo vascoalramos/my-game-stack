@@ -12,6 +12,15 @@ BEGIN
 	SET NOCOUNT ON
 
 	BEGIN TRY
+		IF @ReleaseDate = ''
+		BEGIN
+			SET @ReleaseDate = NULL
+		END
+
+		IF @Owner = ''
+		BEGIN
+			SET @Owner = NULL
+		END
 
 		INSERT INTO GamesDB.[Platforms] ([Name],Owner,ReleaseDate)
 		VALUES (@Name, @Owner, @ReleaseDate)
