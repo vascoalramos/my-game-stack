@@ -1,8 +1,17 @@
+drop procedure GamesDB.uspAddReview
 go
-create procedure GamesDB.addReview
+
+go
+create procedure GamesDB.uspAddReview
+	@score VARCHAR(max), 
+    @title varchar(max), 
+    @description varchar(max),
+	@userName varchar(max),
+	@gameID int
+
 as
 	begin
-		insert int GamesDB.Reviews (Score, Title, [Description], [Date], UserName, GameID)
-		values ()
+		insert into GamesDB.Reviews (Score, Title, [Description], UserName, GameID)
+		values (@score, @title, @description, @userName, @gameID)
 	end
 go

@@ -53,6 +53,7 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "Submit Review";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox1
             // 
@@ -82,7 +83,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(483, 12);
+            this.label3.Location = new System.Drawing.Point(555, 12);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(55, 20);
             this.label3.TabIndex = 6;
@@ -98,7 +99,7 @@
             "3",
             "4",
             "5"});
-            this.comboBox1.Location = new System.Drawing.Point(544, 10);
+            this.comboBox1.Location = new System.Drawing.Point(616, 10);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 28);
             this.comboBox1.TabIndex = 7;
@@ -116,7 +117,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.richTextBox1);
             this.Name = "Form4";
-            this.Text = ",";
+            this.Text = "Review";
             this.ResumeLayout(false);
             this.PerformLayout();
 

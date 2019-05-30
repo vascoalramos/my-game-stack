@@ -16,12 +16,14 @@ namespace GamesDB
     {
         private SqlConnection cn;
         private String current_user = "";
+        private int gameID;
 
 
         public Form3(int gameID, String user)
         {
             InitializeComponent();
             this.current_user = user;
+            this.gameID = gameID;
             load_reviews(gameID);
         }
 
@@ -64,17 +66,22 @@ namespace GamesDB
                     var lvi = new ListViewItem(row);
                     listView1.View = View.Details;
                     listView1.Items.Add(lvi);
-                    if (current_user == userName)
-                        button1.Enabled = true;
                 }
             }
+            cmd = new SqlCommand("select GamesDB.checkGameInUser ('" + current_user + "', '" + gameID + "')", cn);
+            int valor = (int)cmd.ExecuteScalar();
+            if (valor == 1)
+            {
+                button1.Enabled = true;
+            }
+            
             cn.Close();
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form4 newForm = new Form4(this.current_user);
+            Form4 newForm = new Form4(this.current_user, this.gameID);
             newForm.ShowDialog();
         }
     }
