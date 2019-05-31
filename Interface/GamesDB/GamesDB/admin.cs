@@ -870,7 +870,7 @@ namespace GamesDB
             panel9.Visible = true;
             if (!verifySGBDConnection())
                 return;
-            SqlCommand cmd = new SqlCommand("select GameID, Title from GamesDB.Games", cn);
+            SqlCommand cmd = new SqlCommand("select GameID, Title from GamesDB.Games order by GameID", cn);
             try
             {
                 using (SqlDataReader reader = cmd.ExecuteReader())
@@ -1065,7 +1065,7 @@ namespace GamesDB
                 }
                 else
                 {
-                    MessageBox.Show("Error registering tournment!", "Registration Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("" + cmd.Parameters["@responseMsg"].Value, "Registration Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
                 cn.Close();
@@ -1097,7 +1097,7 @@ namespace GamesDB
             panel11.Visible = true;
             if (!verifySGBDConnection())
                 return;
-            SqlCommand cmd = new SqlCommand("select PublisherID, Name from GamesDB.Publishers", cn);
+            SqlCommand cmd = new SqlCommand("select PublisherID, Name from GamesDB.Publishers order by PublisherID", cn);
             try
             {
                 using (SqlDataReader reader = cmd.ExecuteReader())
@@ -1112,7 +1112,7 @@ namespace GamesDB
             }
             catch { }
 
-            cmd = new SqlCommand("select DeveloperID, Name from GamesDB.Developers", cn);
+            cmd = new SqlCommand("select DeveloperID, Name from GamesDB.Developers order by DeveloperID", cn);
             try
             {
                 using (SqlDataReader reader = cmd.ExecuteReader())
@@ -1157,7 +1157,7 @@ namespace GamesDB
             }
             catch { }
 
-            cmd = new SqlCommand("select FranchiseID, Name from GamesDB.Franchises", cn);
+            cmd = new SqlCommand("select FranchiseID, Name from GamesDB.Franchises order by FranchiseID", cn);
             try
             {
                 using (SqlDataReader reader = cmd.ExecuteReader())
@@ -1353,7 +1353,7 @@ namespace GamesDB
                 {
                     String plat = platforms.Split(';')[i].Split('-')[0].Replace(" ", "");
                     if (plat.Length > 0)
-                        plat = temp + plat + ";";
+                        temp = temp + plat + ";";
                 }
                 platforms = temp;
 
@@ -1401,7 +1401,11 @@ namespace GamesDB
                 if (!verifySGBDConnection())
                     return;
                 cmd.Connection = cn;
-                cmd.ExecuteNonQuery();
+                try
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                catch { }
 
                 if ("" + cmd.Parameters["@responseMsg"].Value == "Success")
                 {

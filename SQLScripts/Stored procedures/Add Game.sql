@@ -137,8 +137,8 @@ BEGIN
 			   FROM @SPLIT_STR3
 			   WHERE sub_str = @id3
 	
-					INSERT INTO GamesDB.[Releases] (GameID,PlatformID)
-					VALUES (@addedGameID,@working_str3)
+			   INSERT INTO GamesDB.[Releases] (GameID,PlatformID)
+			   VALUES (@addedGameID,@working_str3)
 	
 			   SELECT @id3 += 1 
 			END

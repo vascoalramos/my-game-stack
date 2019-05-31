@@ -10,7 +10,7 @@ as
 		set nocount on;
 
 		select * from GamesDB.[Franchises]
-		order by GameID asc
+		order by FranchiseID asc
 		offset @pageSize * (@pageNumber - 1) rows
 		fetch next @pageSize rows only option (recompile)
 	end

@@ -240,7 +240,7 @@ namespace GamesDB
                             return;
                         string id, name;
 
-                        cmd = new SqlCommand("select GenreID, Name from GamesDB.Genres", cn);
+                        cmd = new SqlCommand("select GenreID, Name from GamesDB.Genres order by GenreID", cn);
                         try
                         {
                             using (SqlDataReader reader = cmd.ExecuteReader())
@@ -257,7 +257,7 @@ namespace GamesDB
 
                         if (!verifySGBDConnection())
                             return;
-                        cmd = new SqlCommand("select FranchiseID, Name from GamesDB.Franchises", cn);
+                        cmd = new SqlCommand("select FranchiseID, Name from GamesDB.Franchises order by FranchiseID", cn);
                         try
                         {
                             using (SqlDataReader reader = cmd.ExecuteReader())
@@ -274,7 +274,7 @@ namespace GamesDB
 
                         if (!verifySGBDConnection())
                             return;
-                        cmd = new SqlCommand("select PublisherID, Name from GamesDB.Publishers", cn);
+                        cmd = new SqlCommand("select PublisherID, Name from GamesDB.Publishers order by PublisherID", cn);
                         try
                         {
                             using (SqlDataReader reader = cmd.ExecuteReader())
@@ -315,6 +315,7 @@ namespace GamesDB
                 case 4:
                     pageNumber = 1;
                     textBox9.Text = "";
+                    comboBox3.Text = "None";
                     load_tournments(pageNumber);
                     break;
 

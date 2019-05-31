@@ -8,7 +8,7 @@ CREATE PROCEDURE GamesDB.uspAddTournment
     @location varchar(max),
     @start_date varchar(max),
     @end_date varchar(max),
-	@game_title varchar(max),
+	@game_id varchar(max),
     @responseMsg nvarchar(250) output
 AS
 BEGIN
@@ -36,7 +36,7 @@ BEGIN
 		END
 
 		INSERT INTO GamesDB.[Tournments] (GameID,[Name],StartDate,EndDate,[Location],PrizePool)
-		VALUES (@game_title, @tourn_name, @start_date, @end_date, @location, @prize)
+		VALUES (@game_id, @tourn_name, @start_date, @end_date, @location, @prize)
 
 		SET @responseMsg='Success'
 	END TRY

@@ -478,6 +478,7 @@
             // 
             this.comboBox7.AutoCompleteCustomSource.AddRange(new string[] {
             "None"});
+            this.comboBox7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox7.FormattingEnabled = true;
             this.comboBox7.Items.AddRange(new object[] {
             "None"});
@@ -486,7 +487,6 @@
             this.comboBox7.Name = "comboBox7";
             this.comboBox7.Size = new System.Drawing.Size(183, 28);
             this.comboBox7.TabIndex = 28;
-            this.comboBox7.Text = "None";
             // 
             // label12
             // 
@@ -501,6 +501,7 @@
             // 
             this.comboBox6.AutoCompleteCustomSource.AddRange(new string[] {
             "None"});
+            this.comboBox6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox6.FormattingEnabled = true;
             this.comboBox6.Items.AddRange(new object[] {
             "None"});
@@ -509,7 +510,6 @@
             this.comboBox6.Name = "comboBox6";
             this.comboBox6.Size = new System.Drawing.Size(183, 28);
             this.comboBox6.TabIndex = 26;
-            this.comboBox6.Text = "None";
             // 
             // label9
             // 
@@ -533,6 +533,7 @@
             // 
             this.comboBox2.AutoCompleteCustomSource.AddRange(new string[] {
             "None"});
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
             "None"});
@@ -541,7 +542,6 @@
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(183, 28);
             this.comboBox2.TabIndex = 23;
-            this.comboBox2.Text = "None";
             // 
             // label5
             // 
@@ -624,6 +624,7 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "None",
@@ -634,7 +635,6 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(136, 28);
             this.comboBox1.TabIndex = 10;
-            this.comboBox1.Text = "None";
             // 
             // button9
             // 
@@ -749,6 +749,7 @@
             // 
             // comboBox11
             // 
+            this.comboBox11.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox11.FormattingEnabled = true;
             this.comboBox11.Items.AddRange(new object[] {
             "None",
@@ -759,7 +760,6 @@
             this.comboBox11.Name = "comboBox11";
             this.comboBox11.Size = new System.Drawing.Size(152, 28);
             this.comboBox11.TabIndex = 30;
-            this.comboBox11.Text = "None";
             // 
             // button3
             // 
@@ -1022,6 +1022,7 @@
             // 
             // comboBox3
             // 
+            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Items.AddRange(new object[] {
             "None",
@@ -1032,7 +1033,6 @@
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(152, 28);
             this.comboBox3.TabIndex = 54;
-            this.comboBox3.Text = "None";
             // 
             // textBox9
             // 
