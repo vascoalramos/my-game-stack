@@ -148,9 +148,6 @@ BEGIN
 		END TRY
 		BEGIN CATCH
 			SET @responseMsg=error_message()
-			declare @ErrorMessage nvarchar(max), @ErrorSeverity int, @ErrorState int;
-			select @ErrorMessage = ERROR_MESSAGE() + ' Line ' + cast(ERROR_LINE() as nvarchar(5)), @ErrorSeverity = ERROR_SEVERITY(), @ErrorState = ERROR_STATE();
-			raiserror (@ErrorMessage, @ErrorSeverity, @ErrorState); 
 		END CATCH
 	COMMIT TRANSACTION
 END

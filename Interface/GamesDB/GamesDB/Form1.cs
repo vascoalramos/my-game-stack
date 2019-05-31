@@ -240,7 +240,7 @@ namespace GamesDB
                             return;
                         string id, name;
 
-                        cmd = new SqlCommand("select * from GamesDB.Genres", cn);
+                        cmd = new SqlCommand("select GenreID, Name from GamesDB.Genres", cn);
                         try
                         {
                             using (SqlDataReader reader = cmd.ExecuteReader())
@@ -257,7 +257,7 @@ namespace GamesDB
 
                         if (!verifySGBDConnection())
                             return;
-                        cmd = new SqlCommand("select * from GamesDB.Franchises", cn);
+                        cmd = new SqlCommand("select FranchiseID, Name from GamesDB.Franchises", cn);
                         try
                         {
                             using (SqlDataReader reader = cmd.ExecuteReader())
@@ -274,7 +274,7 @@ namespace GamesDB
 
                         if (!verifySGBDConnection())
                             return;
-                        cmd = new SqlCommand("select * from GamesDB.Publishers", cn);
+                        cmd = new SqlCommand("select PublisherID, Name from GamesDB.Publishers", cn);
                         try
                         {
                             using (SqlDataReader reader = cmd.ExecuteReader())
@@ -767,7 +767,6 @@ namespace GamesDB
                     tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 206));
                     Panel x = new Panel();
                     myPicture pic = new myPicture();
-                    pic.Click += new EventHandler(pic_Click);
 
                     tableLayoutPanel5.RowCount++;
                     x.Location = new System.Drawing.Point(24, 111);
@@ -881,7 +880,6 @@ namespace GamesDB
                     tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 206));
                     Panel x = new Panel();
                     myPicture pic = new myPicture();
-                    pic.Click += new EventHandler(pic_Click);
 
                     tableLayoutPanel5.RowCount++;
                     x.Location = new System.Drawing.Point(24, 111);
@@ -1120,7 +1118,6 @@ namespace GamesDB
                     tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Absolute, 206));
                     Panel x = new Panel();
                     myPicture pic = new myPicture();
-                    pic.Click += new EventHandler(pic_Click);
 
                     tableLayoutPanel6.RowCount++;
                     x.Location = new System.Drawing.Point(24, 111);
@@ -1232,7 +1229,6 @@ namespace GamesDB
                     tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Absolute, 206));
                     Panel x = new Panel();
                     myPicture pic = new myPicture();
-                    pic.Click += new EventHandler(pic_Click);
 
                     tableLayoutPanel6.RowCount++;
                     x.Location = new System.Drawing.Point(24, 111);
@@ -1388,7 +1384,6 @@ namespace GamesDB
                     tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Absolute, 206));
                     Panel x = new Panel();
                     myPicture pic = new myPicture();
-                    pic.Click += new EventHandler(pic_Click);
 
                     tableLayoutPanel7.RowCount++;
                     x.Location = new System.Drawing.Point(24, 111);
@@ -1500,7 +1495,6 @@ namespace GamesDB
                     tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Absolute, 206));
                     Panel x = new Panel();
                     myPicture pic = new myPicture();
-                    pic.Click += new EventHandler(pic_Click);
 
                     tableLayoutPanel7.RowCount++;
                     x.Location = new System.Drawing.Point(24, 111);
@@ -1656,7 +1650,6 @@ namespace GamesDB
                     tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Absolute, 206));
                     Panel x = new Panel();
                     myPicture pic = new myPicture();
-                    pic.Click += new EventHandler(pic_Click);
 
                     tableLayoutPanel8.RowCount++;
                     x.Location = new System.Drawing.Point(24, 111);
@@ -1796,7 +1789,6 @@ namespace GamesDB
                     tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Absolute, 206));
                     Panel x = new Panel();
                     myPicture pic = new myPicture();
-                    pic.Click += new EventHandler(pic_Click);
 
                     tableLayoutPanel8.RowCount++;
                     x.Location = new System.Drawing.Point(24, 111);
@@ -1898,7 +1890,10 @@ namespace GamesDB
 
         private void button18_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            textBox2.Text = "";
+            textBox1.Text = "";
+            panel1.Visible = true;
+            panel2.Visible = false;
         }
 
         private void button17_Click(object sender, EventArgs e)

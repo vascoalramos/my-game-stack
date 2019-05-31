@@ -870,7 +870,7 @@ namespace GamesDB
             panel9.Visible = true;
             if (!verifySGBDConnection())
                 return;
-            SqlCommand cmd = new SqlCommand("select * from GamesDB.Games", cn);
+            SqlCommand cmd = new SqlCommand("select GameID, Title from GamesDB.Games", cn);
             try
             {
                 using (SqlDataReader reader = cmd.ExecuteReader())
@@ -1097,7 +1097,7 @@ namespace GamesDB
             panel11.Visible = true;
             if (!verifySGBDConnection())
                 return;
-            SqlCommand cmd = new SqlCommand("select * from GamesDB.Publishers", cn);
+            SqlCommand cmd = new SqlCommand("select PublisherID, Name from GamesDB.Publishers", cn);
             try
             {
                 using (SqlDataReader reader = cmd.ExecuteReader())
@@ -1112,7 +1112,7 @@ namespace GamesDB
             }
             catch { }
 
-            cmd = new SqlCommand("select * from GamesDB.Developers", cn);
+            cmd = new SqlCommand("select DeveloperID, Name from GamesDB.Developers", cn);
             try
             {
                 using (SqlDataReader reader = cmd.ExecuteReader())
@@ -1127,7 +1127,7 @@ namespace GamesDB
             }
             catch { }
 
-            cmd = new SqlCommand("select * from GamesDB.Genres order by GenreID", cn);
+            cmd = new SqlCommand("select GenreID, Name from GamesDB.Genres order by GenreID", cn);
             try
             {
                 using (SqlDataReader reader = cmd.ExecuteReader())
@@ -1142,7 +1142,7 @@ namespace GamesDB
             }
             catch { }
 
-            cmd = new SqlCommand("select * from GamesDB.Platforms order by PlatformID", cn);
+            cmd = new SqlCommand("select PlatformID, Name from GamesDB.Platforms order by PlatformID", cn);
             try
             {
                 using (SqlDataReader reader = cmd.ExecuteReader())
@@ -1157,7 +1157,7 @@ namespace GamesDB
             }
             catch { }
 
-            cmd = new SqlCommand("select * from GamesDB.Franchises", cn);
+            cmd = new SqlCommand("select FranchiseID, Name from GamesDB.Franchises", cn);
             try
             {
                 using (SqlDataReader reader = cmd.ExecuteReader())
