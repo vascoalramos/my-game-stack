@@ -156,5 +156,56 @@ namespace GamesDB
             Form3 new_form = new Form3(this.gameID, this.current_user);
             new_form.ShowDialog();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string list = comboBox1.Text.ToString();
+            if (string.IsNullOrEmpty(list))
+            {
+                MessageBox.Show("Please Select a List");
+            }
+            else
+            {
+                SqlCommand cmd = new SqlCommand("select GamesDB.checkGameInList ('" + current_user + "', " + gameID + ", '" + list + "')", cn);
+                if (!verifySGBDConnection())
+                    return;
+                int valor = (int)cmd.ExecuteScalar();
+                if (valor == 1)
+                {
+                    MessageBox.Show("This game already is in your '" + list + "' List!");
+                }
+                else
+                {
+                    cmd = new SqlCommand
+                    {
+                        CommandType = CommandType.StoredProcedure,
+                        CommandText = "GamesDB.uspAddGameToList"
+                    };
+                    cmd.Parameters.Add(new SqlParameter("@gameID", SqlDbType.Int));
+                    cmd.Parameters.Add(new SqlParameter("@userName", SqlDbType.VarChar));
+                    cmd.Parameters.Add(new SqlParameter("@listName", SqlDbType.VarChar));
+                    cmd.Parameters.Add(new SqlParameter("@responseMsg", SqlDbType.NVarChar, 250));
+                    cmd.Parameters["@gameID"].Value = gameID;
+                    cmd.Parameters["@userName"].Value = current_user;
+                    cmd.Parameters["@listName"].Value = list;
+                    cmd.Parameters["@responseMsg"].Direction = ParameterDirection.Output;
+
+                    if (!verifySGBDConnection())
+                        return;
+                    cmd.Connection = cn;
+                    cmd.ExecuteNonQuery();
+                    if ("" + cmd.Parameters["@responseMsg"].Value == "Success")
+                    {
+                        MessageBox.Show("Success");
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("" + cmd.Parameters["@responseMsg"].Value, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                cn.Close();
+            }
+        }
     }
 }

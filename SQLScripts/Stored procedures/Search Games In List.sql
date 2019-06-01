@@ -8,10 +8,10 @@ create procedure [GamesDB].uspSearchGamesInList
 as
 	begin
 		set nocount on;
-		select GamesDB.Games.GameID, Title, LauchDate, [Description], PubID, CoverImage
+		select *
 		from GamesDB.Games join GamesDB.GameEventList on GamesDB.Games.GameID=GamesDB.GameEventList.GameID
 			join GamesDB.[Events] on GamesDB.GameEventList.EventID=GamesDB.[Events].EventID
-		where GamesDB.[Events].UserName=@userName and GamesDB.[Events].TypeID = (select TypeID from GamesDB.EventType where Name=@listName)
+		where GamesDB.[Events].UserName=@userName and ChangeDate is null and  GamesDB.[Events].TypeID = (select TypeID from GamesDB.EventType where Name=@listName)
 		order by GamesDB.Games.GameID asc
 	end
 go
