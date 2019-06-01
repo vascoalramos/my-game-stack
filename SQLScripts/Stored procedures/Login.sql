@@ -1,6 +1,8 @@
 drop procedure GamesDB.uspLogin;
 go
 
+
+go
 create procedure GamesDB.uspLogin
     @loginName varchar(max),
     @password varchar(max),

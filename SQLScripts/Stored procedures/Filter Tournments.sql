@@ -1,5 +1,7 @@
 drop procedure GamesDB.uspFilterTournments;
 go
+
+go
 create procedure [GamesDB].uspFilterTournments
 	@pageSize int,
 	@pageNumber int,
