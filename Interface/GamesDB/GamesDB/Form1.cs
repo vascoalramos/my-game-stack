@@ -80,7 +80,7 @@ namespace GamesDB
                 else
                 {
                     panel2.Visible = true;
-                    this.tabControl1.SelectTab(6);
+                    this.tabControl1.SelectTab(5);
                 }
             }
             else if ("" + cmd.Parameters["@responseMessage"].Value == "Incorrect password")
@@ -179,6 +179,7 @@ namespace GamesDB
                     MessageBox.Show("Sign Up succedeed!\nWelcome " + username + "!\nYou are now loged in");
                     panel_signUp.Visible = false;
                     panel2.Visible = true;
+                    this.tabControl1.SelectTab(5);
                 }
                 else
                 {
@@ -348,9 +349,8 @@ namespace GamesDB
                     break;
 
                 case 6:
-                    break;
-
-                case 7:
+                    this.tabControl2.SelectTab(0);
+                    load_games_playing();
                     break;
             }
         }
@@ -1888,7 +1888,6 @@ namespace GamesDB
             cn.Close();
         }
 
-
         private void button18_Click(object sender, EventArgs e)
         {
             textBox2.Text = "";
@@ -1958,5 +1957,587 @@ namespace GamesDB
                 button15.Enabled = false;
             }
         }
+
+        public void tabControl2_Selected(object sender, TabControlEventArgs e)
+        {
+            switch ((sender as TabControl).SelectedIndex)
+            {
+                case 0:
+                    load_games_playing();
+                    break;
+
+                case 1:
+                    load_games_planToPlay();
+                    break;
+
+                case 2:
+                    load_games_wishList();
+                    break;
+
+                case 3:
+                    load_games_completed();
+                    break;
+
+                case 4:
+                    load_games_dropped();
+                    break;
+            }
+        }
+
+        private void load_games_playing()
+        {
+            tableLayoutPanel9.Controls.Clear();
+            tableLayoutPanel9.RowStyles.Clear();
+            tableLayoutPanel9.ColumnStyles.Clear();
+            tableLayoutPanel9.ColumnCount = 1;
+            tableLayoutPanel9.RowCount = 0;
+            tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            SqlCommand cmd = new SqlCommand
+            {
+                CommandType = CommandType.StoredProcedure,
+                CommandText = "GamesDB.uspSearchGamesInList"
+            };
+            cmd.Parameters.Add(new SqlParameter("@listName", SqlDbType.VarChar));
+            cmd.Parameters.Add(new SqlParameter("@userName", SqlDbType.VarChar));
+            cmd.Parameters["@listName"].Value = "Playing";
+            cmd.Parameters["@userName"].Value = current_user;
+
+            if (!verifySGBDConnection())
+                return;
+            cmd.Connection = cn;
+
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Absolute, 206));
+                    Panel x = new Panel();
+                    myPicture pic = new myPicture();
+                    pic.Click += new EventHandler(pic_Click);
+                    pic.ID = (int)reader["GameID"];
+
+                    tableLayoutPanel9.RowCount++;
+                    x.Location = new System.Drawing.Point(24, 111);
+                    x.Size = new System.Drawing.Size(1010, 204);
+                    x.TabIndex = 3;
+                    try
+                    {
+                        byte[] bytes = System.Convert.FromBase64String(reader["CoverImage"].ToString());
+                        var image = new MemoryStream(bytes);
+                        Image imgStream = Image.FromStream(image);
+                        pic.Image = imgStream;
+                        pic.SizeMode = PictureBoxSizeMode.StretchImage;
+                        pic.Location = new System.Drawing.Point(20, 28);
+                        pic.Size = new System.Drawing.Size(180, 150);
+                        pic.Name = "pic_" + tableLayoutPanel2.RowCount;
+                        pic.TabIndex = 3;
+                        pic.TabStop = false;
+
+                    }
+                    catch
+                    {
+                        pic.Image = null;
+                        pic.SizeMode = PictureBoxSizeMode.StretchImage;
+                        pic.Location = new System.Drawing.Point(20, 28);
+                        pic.Size = new System.Drawing.Size(180, 150);
+                        pic.Name = "pic_" + tableLayoutPanel9.RowCount;
+                        pic.TabIndex = 3;
+                        pic.TabStop = false;
+                    }
+
+                    Label lb9 = new Label();
+                    Label lb10 = new Label();
+                    Label lb11 = new Label();
+                    Label lb12 = new Label();
+
+                    lb12.AutoSize = true;
+                    lb12.Location = new System.Drawing.Point(305, 140);
+                    lb12.TabIndex = 3;
+                    lb12.MaximumSize = new System.Drawing.Size(100, 20);
+
+                    lb11.AutoSize = true;
+                    lb11.Location = new System.Drawing.Point(220, 140);
+                    lb11.TabIndex = 3;
+                    lb11.MaximumSize = new System.Drawing.Size(100, 20);
+
+                    lb10.AutoSize = true;
+                    lb10.Location = new System.Drawing.Point(220, 53);
+                    lb10.TabIndex = 2;
+                    lb10.MaximumSize = new System.Drawing.Size(425, 80);
+
+                    lb9.AutoSize = true;
+                    lb9.Font = new Font(lb9.Font, FontStyle.Bold);
+                    lb9.Location = new System.Drawing.Point(220, 28);
+                    lb9.MaximumSize = new System.Drawing.Size(200, 15);
+                    lb9.TabIndex = 1;
+
+                    lb9.Name = "label9_" + tableLayoutPanel9.RowCount;
+                    lb10.Name = "label10_" + tableLayoutPanel9.RowCount;
+                    lb11.Name = "label11_" + tableLayoutPanel9.RowCount;
+                    lb12.Name = "label12_" + tableLayoutPanel9.RowCount;
+
+                    lb9.Text = reader["GameID"].ToString() + " - " + reader["Title"].ToString();
+                    lb10.Text = reader["Description"].ToString();
+                    lb11.Font = new Font(lb11.Font, FontStyle.Bold);
+                    lb11.Text = "Launch Date:";
+                    lb12.Text = reader["LauchDate"].ToString();
+
+                    x.Controls.Add(pic);
+                    x.Controls.Add(lb9);
+                    x.Controls.Add(lb10);
+                    x.Controls.Add(lb11);
+                    x.Controls.Add(lb12);
+
+                    tableLayoutPanel9.Controls.Add(x, 0, tableLayoutPanel9.RowCount - 1);
+                }
+            }
+
+            cn.Close();
+        }
+
+        private void load_games_planToPlay()
+        {
+            tableLayoutPanel10.Controls.Clear();
+            tableLayoutPanel10.RowStyles.Clear();
+            tableLayoutPanel10.ColumnStyles.Clear();
+            tableLayoutPanel10.ColumnCount = 1;
+            tableLayoutPanel10.RowCount = 0;
+            tableLayoutPanel10.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            SqlCommand cmd = new SqlCommand
+            {
+                CommandType = CommandType.StoredProcedure,
+                CommandText = "GamesDB.uspSearchGamesInList"
+            };
+            cmd.Parameters.Add(new SqlParameter("@listName", SqlDbType.VarChar));
+            cmd.Parameters.Add(new SqlParameter("@userName", SqlDbType.VarChar));
+            cmd.Parameters["@listName"].Value = "Plan To Play";
+            cmd.Parameters["@userName"].Value = current_user;
+
+            if (!verifySGBDConnection())
+                return;
+            cmd.Connection = cn;
+
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    tableLayoutPanel10.RowStyles.Add(new RowStyle(SizeType.Absolute, 206));
+                    Panel x = new Panel();
+                    myPicture pic = new myPicture();
+                    pic.Click += new EventHandler(pic_Click);
+                    pic.ID = (int)reader["GameID"];
+
+                    tableLayoutPanel10.RowCount++;
+                    x.Location = new System.Drawing.Point(24, 111);
+                    x.Size = new System.Drawing.Size(1010, 204);
+                    x.TabIndex = 3;
+                    try
+                    {
+                        byte[] bytes = System.Convert.FromBase64String(reader["CoverImage"].ToString());
+                        var image = new MemoryStream(bytes);
+                        Image imgStream = Image.FromStream(image);
+                        pic.Image = imgStream;
+                        pic.SizeMode = PictureBoxSizeMode.StretchImage;
+                        pic.Location = new System.Drawing.Point(20, 28);
+                        pic.Size = new System.Drawing.Size(180, 150);
+                        pic.Name = "pic_" + tableLayoutPanel2.RowCount;
+                        pic.TabIndex = 3;
+                        pic.TabStop = false;
+
+                    }
+                    catch
+                    {
+                        pic.Image = null;
+                        pic.SizeMode = PictureBoxSizeMode.StretchImage;
+                        pic.Location = new System.Drawing.Point(20, 28);
+                        pic.Size = new System.Drawing.Size(180, 150);
+                        pic.Name = "pic_" + tableLayoutPanel10.RowCount;
+                        pic.TabIndex = 3;
+                        pic.TabStop = false;
+                    }
+
+                    Label lb9 = new Label();
+                    Label lb10 = new Label();
+                    Label lb11 = new Label();
+                    Label lb12 = new Label();
+
+                    lb12.AutoSize = true;
+                    lb12.Location = new System.Drawing.Point(305, 140);
+                    lb12.TabIndex = 3;
+                    lb12.MaximumSize = new System.Drawing.Size(100, 20);
+
+                    lb11.AutoSize = true;
+                    lb11.Location = new System.Drawing.Point(220, 140);
+                    lb11.TabIndex = 3;
+                    lb11.MaximumSize = new System.Drawing.Size(100, 20);
+
+                    lb10.AutoSize = true;
+                    lb10.Location = new System.Drawing.Point(220, 53);
+                    lb10.TabIndex = 2;
+                    lb10.MaximumSize = new System.Drawing.Size(425, 80);
+
+                    lb9.AutoSize = true;
+                    lb9.Font = new Font(lb9.Font, FontStyle.Bold);
+                    lb9.Location = new System.Drawing.Point(220, 28);
+                    lb9.MaximumSize = new System.Drawing.Size(200, 15);
+                    lb9.TabIndex = 1;
+
+                    lb9.Name = "label9_" + tableLayoutPanel10.RowCount;
+                    lb10.Name = "label10_" + tableLayoutPanel10.RowCount;
+                    lb11.Name = "label11_" + tableLayoutPanel10.RowCount;
+                    lb12.Name = "label12_" + tableLayoutPanel10.RowCount;
+
+                    lb9.Text = reader["GameID"].ToString() + " - " + reader["Title"].ToString();
+                    lb10.Text = reader["Description"].ToString();
+                    lb11.Font = new Font(lb11.Font, FontStyle.Bold);
+                    lb11.Text = "Launch Date:";
+                    lb12.Text = reader["LauchDate"].ToString();
+
+                    x.Controls.Add(pic);
+                    x.Controls.Add(lb9);
+                    x.Controls.Add(lb10);
+                    x.Controls.Add(lb11);
+                    x.Controls.Add(lb12);
+
+                    tableLayoutPanel10.Controls.Add(x, 0, tableLayoutPanel10.RowCount - 1);
+                }
+            }
+
+            cn.Close();
+        }
+
+        private void load_games_wishList()
+        {
+            tableLayoutPanel11.Controls.Clear();
+            tableLayoutPanel11.RowStyles.Clear();
+            tableLayoutPanel11.ColumnStyles.Clear();
+            tableLayoutPanel11.ColumnCount = 1;
+            tableLayoutPanel11.RowCount = 0;
+            tableLayoutPanel11.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            SqlCommand cmd = new SqlCommand
+            {
+                CommandType = CommandType.StoredProcedure,
+                CommandText = "GamesDB.uspSearchGamesInList"
+            };
+            cmd.Parameters.Add(new SqlParameter("@listName", SqlDbType.VarChar));
+            cmd.Parameters.Add(new SqlParameter("@userName", SqlDbType.VarChar));
+            cmd.Parameters["@listName"].Value = "WishList";
+            cmd.Parameters["@userName"].Value = current_user;
+
+            if (!verifySGBDConnection())
+                return;
+            cmd.Connection = cn;
+
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    tableLayoutPanel11.RowStyles.Add(new RowStyle(SizeType.Absolute, 206));
+                    Panel x = new Panel();
+                    myPicture pic = new myPicture();
+                    pic.Click += new EventHandler(pic_Click);
+                    pic.ID = (int)reader["GameID"];
+
+                    tableLayoutPanel11.RowCount++;
+                    x.Location = new System.Drawing.Point(24, 111);
+                    x.Size = new System.Drawing.Size(1010, 204);
+                    x.TabIndex = 3;
+                    try
+                    {
+                        byte[] bytes = System.Convert.FromBase64String(reader["CoverImage"].ToString());
+                        var image = new MemoryStream(bytes);
+                        Image imgStream = Image.FromStream(image);
+                        pic.Image = imgStream;
+                        pic.SizeMode = PictureBoxSizeMode.StretchImage;
+                        pic.Location = new System.Drawing.Point(20, 28);
+                        pic.Size = new System.Drawing.Size(180, 150);
+                        pic.Name = "pic_" + tableLayoutPanel2.RowCount;
+                        pic.TabIndex = 3;
+                        pic.TabStop = false;
+
+                    }
+                    catch
+                    {
+                        pic.Image = null;
+                        pic.SizeMode = PictureBoxSizeMode.StretchImage;
+                        pic.Location = new System.Drawing.Point(20, 28);
+                        pic.Size = new System.Drawing.Size(180, 150);
+                        pic.Name = "pic_" + tableLayoutPanel11.RowCount;
+                        pic.TabIndex = 3;
+                        pic.TabStop = false;
+                    }
+
+                    Label lb9 = new Label();
+                    Label lb10 = new Label();
+                    Label lb11 = new Label();
+                    Label lb12 = new Label();
+
+                    lb12.AutoSize = true;
+                    lb12.Location = new System.Drawing.Point(305, 140);
+                    lb12.TabIndex = 3;
+                    lb12.MaximumSize = new System.Drawing.Size(100, 20);
+
+                    lb11.AutoSize = true;
+                    lb11.Location = new System.Drawing.Point(220, 140);
+                    lb11.TabIndex = 3;
+                    lb11.MaximumSize = new System.Drawing.Size(100, 20);
+
+                    lb10.AutoSize = true;
+                    lb10.Location = new System.Drawing.Point(220, 53);
+                    lb10.TabIndex = 2;
+                    lb10.MaximumSize = new System.Drawing.Size(425, 80);
+
+                    lb9.AutoSize = true;
+                    lb9.Font = new Font(lb9.Font, FontStyle.Bold);
+                    lb9.Location = new System.Drawing.Point(220, 28);
+                    lb9.MaximumSize = new System.Drawing.Size(200, 15);
+                    lb9.TabIndex = 1;
+
+                    lb9.Name = "label9_" + tableLayoutPanel11.RowCount;
+                    lb10.Name = "label10_" + tableLayoutPanel11.RowCount;
+                    lb11.Name = "label11_" + tableLayoutPanel11.RowCount;
+                    lb12.Name = "label12_" + tableLayoutPanel11.RowCount;
+
+                    lb9.Text = reader["GameID"].ToString() + " - " + reader["Title"].ToString();
+                    lb10.Text = reader["Description"].ToString();
+                    lb11.Font = new Font(lb11.Font, FontStyle.Bold);
+                    lb11.Text = "Launch Date:";
+                    lb12.Text = reader["LauchDate"].ToString();
+
+                    x.Controls.Add(pic);
+                    x.Controls.Add(lb9);
+                    x.Controls.Add(lb10);
+                    x.Controls.Add(lb11);
+                    x.Controls.Add(lb12);
+
+                    tableLayoutPanel11.Controls.Add(x, 0, tableLayoutPanel11.RowCount - 1);
+                }
+            }
+
+            cn.Close();
+        }
+
+        private void load_games_completed()
+        {
+            tableLayoutPanel12.Controls.Clear();
+            tableLayoutPanel12.RowStyles.Clear();
+            tableLayoutPanel12.ColumnStyles.Clear();
+            tableLayoutPanel12.ColumnCount = 1;
+            tableLayoutPanel12.RowCount = 0;
+            tableLayoutPanel12.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            SqlCommand cmd = new SqlCommand
+            {
+                CommandType = CommandType.StoredProcedure,
+                CommandText = "GamesDB.uspSearchGamesInList"
+            };
+            cmd.Parameters.Add(new SqlParameter("@listName", SqlDbType.VarChar));
+            cmd.Parameters.Add(new SqlParameter("@userName", SqlDbType.VarChar));
+            cmd.Parameters["@listName"].Value = "Completed";
+            cmd.Parameters["@userName"].Value = current_user;
+
+            if (!verifySGBDConnection())
+                return;
+            cmd.Connection = cn;
+
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    tableLayoutPanel12.RowStyles.Add(new RowStyle(SizeType.Absolute, 206));
+                    Panel x = new Panel();
+                    myPicture pic = new myPicture();
+                    pic.Click += new EventHandler(pic_Click);
+                    pic.ID = (int)reader["GameID"];
+
+                    tableLayoutPanel12.RowCount++;
+                    x.Location = new System.Drawing.Point(24, 111);
+                    x.Size = new System.Drawing.Size(1010, 204);
+                    x.TabIndex = 3;
+                    try
+                    {
+                        byte[] bytes = System.Convert.FromBase64String(reader["CoverImage"].ToString());
+                        var image = new MemoryStream(bytes);
+                        Image imgStream = Image.FromStream(image);
+                        pic.Image = imgStream;
+                        pic.SizeMode = PictureBoxSizeMode.StretchImage;
+                        pic.Location = new System.Drawing.Point(20, 28);
+                        pic.Size = new System.Drawing.Size(180, 150);
+                        pic.Name = "pic_" + tableLayoutPanel2.RowCount;
+                        pic.TabIndex = 3;
+                        pic.TabStop = false;
+
+                    }
+                    catch
+                    {
+                        pic.Image = null;
+                        pic.SizeMode = PictureBoxSizeMode.StretchImage;
+                        pic.Location = new System.Drawing.Point(20, 28);
+                        pic.Size = new System.Drawing.Size(180, 150);
+                        pic.Name = "pic_" + tableLayoutPanel12.RowCount;
+                        pic.TabIndex = 3;
+                        pic.TabStop = false;
+                    }
+
+                    Label lb9 = new Label();
+                    Label lb10 = new Label();
+                    Label lb11 = new Label();
+                    Label lb12 = new Label();
+
+                    lb12.AutoSize = true;
+                    lb12.Location = new System.Drawing.Point(305, 140);
+                    lb12.TabIndex = 3;
+                    lb12.MaximumSize = new System.Drawing.Size(100, 20);
+
+                    lb11.AutoSize = true;
+                    lb11.Location = new System.Drawing.Point(220, 140);
+                    lb11.TabIndex = 3;
+                    lb11.MaximumSize = new System.Drawing.Size(100, 20);
+
+                    lb10.AutoSize = true;
+                    lb10.Location = new System.Drawing.Point(220, 53);
+                    lb10.TabIndex = 2;
+                    lb10.MaximumSize = new System.Drawing.Size(425, 80);
+
+                    lb9.AutoSize = true;
+                    lb9.Font = new Font(lb9.Font, FontStyle.Bold);
+                    lb9.Location = new System.Drawing.Point(220, 28);
+                    lb9.MaximumSize = new System.Drawing.Size(200, 15);
+                    lb9.TabIndex = 1;
+
+                    lb9.Name = "label9_" + tableLayoutPanel12.RowCount;
+                    lb10.Name = "label10_" + tableLayoutPanel12.RowCount;
+                    lb11.Name = "label11_" + tableLayoutPanel12.RowCount;
+                    lb12.Name = "label12_" + tableLayoutPanel12.RowCount;
+
+                    lb9.Text = reader["GameID"].ToString() + " - " + reader["Title"].ToString();
+                    lb10.Text = reader["Description"].ToString();
+                    lb11.Font = new Font(lb11.Font, FontStyle.Bold);
+                    lb11.Text = "Launch Date:";
+                    lb12.Text = reader["LauchDate"].ToString();
+
+                    x.Controls.Add(pic);
+                    x.Controls.Add(lb9);
+                    x.Controls.Add(lb10);
+                    x.Controls.Add(lb11);
+                    x.Controls.Add(lb12);
+
+                    tableLayoutPanel12.Controls.Add(x, 0, tableLayoutPanel12.RowCount - 1);
+                }
+            }
+
+            cn.Close();
+        }
+
+        private void load_games_dropped()
+        {
+            tableLayoutPanel13.Controls.Clear();
+            tableLayoutPanel13.RowStyles.Clear();
+            tableLayoutPanel13.ColumnStyles.Clear();
+            tableLayoutPanel13.ColumnCount = 1;
+            tableLayoutPanel13.RowCount = 0;
+            tableLayoutPanel13.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            SqlCommand cmd = new SqlCommand
+            {
+                CommandType = CommandType.StoredProcedure,
+                CommandText = "GamesDB.uspSearchGamesInList"
+            };
+            cmd.Parameters.Add(new SqlParameter("@listName", SqlDbType.VarChar));
+            cmd.Parameters.Add(new SqlParameter("@userName", SqlDbType.VarChar));
+            cmd.Parameters["@listName"].Value = "Dropped";
+            cmd.Parameters["@userName"].Value = current_user;
+
+            if (!verifySGBDConnection())
+                return;
+            cmd.Connection = cn;
+
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    tableLayoutPanel13.RowStyles.Add(new RowStyle(SizeType.Absolute, 206));
+                    Panel x = new Panel();
+                    myPicture pic = new myPicture();
+                    pic.Click += new EventHandler(pic_Click);
+                    pic.ID = (int)reader["GameID"];
+
+                    tableLayoutPanel13.RowCount++;
+                    x.Location = new System.Drawing.Point(24, 111);
+                    x.Size = new System.Drawing.Size(1010, 204);
+                    x.TabIndex = 3;
+                    try
+                    {
+                        byte[] bytes = System.Convert.FromBase64String(reader["CoverImage"].ToString());
+                        var image = new MemoryStream(bytes);
+                        Image imgStream = Image.FromStream(image);
+                        pic.Image = imgStream;
+                        pic.SizeMode = PictureBoxSizeMode.StretchImage;
+                        pic.Location = new System.Drawing.Point(20, 28);
+                        pic.Size = new System.Drawing.Size(180, 150);
+                        pic.Name = "pic_" + tableLayoutPanel2.RowCount;
+                        pic.TabIndex = 3;
+                        pic.TabStop = false;
+
+                    }
+                    catch
+                    {
+                        pic.Image = null;
+                        pic.SizeMode = PictureBoxSizeMode.StretchImage;
+                        pic.Location = new System.Drawing.Point(20, 28);
+                        pic.Size = new System.Drawing.Size(180, 150);
+                        pic.Name = "pic_" + tableLayoutPanel13.RowCount;
+                        pic.TabIndex = 3;
+                        pic.TabStop = false;
+                    }
+
+                    Label lb9 = new Label();
+                    Label lb10 = new Label();
+                    Label lb11 = new Label();
+                    Label lb12 = new Label();
+
+                    lb12.AutoSize = true;
+                    lb12.Location = new System.Drawing.Point(305, 140);
+                    lb12.TabIndex = 3;
+                    lb12.MaximumSize = new System.Drawing.Size(100, 20);
+
+                    lb11.AutoSize = true;
+                    lb11.Location = new System.Drawing.Point(220, 140);
+                    lb11.TabIndex = 3;
+                    lb11.MaximumSize = new System.Drawing.Size(100, 20);
+
+                    lb10.AutoSize = true;
+                    lb10.Location = new System.Drawing.Point(220, 53);
+                    lb10.TabIndex = 2;
+                    lb10.MaximumSize = new System.Drawing.Size(425, 80);
+
+                    lb9.AutoSize = true;
+                    lb9.Font = new Font(lb9.Font, FontStyle.Bold);
+                    lb9.Location = new System.Drawing.Point(220, 28);
+                    lb9.MaximumSize = new System.Drawing.Size(200, 15);
+                    lb9.TabIndex = 1;
+
+                    lb9.Name = "label9_" + tableLayoutPanel13.RowCount;
+                    lb10.Name = "label10_" + tableLayoutPanel13.RowCount;
+                    lb11.Name = "label11_" + tableLayoutPanel13.RowCount;
+                    lb12.Name = "label12_" + tableLayoutPanel13.RowCount;
+
+                    lb9.Text = reader["GameID"].ToString() + " - " + reader["Title"].ToString();
+                    lb10.Text = reader["Description"].ToString();
+                    lb11.Font = new Font(lb11.Font, FontStyle.Bold);
+                    lb11.Text = "Launch Date:";
+                    lb12.Text = reader["LauchDate"].ToString();
+
+                    x.Controls.Add(pic);
+                    x.Controls.Add(lb9);
+                    x.Controls.Add(lb10);
+                    x.Controls.Add(lb11);
+                    x.Controls.Add(lb12);
+
+                    tableLayoutPanel13.Controls.Add(x, 0, tableLayoutPanel13.RowCount - 1);
+                }
+            }
+
+            cn.Close();
+        }
+
     }
 }

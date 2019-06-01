@@ -149,6 +149,11 @@
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel_signUp.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -161,6 +166,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage7.SuspendLayout();
             this.tabControl2.SuspendLayout();
+            this.tabPage9.SuspendLayout();
+            this.tabPage8.SuspendLayout();
+            this.tabPage11.SuspendLayout();
+            this.tabPage12.SuspendLayout();
+            this.tabPage10.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -168,28 +178,29 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(572, 382);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 5);
+            this.textBox2.Location = new System.Drawing.Point(381, 248);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 1, 2, 3);
             this.textBox2.Name = "textBox2";
             this.textBox2.PasswordChar = '*';
-            this.textBox2.Size = new System.Drawing.Size(176, 26);
+            this.textBox2.Size = new System.Drawing.Size(119, 20);
             this.textBox2.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(474, 385);
+            this.label2.Location = new System.Drawing.Point(316, 250);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 20);
+            this.label2.Size = new System.Drawing.Size(56, 13);
             this.label2.TabIndex = 5;
             this.label2.Text = "Password:";
             // 
             // button_login
             // 
-            this.button_login.Location = new System.Drawing.Point(453, 506);
-            this.button_login.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.button_login.Location = new System.Drawing.Point(302, 329);
+            this.button_login.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.button_login.Name = "button_login";
-            this.button_login.Size = new System.Drawing.Size(84, 29);
+            this.button_login.Size = new System.Drawing.Size(56, 19);
             this.button_login.TabIndex = 6;
             this.button_login.Text = "Log In";
             this.button_login.UseVisualStyleBackColor = true;
@@ -197,18 +208,18 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(572, 318);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 5);
+            this.textBox1.Location = new System.Drawing.Point(381, 207);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 3);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(176, 26);
+            this.textBox1.Size = new System.Drawing.Size(119, 20);
             this.textBox1.TabIndex = 2;
             // 
             // button_signUp
             // 
-            this.button_signUp.Location = new System.Drawing.Point(572, 506);
-            this.button_signUp.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.button_signUp.Location = new System.Drawing.Point(381, 329);
+            this.button_signUp.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.button_signUp.Name = "button_signUp";
-            this.button_signUp.Size = new System.Drawing.Size(84, 29);
+            this.button_signUp.Size = new System.Drawing.Size(56, 19);
             this.button_signUp.TabIndex = 8;
             this.button_signUp.Text = "Sign Up";
             this.button_signUp.UseVisualStyleBackColor = true;
@@ -217,18 +228,19 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(470, 322);
+            this.label1.Location = new System.Drawing.Point(313, 209);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 20);
+            this.label1.Size = new System.Drawing.Size(58, 13);
             this.label1.TabIndex = 4;
             this.label1.Text = "Username:";
             // 
             // button_exit
             // 
-            this.button_exit.Location = new System.Drawing.Point(693, 506);
-            this.button_exit.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.button_exit.Location = new System.Drawing.Point(462, 329);
+            this.button_exit.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.button_exit.Name = "button_exit";
-            this.button_exit.Size = new System.Drawing.Size(84, 29);
+            this.button_exit.Size = new System.Drawing.Size(56, 19);
             this.button_exit.TabIndex = 9;
             this.button_exit.Text = "Exit";
             this.button_exit.UseVisualStyleBackColor = true;
@@ -238,9 +250,10 @@
             // 
             this.label_login.AutoSize = true;
             this.label_login.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_login.Location = new System.Drawing.Point(550, 186);
+            this.label_login.Location = new System.Drawing.Point(367, 121);
+            this.label_login.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_login.Name = "label_login";
-            this.label_login.Size = new System.Drawing.Size(117, 37);
+            this.label_login.Size = new System.Drawing.Size(80, 26);
             this.label_login.TabIndex = 1;
             this.label_login.Text = "LOGIN";
             this.label_login.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -262,8 +275,8 @@
             this.tableLayoutPanel1.Controls.Add(this.textBox_pass, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.label16, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.textBox_userName, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 98);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 64);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 6;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
@@ -272,44 +285,45 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(764, 492);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(509, 320);
             this.tableLayoutPanel1.TabIndex = 8;
             // 
             // textBox_photo
             // 
             this.textBox_photo.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox_photo.Location = new System.Drawing.Point(253, 356);
-            this.textBox_photo.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.textBox_photo.Location = new System.Drawing.Point(168, 228);
+            this.textBox_photo.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textBox_photo.Name = "textBox_photo";
-            this.textBox_photo.Size = new System.Drawing.Size(229, 26);
+            this.textBox_photo.Size = new System.Drawing.Size(154, 20);
             this.textBox_photo.TabIndex = 15;
             // 
             // textBox_lName
             // 
             this.textBox_lName.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox_lName.Location = new System.Drawing.Point(253, 274);
-            this.textBox_lName.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.textBox_lName.Location = new System.Drawing.Point(168, 175);
+            this.textBox_lName.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textBox_lName.Name = "textBox_lName";
-            this.textBox_lName.Size = new System.Drawing.Size(229, 26);
+            this.textBox_lName.Size = new System.Drawing.Size(154, 20);
             this.textBox_lName.TabIndex = 12;
             // 
             // textBox_fName
             // 
             this.textBox_fName.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox_fName.Location = new System.Drawing.Point(253, 192);
-            this.textBox_fName.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.textBox_fName.Location = new System.Drawing.Point(168, 122);
+            this.textBox_fName.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textBox_fName.Name = "textBox_fName";
-            this.textBox_fName.Size = new System.Drawing.Size(229, 26);
+            this.textBox_fName.Size = new System.Drawing.Size(154, 20);
             this.textBox_fName.TabIndex = 11;
             // 
             // label10
             // 
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(161, 441);
+            this.label10.Location = new System.Drawing.Point(105, 286);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(86, 20);
+            this.label10.Size = new System.Drawing.Size(59, 13);
             this.label10.TabIndex = 7;
             this.label10.Text = "Password :";
             // 
@@ -317,9 +331,10 @@
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(157, 277);
+            this.label7.Location = new System.Drawing.Point(103, 179);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(90, 20);
+            this.label7.Size = new System.Drawing.Size(61, 13);
             this.label7.TabIndex = 4;
             this.label7.Text = "Last Name:";
             // 
@@ -327,9 +342,10 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(191, 113);
+            this.label3.Location = new System.Drawing.Point(126, 73);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 20);
+            this.label3.Size = new System.Drawing.Size(38, 13);
             this.label3.TabIndex = 0;
             this.label3.Text = "Email :";
             // 
@@ -337,28 +353,29 @@
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(157, 195);
+            this.label6.Location = new System.Drawing.Point(104, 126);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(90, 20);
+            this.label6.Size = new System.Drawing.Size(60, 13);
             this.label6.TabIndex = 3;
             this.label6.Text = "First Name:";
             // 
             // textBox_email
             // 
             this.textBox_email.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox_email.Location = new System.Drawing.Point(253, 110);
-            this.textBox_email.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.textBox_email.Location = new System.Drawing.Point(168, 69);
+            this.textBox_email.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textBox_email.Name = "textBox_email";
-            this.textBox_email.Size = new System.Drawing.Size(229, 26);
+            this.textBox_email.Size = new System.Drawing.Size(154, 20);
             this.textBox_email.TabIndex = 8;
             // 
             // button_loadImage
             // 
             this.button_loadImage.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.button_loadImage.Location = new System.Drawing.Point(165, 351);
-            this.button_loadImage.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.button_loadImage.Location = new System.Drawing.Point(109, 227);
+            this.button_loadImage.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.button_loadImage.Name = "button_loadImage";
-            this.button_loadImage.Size = new System.Drawing.Size(82, 35);
+            this.button_loadImage.Size = new System.Drawing.Size(55, 23);
             this.button_loadImage.TabIndex = 16;
             this.button_loadImage.Text = "Image";
             this.button_loadImage.UseVisualStyleBackColor = true;
@@ -367,30 +384,31 @@
             // textBox_pass
             // 
             this.textBox_pass.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox_pass.Location = new System.Drawing.Point(253, 438);
-            this.textBox_pass.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.textBox_pass.Location = new System.Drawing.Point(168, 282);
+            this.textBox_pass.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textBox_pass.Name = "textBox_pass";
             this.textBox_pass.PasswordChar = '*';
-            this.textBox_pass.Size = new System.Drawing.Size(229, 26);
+            this.textBox_pass.Size = new System.Drawing.Size(154, 20);
             this.textBox_pass.TabIndex = 17;
             // 
             // label16
             // 
             this.label16.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(154, 31);
+            this.label16.Location = new System.Drawing.Point(101, 20);
+            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(93, 20);
+            this.label16.Size = new System.Drawing.Size(63, 13);
             this.label16.TabIndex = 18;
             this.label16.Text = "User Name:";
             // 
             // textBox_userName
             // 
             this.textBox_userName.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox_userName.Location = new System.Drawing.Point(253, 28);
-            this.textBox_userName.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.textBox_userName.Location = new System.Drawing.Point(168, 16);
+            this.textBox_userName.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textBox_userName.Name = "textBox_userName";
-            this.textBox_userName.Size = new System.Drawing.Size(229, 26);
+            this.textBox_userName.Size = new System.Drawing.Size(154, 20);
             this.textBox_userName.TabIndex = 19;
             // 
             // panel_signUp
@@ -399,20 +417,20 @@
             this.panel_signUp.Controls.Add(this.button_regist_user);
             this.panel_signUp.Controls.Add(this.tableLayoutPanel1);
             this.panel_signUp.Controls.Add(this.button6);
-            this.panel_signUp.Location = new System.Drawing.Point(206, 0);
-            this.panel_signUp.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.panel_signUp.Location = new System.Drawing.Point(137, 0);
+            this.panel_signUp.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.panel_signUp.Name = "panel_signUp";
-            this.panel_signUp.Size = new System.Drawing.Size(764, 889);
+            this.panel_signUp.Size = new System.Drawing.Size(509, 578);
             this.panel_signUp.TabIndex = 12;
             this.panel_signUp.Visible = false;
             // 
             // button_regist_user
             // 
             this.button_regist_user.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.button_regist_user.Location = new System.Drawing.Point(436, 658);
-            this.button_regist_user.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.button_regist_user.Location = new System.Drawing.Point(291, 428);
+            this.button_regist_user.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.button_regist_user.Name = "button_regist_user";
-            this.button_regist_user.Size = new System.Drawing.Size(122, 66);
+            this.button_regist_user.Size = new System.Drawing.Size(81, 43);
             this.button_regist_user.TabIndex = 8;
             this.button_regist_user.Text = "Sign Up";
             this.button_regist_user.UseVisualStyleBackColor = true;
@@ -421,10 +439,10 @@
             // button6
             // 
             this.button6.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.button6.Location = new System.Drawing.Point(165, 658);
-            this.button6.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.button6.Location = new System.Drawing.Point(110, 428);
+            this.button6.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(124, 66);
+            this.button6.Size = new System.Drawing.Size(83, 43);
             this.button6.TabIndex = 9;
             this.button6.Text = "Go Back";
             this.button6.UseVisualStyleBackColor = true;
@@ -439,11 +457,11 @@
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage7);
-            this.tabControl1.Location = new System.Drawing.Point(3, 4);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.tabControl1.Location = new System.Drawing.Point(2, 3);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1231, 880);
+            this.tabControl1.Size = new System.Drawing.Size(821, 572);
             this.tabControl1.TabIndex = 1;
             this.tabControl1.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
             // 
@@ -465,11 +483,11 @@
             this.tabPage1.Controls.Add(this.button19);
             this.tabPage1.Controls.Add(this.comboBox1);
             this.tabPage1.Controls.Add(this.button9);
-            this.tabPage1.Location = new System.Drawing.Point(4, 29);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.tabPage1.Size = new System.Drawing.Size(1223, 847);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.tabPage1.Size = new System.Drawing.Size(813, 546);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Games";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -482,18 +500,19 @@
             this.comboBox7.FormattingEnabled = true;
             this.comboBox7.Items.AddRange(new object[] {
             "None"});
-            this.comboBox7.Location = new System.Drawing.Point(672, 118);
-            this.comboBox7.Margin = new System.Windows.Forms.Padding(3, 8, 3, 8);
+            this.comboBox7.Location = new System.Drawing.Point(448, 77);
+            this.comboBox7.Margin = new System.Windows.Forms.Padding(2, 5, 2, 5);
             this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(183, 28);
+            this.comboBox7.Size = new System.Drawing.Size(123, 21);
             this.comboBox7.TabIndex = 28;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(561, 125);
+            this.label12.Location = new System.Drawing.Point(374, 81);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(78, 20);
+            this.label12.Size = new System.Drawing.Size(53, 13);
             this.label12.TabIndex = 27;
             this.label12.Text = "Publisher:";
             // 
@@ -505,27 +524,29 @@
             this.comboBox6.FormattingEnabled = true;
             this.comboBox6.Items.AddRange(new object[] {
             "None"});
-            this.comboBox6.Location = new System.Drawing.Point(300, 121);
-            this.comboBox6.Margin = new System.Windows.Forms.Padding(3, 8, 3, 8);
+            this.comboBox6.Location = new System.Drawing.Point(200, 79);
+            this.comboBox6.Margin = new System.Windows.Forms.Padding(2, 5, 2, 5);
             this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(183, 28);
+            this.comboBox6.Size = new System.Drawing.Size(123, 21);
             this.comboBox6.TabIndex = 26;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(195, 121);
+            this.label9.Location = new System.Drawing.Point(130, 79);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(83, 20);
+            this.label9.Size = new System.Drawing.Size(56, 13);
             this.label9.TabIndex = 25;
             this.label9.Text = "Franchise:";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(296, 41);
+            this.label8.Location = new System.Drawing.Point(197, 27);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(58, 20);
+            this.label8.Size = new System.Drawing.Size(39, 13);
             this.label8.TabIndex = 24;
             this.label8.Text = "Genre:";
             // 
@@ -537,35 +558,37 @@
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
             "None"});
-            this.comboBox2.Location = new System.Drawing.Point(399, 35);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(3, 8, 3, 8);
+            this.comboBox2.Location = new System.Drawing.Point(266, 23);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(2, 5, 2, 5);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(183, 28);
+            this.comboBox2.Size = new System.Drawing.Size(123, 21);
             this.comboBox2.TabIndex = 23;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(668, 38);
+            this.label5.Location = new System.Drawing.Point(445, 25);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 20);
+            this.label5.Size = new System.Drawing.Size(44, 13);
             this.label5.TabIndex = 22;
             this.label5.Text = "Sort By:";
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(80, 38);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox3.Location = new System.Drawing.Point(53, 25);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(183, 26);
+            this.textBox3.Size = new System.Drawing.Size(123, 20);
             this.textBox3.TabIndex = 21;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(26, 41);
+            this.label4.Location = new System.Drawing.Point(17, 27);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(42, 20);
+            this.label4.Size = new System.Drawing.Size(30, 13);
             this.label4.TabIndex = 20;
             this.label4.Text = "Title:";
             // 
@@ -575,37 +598,39 @@
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(27, 169);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(18, 110);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1142, 680);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(761, 432);
             this.tableLayoutPanel2.TabIndex = 19;
             // 
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(582, 14);
+            this.label40.Location = new System.Drawing.Point(388, 9);
+            this.label40.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(0, 20);
+            this.label40.Size = new System.Drawing.Size(0, 13);
             this.label40.TabIndex = 18;
             // 
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(144, 28);
+            this.label36.Location = new System.Drawing.Point(96, 18);
+            this.label36.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(0, 20);
+            this.label36.Size = new System.Drawing.Size(0, 13);
             this.label36.TabIndex = 15;
             // 
             // button20
             // 
-            this.button20.Location = new System.Drawing.Point(30, 125);
-            this.button20.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.button20.Location = new System.Drawing.Point(20, 81);
+            this.button20.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(50, 36);
+            this.button20.Size = new System.Drawing.Size(33, 23);
             this.button20.TabIndex = 14;
             this.button20.Text = "<";
             this.button20.UseVisualStyleBackColor = true;
@@ -613,10 +638,10 @@
             // 
             // button19
             // 
-            this.button19.Location = new System.Drawing.Point(1119, 125);
-            this.button19.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.button19.Location = new System.Drawing.Point(746, 81);
+            this.button19.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(50, 36);
+            this.button19.Size = new System.Drawing.Size(33, 23);
             this.button19.TabIndex = 13;
             this.button19.Text = ">";
             this.button19.UseVisualStyleBackColor = true;
@@ -630,18 +655,18 @@
             "None",
             "LaunchDateDesc",
             "LaunchDateAsc"});
-            this.comboBox1.Location = new System.Drawing.Point(748, 38);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.comboBox1.Location = new System.Drawing.Point(499, 25);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(136, 28);
+            this.comboBox1.Size = new System.Drawing.Size(92, 21);
             this.comboBox1.TabIndex = 10;
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(924, 22);
-            this.button9.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.button9.Location = new System.Drawing.Point(616, 14);
+            this.button9.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(115, 58);
+            this.button9.Size = new System.Drawing.Size(77, 38);
             this.button9.TabIndex = 1;
             this.button9.Text = "SEARCH";
             this.button9.UseVisualStyleBackColor = true;
@@ -659,21 +684,21 @@
             this.tabPage2.Controls.Add(this.label44);
             this.tabPage2.Controls.Add(this.comboBox11);
             this.tabPage2.Controls.Add(this.button3);
-            this.tabPage2.Location = new System.Drawing.Point(4, 29);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.tabPage2.Size = new System.Drawing.Size(1223, 847);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.tabPage2.Size = new System.Drawing.Size(813, 546);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Franchises";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(1125, 130);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.button2.Location = new System.Drawing.Point(750, 84);
+            this.button2.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(50, 36);
+            this.button2.Size = new System.Drawing.Size(33, 23);
             this.button2.TabIndex = 40;
             this.button2.Text = ">";
             this.button2.UseVisualStyleBackColor = true;
@@ -681,10 +706,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(36, 130);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.button1.Location = new System.Drawing.Point(24, 84);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(50, 36);
+            this.button1.Size = new System.Drawing.Size(33, 23);
             this.button1.TabIndex = 39;
             this.button1.Text = "<";
             this.button1.UseVisualStyleBackColor = true;
@@ -693,26 +718,28 @@
             // label41
             // 
             this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(604, 86);
+            this.label41.Location = new System.Drawing.Point(403, 56);
+            this.label41.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(65, 20);
+            this.label41.Size = new System.Drawing.Size(44, 13);
             this.label41.TabIndex = 38;
             this.label41.Text = "Sort By:";
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(294, 82);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox4.Location = new System.Drawing.Point(196, 53);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(183, 26);
+            this.textBox4.Size = new System.Drawing.Size(123, 20);
             this.textBox4.TabIndex = 37;
             // 
             // label42
             // 
             this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(240, 86);
+            this.label42.Location = new System.Drawing.Point(160, 56);
+            this.label42.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(42, 20);
+            this.label42.Size = new System.Drawing.Size(30, 13);
             this.label42.TabIndex = 36;
             this.label42.Text = "Title:";
             // 
@@ -722,29 +749,31 @@
             this.tableLayoutPanel5.ColumnCount = 1;
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(36, 175);
-            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(24, 114);
+            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 1;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(1138, 670);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(759, 435);
             this.tableLayoutPanel5.TabIndex = 35;
             // 
             // label43
             // 
             this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(660, 16);
+            this.label43.Location = new System.Drawing.Point(440, 10);
+            this.label43.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(0, 20);
+            this.label43.Size = new System.Drawing.Size(0, 13);
             this.label43.TabIndex = 34;
             // 
             // label44
             // 
             this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(358, 72);
+            this.label44.Location = new System.Drawing.Point(239, 47);
+            this.label44.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(0, 20);
+            this.label44.Size = new System.Drawing.Size(0, 13);
             this.label44.TabIndex = 33;
             // 
             // comboBox11
@@ -755,18 +784,18 @@
             "None",
             "NofGamesDesc",
             "NofGamesAsc"});
-            this.comboBox11.Location = new System.Drawing.Point(690, 82);
-            this.comboBox11.Margin = new System.Windows.Forms.Padding(3, 8, 3, 8);
+            this.comboBox11.Location = new System.Drawing.Point(460, 53);
+            this.comboBox11.Margin = new System.Windows.Forms.Padding(2, 5, 2, 5);
             this.comboBox11.Name = "comboBox11";
-            this.comboBox11.Size = new System.Drawing.Size(152, 28);
+            this.comboBox11.Size = new System.Drawing.Size(103, 21);
             this.comboBox11.TabIndex = 30;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(939, 50);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.button3.Location = new System.Drawing.Point(626, 32);
+            this.button3.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(129, 71);
+            this.button3.Size = new System.Drawing.Size(86, 46);
             this.button3.TabIndex = 29;
             this.button3.Text = "SEARCH";
             this.button3.UseVisualStyleBackColor = true;
@@ -782,28 +811,29 @@
             this.tabPage6.Controls.Add(this.button4);
             this.tabPage6.Controls.Add(this.button5);
             this.tabPage6.Controls.Add(this.button7);
-            this.tabPage6.Location = new System.Drawing.Point(4, 29);
-            this.tabPage6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(1223, 847);
+            this.tabPage6.Size = new System.Drawing.Size(813, 546);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Publishers";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(352, 47);
-            this.textBox5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox5.Location = new System.Drawing.Point(235, 31);
+            this.textBox5.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(255, 26);
+            this.textBox5.Size = new System.Drawing.Size(171, 20);
             this.textBox5.TabIndex = 37;
             // 
             // label46
             // 
             this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(291, 47);
+            this.label46.Location = new System.Drawing.Point(194, 31);
+            this.label46.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(55, 20);
+            this.label46.Size = new System.Drawing.Size(38, 13);
             this.label46.TabIndex = 36;
             this.label46.Text = "Name:";
             // 
@@ -813,37 +843,39 @@
             this.tableLayoutPanel6.ColumnCount = 1;
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(30, 181);
-            this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(20, 118);
+            this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(1138, 660);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(759, 429);
             this.tableLayoutPanel6.TabIndex = 35;
             // 
             // label47
             // 
             this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(655, 22);
+            this.label47.Location = new System.Drawing.Point(437, 14);
+            this.label47.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(0, 20);
+            this.label47.Size = new System.Drawing.Size(0, 13);
             this.label47.TabIndex = 34;
             // 
             // label48
             // 
             this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(144, 32);
+            this.label48.Location = new System.Drawing.Point(96, 21);
+            this.label48.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(0, 20);
+            this.label48.Size = new System.Drawing.Size(0, 13);
             this.label48.TabIndex = 33;
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(30, 130);
-            this.button4.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.button4.Location = new System.Drawing.Point(20, 84);
+            this.button4.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(50, 36);
+            this.button4.Size = new System.Drawing.Size(33, 23);
             this.button4.TabIndex = 32;
             this.button4.Text = "<";
             this.button4.UseVisualStyleBackColor = true;
@@ -851,10 +883,10 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(1119, 130);
-            this.button5.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.button5.Location = new System.Drawing.Point(746, 84);
+            this.button5.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(50, 36);
+            this.button5.Size = new System.Drawing.Size(33, 23);
             this.button5.TabIndex = 31;
             this.button5.Text = ">";
             this.button5.UseVisualStyleBackColor = true;
@@ -862,10 +894,10 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(794, 22);
-            this.button7.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.button7.Location = new System.Drawing.Point(529, 14);
+            this.button7.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(129, 71);
+            this.button7.Size = new System.Drawing.Size(86, 46);
             this.button7.TabIndex = 29;
             this.button7.Text = "SEARCH";
             this.button7.UseVisualStyleBackColor = true;
@@ -881,29 +913,30 @@
             this.tabPage4.Controls.Add(this.button11);
             this.tabPage4.Controls.Add(this.button12);
             this.tabPage4.Controls.Add(this.button21);
-            this.tabPage4.Location = new System.Drawing.Point(4, 29);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.tabPage4.Size = new System.Drawing.Size(1223, 847);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.tabPage4.Size = new System.Drawing.Size(813, 546);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Developers";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // textBox8
             // 
-            this.textBox8.Location = new System.Drawing.Point(364, 39);
-            this.textBox8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox8.Location = new System.Drawing.Point(243, 25);
+            this.textBox8.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(255, 26);
+            this.textBox8.Size = new System.Drawing.Size(171, 20);
             this.textBox8.TabIndex = 45;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(303, 39);
+            this.label15.Location = new System.Drawing.Point(202, 25);
+            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(55, 20);
+            this.label15.Size = new System.Drawing.Size(38, 13);
             this.label15.TabIndex = 44;
             this.label15.Text = "Name:";
             // 
@@ -913,37 +946,39 @@
             this.tableLayoutPanel7.ColumnCount = 1;
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(42, 173);
-            this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(28, 112);
+            this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(1138, 660);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(759, 429);
             this.tableLayoutPanel7.TabIndex = 43;
             // 
             // label38
             // 
             this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(667, 14);
+            this.label38.Location = new System.Drawing.Point(445, 9);
+            this.label38.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(0, 20);
+            this.label38.Size = new System.Drawing.Size(0, 13);
             this.label38.TabIndex = 42;
             // 
             // label39
             // 
             this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(156, 24);
+            this.label39.Location = new System.Drawing.Point(104, 16);
+            this.label39.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(0, 20);
+            this.label39.Size = new System.Drawing.Size(0, 13);
             this.label39.TabIndex = 41;
             // 
             // button11
             // 
-            this.button11.Location = new System.Drawing.Point(42, 122);
-            this.button11.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.button11.Location = new System.Drawing.Point(28, 79);
+            this.button11.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(50, 36);
+            this.button11.Size = new System.Drawing.Size(33, 23);
             this.button11.TabIndex = 40;
             this.button11.Text = "<";
             this.button11.UseVisualStyleBackColor = true;
@@ -951,10 +986,10 @@
             // 
             // button12
             // 
-            this.button12.Location = new System.Drawing.Point(1131, 122);
-            this.button12.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.button12.Location = new System.Drawing.Point(754, 79);
+            this.button12.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(50, 36);
+            this.button12.Size = new System.Drawing.Size(33, 23);
             this.button12.TabIndex = 39;
             this.button12.Text = ">";
             this.button12.UseVisualStyleBackColor = true;
@@ -962,10 +997,10 @@
             // 
             // button21
             // 
-            this.button21.Location = new System.Drawing.Point(806, 14);
-            this.button21.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.button21.Location = new System.Drawing.Point(537, 9);
+            this.button21.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.button21.Name = "button21";
-            this.button21.Size = new System.Drawing.Size(129, 71);
+            this.button21.Size = new System.Drawing.Size(86, 46);
             this.button21.TabIndex = 38;
             this.button21.Text = "SEARCH";
             this.button21.UseVisualStyleBackColor = true;
@@ -985,38 +1020,40 @@
             this.tabPage5.Controls.Add(this.button15);
             this.tabPage5.Controls.Add(this.button16);
             this.tabPage5.Controls.Add(this.button17);
-            this.tabPage5.Location = new System.Drawing.Point(4, 29);
-            this.tabPage5.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.tabPage5.Size = new System.Drawing.Size(1223, 847);
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.tabPage5.Size = new System.Drawing.Size(813, 546);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Tournments";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // textBox10
             // 
-            this.textBox10.Location = new System.Drawing.Point(467, 46);
-            this.textBox10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox10.Location = new System.Drawing.Point(311, 30);
+            this.textBox10.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(255, 26);
+            this.textBox10.Size = new System.Drawing.Size(171, 20);
             this.textBox10.TabIndex = 57;
             // 
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(406, 46);
+            this.label28.Location = new System.Drawing.Point(271, 30);
+            this.label28.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(57, 20);
+            this.label28.Size = new System.Drawing.Size(38, 13);
             this.label28.TabIndex = 56;
             this.label28.Text = "Game:";
             // 
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(767, 49);
+            this.label27.Location = new System.Drawing.Point(511, 32);
+            this.label27.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(65, 20);
+            this.label27.Size = new System.Drawing.Size(44, 13);
             this.label27.TabIndex = 55;
             this.label27.Text = "Sort By:";
             // 
@@ -1028,26 +1065,27 @@
             "None",
             "PrizePoolDesc",
             "PrizePoolAsc"});
-            this.comboBox3.Location = new System.Drawing.Point(853, 45);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(3, 8, 3, 8);
+            this.comboBox3.Location = new System.Drawing.Point(569, 29);
+            this.comboBox3.Margin = new System.Windows.Forms.Padding(2, 5, 2, 5);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(152, 28);
+            this.comboBox3.Size = new System.Drawing.Size(103, 21);
             this.comboBox3.TabIndex = 54;
             // 
             // textBox9
             // 
-            this.textBox9.Location = new System.Drawing.Point(99, 49);
-            this.textBox9.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox9.Location = new System.Drawing.Point(66, 32);
+            this.textBox9.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(255, 26);
+            this.textBox9.Size = new System.Drawing.Size(171, 20);
             this.textBox9.TabIndex = 53;
             // 
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(38, 49);
+            this.label24.Location = new System.Drawing.Point(25, 32);
+            this.label24.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(55, 20);
+            this.label24.Size = new System.Drawing.Size(38, 13);
             this.label24.TabIndex = 52;
             this.label24.Text = "Name:";
             // 
@@ -1057,37 +1095,39 @@
             this.tableLayoutPanel8.ColumnCount = 1;
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(42, 173);
-            this.tableLayoutPanel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(28, 112);
+            this.tableLayoutPanel8.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(1138, 660);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(759, 429);
             this.tableLayoutPanel8.TabIndex = 51;
             // 
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(667, 14);
+            this.label25.Location = new System.Drawing.Point(445, 9);
+            this.label25.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(0, 20);
+            this.label25.Size = new System.Drawing.Size(0, 13);
             this.label25.TabIndex = 50;
             // 
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(127, 34);
+            this.label26.Location = new System.Drawing.Point(85, 22);
+            this.label26.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(0, 20);
+            this.label26.Size = new System.Drawing.Size(0, 13);
             this.label26.TabIndex = 49;
             // 
             // button15
             // 
-            this.button15.Location = new System.Drawing.Point(42, 122);
-            this.button15.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.button15.Location = new System.Drawing.Point(28, 79);
+            this.button15.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.button15.Name = "button15";
-            this.button15.Size = new System.Drawing.Size(50, 36);
+            this.button15.Size = new System.Drawing.Size(33, 23);
             this.button15.TabIndex = 48;
             this.button15.Text = "<";
             this.button15.UseVisualStyleBackColor = true;
@@ -1095,10 +1135,10 @@
             // 
             // button16
             // 
-            this.button16.Location = new System.Drawing.Point(1131, 122);
-            this.button16.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.button16.Location = new System.Drawing.Point(754, 79);
+            this.button16.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(50, 36);
+            this.button16.Size = new System.Drawing.Size(33, 23);
             this.button16.TabIndex = 47;
             this.button16.Text = ">";
             this.button16.UseVisualStyleBackColor = true;
@@ -1106,10 +1146,10 @@
             // 
             // button17
             // 
-            this.button17.Location = new System.Drawing.Point(1052, 27);
-            this.button17.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.button17.Location = new System.Drawing.Point(701, 18);
+            this.button17.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(129, 71);
+            this.button17.Size = new System.Drawing.Size(86, 46);
             this.button17.TabIndex = 46;
             this.button17.Text = "SEARCH";
             this.button17.UseVisualStyleBackColor = true;
@@ -1132,91 +1172,93 @@
             this.tabPage3.Controls.Add(this.label13);
             this.tabPage3.Controls.Add(this.pictureBox1);
             this.tabPage3.Controls.Add(this.label11);
-            this.tabPage3.Location = new System.Drawing.Point(4, 29);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.tabPage3.Size = new System.Drawing.Size(1223, 847);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.tabPage3.Size = new System.Drawing.Size(813, 546);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Profile";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(152, 139);
-            this.textBox7.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.textBox7.Location = new System.Drawing.Point(101, 90);
+            this.textBox7.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(174, 26);
+            this.textBox7.Size = new System.Drawing.Size(117, 20);
             this.textBox7.TabIndex = 27;
             // 
             // label49
             // 
             this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(72, 142);
+            this.label49.Location = new System.Drawing.Point(48, 92);
+            this.label49.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(52, 20);
+            this.label49.Size = new System.Drawing.Size(35, 13);
             this.label49.TabIndex = 26;
             this.label49.Text = "Email:";
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(470, 404);
-            this.textBox6.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.textBox6.Location = new System.Drawing.Point(313, 263);
+            this.textBox6.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(174, 26);
+            this.textBox6.Size = new System.Drawing.Size(117, 20);
             this.textBox6.TabIndex = 25;
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(40, 333);
+            this.label18.Location = new System.Drawing.Point(27, 216);
+            this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(82, 20);
+            this.label18.Size = new System.Drawing.Size(56, 13);
             this.label18.TabIndex = 24;
             this.label18.Text = "Password:";
             // 
             // textBox19
             // 
             this.textBox19.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox19.Location = new System.Drawing.Point(150, 327);
-            this.textBox19.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.textBox19.Location = new System.Drawing.Point(100, 213);
+            this.textBox19.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textBox19.Name = "textBox19";
             this.textBox19.PasswordChar = '*';
-            this.textBox19.Size = new System.Drawing.Size(174, 26);
+            this.textBox19.Size = new System.Drawing.Size(117, 20);
             this.textBox19.TabIndex = 23;
             // 
             // textBox18
             // 
             this.textBox18.Enabled = false;
-            this.textBox18.Location = new System.Drawing.Point(152, 85);
-            this.textBox18.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.textBox18.Location = new System.Drawing.Point(101, 55);
+            this.textBox18.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(174, 26);
+            this.textBox18.Size = new System.Drawing.Size(117, 20);
             this.textBox18.TabIndex = 21;
             // 
             // textBox15
             // 
-            this.textBox15.Location = new System.Drawing.Point(149, 261);
-            this.textBox15.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.textBox15.Location = new System.Drawing.Point(99, 170);
+            this.textBox15.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(174, 26);
+            this.textBox15.Size = new System.Drawing.Size(117, 20);
             this.textBox15.TabIndex = 10;
             // 
             // textBox14
             // 
-            this.textBox14.Location = new System.Drawing.Point(152, 195);
-            this.textBox14.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.textBox14.Location = new System.Drawing.Point(101, 127);
+            this.textBox14.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(174, 26);
+            this.textBox14.Size = new System.Drawing.Size(117, 20);
             this.textBox14.TabIndex = 8;
             // 
             // button10
             // 
             this.button10.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.button10.Location = new System.Drawing.Point(362, 400);
-            this.button10.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.button10.Location = new System.Drawing.Point(241, 260);
+            this.button10.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(82, 35);
+            this.button10.Size = new System.Drawing.Size(55, 23);
             this.button10.TabIndex = 22;
             this.button10.Text = "Image";
             this.button10.UseVisualStyleBackColor = true;
@@ -1225,19 +1267,20 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(31, 88);
+            this.label17.Location = new System.Drawing.Point(21, 57);
+            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(93, 20);
+            this.label17.Size = new System.Drawing.Size(63, 13);
             this.label17.TabIndex = 20;
             this.label17.Text = "User Name:";
             // 
             // button8
             // 
             this.button8.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.button8.Location = new System.Drawing.Point(298, 498);
-            this.button8.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.button8.Location = new System.Drawing.Point(199, 324);
+            this.button8.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(182, 55);
+            this.button8.Size = new System.Drawing.Size(121, 36);
             this.button8.TabIndex = 11;
             this.button8.Text = "Update Profile";
             this.button8.UseVisualStyleBackColor = true;
@@ -1246,27 +1289,29 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(31, 264);
+            this.label14.Location = new System.Drawing.Point(21, 172);
+            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(90, 20);
+            this.label14.Size = new System.Drawing.Size(61, 13);
             this.label14.TabIndex = 9;
             this.label14.Text = "Last Name:";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(40, 198);
+            this.label13.Location = new System.Drawing.Point(27, 129);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(94, 20);
+            this.label13.Size = new System.Drawing.Size(63, 13);
             this.label13.TabIndex = 7;
             this.label13.Text = "First Name: ";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(362, 75);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.pictureBox1.Location = new System.Drawing.Point(241, 49);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(284, 278);
+            this.pictureBox1.Size = new System.Drawing.Size(189, 181);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
@@ -1274,85 +1319,92 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(134, 85);
+            this.label11.Location = new System.Drawing.Point(89, 55);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(0, 20);
+            this.label11.Size = new System.Drawing.Size(0, 13);
             this.label11.TabIndex = 0;
             // 
             // tabPage7
             // 
             this.tabPage7.Controls.Add(this.tabControl2);
-            this.tabPage7.Location = new System.Drawing.Point(4, 29);
-            this.tabPage7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage7.Location = new System.Drawing.Point(4, 22);
+            this.tabPage7.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage7.Size = new System.Drawing.Size(1223, 847);
+            this.tabPage7.Padding = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.tabPage7.Size = new System.Drawing.Size(813, 546);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "My Lists";
             this.tabPage7.UseVisualStyleBackColor = true;
             // 
             // tabControl2
             // 
-            this.tabControl2.Controls.Add(this.tabPage9);
             this.tabControl2.Controls.Add(this.tabPage8);
+            this.tabControl2.Controls.Add(this.tabPage9);
             this.tabControl2.Controls.Add(this.tabPage11);
             this.tabControl2.Controls.Add(this.tabPage12);
             this.tabControl2.Controls.Add(this.tabPage10);
-            this.tabControl2.Location = new System.Drawing.Point(3, 2);
-            this.tabControl2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabControl2.Location = new System.Drawing.Point(2, 1);
+            this.tabControl2.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(1070, 945);
+            this.tabControl2.Size = new System.Drawing.Size(807, 542);
             this.tabControl2.TabIndex = 0;
+            this.tabControl2.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl2_Selected);
             // 
             // tabPage9
             // 
-            this.tabPage9.Location = new System.Drawing.Point(4, 29);
-            this.tabPage9.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage9.Controls.Add(this.tableLayoutPanel10);
+            this.tabPage9.Location = new System.Drawing.Point(4, 22);
+            this.tabPage9.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage9.Size = new System.Drawing.Size(1062, 912);
+            this.tabPage9.Padding = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.tabPage9.Size = new System.Drawing.Size(799, 516);
             this.tabPage9.TabIndex = 1;
             this.tabPage9.Text = "Plan To Play";
             this.tabPage9.UseVisualStyleBackColor = true;
             // 
             // tabPage8
             // 
-            this.tabPage8.Location = new System.Drawing.Point(4, 29);
-            this.tabPage8.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tabPage8.Controls.Add(this.tableLayoutPanel9);
+            this.tabPage8.Location = new System.Drawing.Point(4, 22);
+            this.tabPage8.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tabPage8.Size = new System.Drawing.Size(1062, 912);
+            this.tabPage8.Padding = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.tabPage8.Size = new System.Drawing.Size(799, 516);
             this.tabPage8.TabIndex = 0;
             this.tabPage8.Text = "Playing";
             this.tabPage8.UseVisualStyleBackColor = true;
             // 
             // tabPage11
             // 
-            this.tabPage11.Location = new System.Drawing.Point(4, 29);
-            this.tabPage11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage11.Controls.Add(this.tableLayoutPanel11);
+            this.tabPage11.Location = new System.Drawing.Point(4, 22);
+            this.tabPage11.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.tabPage11.Name = "tabPage11";
-            this.tabPage11.Size = new System.Drawing.Size(1062, 912);
+            this.tabPage11.Size = new System.Drawing.Size(799, 516);
             this.tabPage11.TabIndex = 3;
             this.tabPage11.Text = "Whishlist";
             this.tabPage11.UseVisualStyleBackColor = true;
             // 
             // tabPage12
             // 
-            this.tabPage12.Location = new System.Drawing.Point(4, 29);
-            this.tabPage12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage12.Controls.Add(this.tableLayoutPanel12);
+            this.tabPage12.Location = new System.Drawing.Point(4, 22);
+            this.tabPage12.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.tabPage12.Name = "tabPage12";
-            this.tabPage12.Size = new System.Drawing.Size(1062, 912);
+            this.tabPage12.Size = new System.Drawing.Size(799, 516);
             this.tabPage12.TabIndex = 4;
             this.tabPage12.Text = "Completed";
             this.tabPage12.UseVisualStyleBackColor = true;
             // 
             // tabPage10
             // 
-            this.tabPage10.Location = new System.Drawing.Point(4, 29);
-            this.tabPage10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage10.Controls.Add(this.tableLayoutPanel13);
+            this.tabPage10.Location = new System.Drawing.Point(4, 22);
+            this.tabPage10.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.tabPage10.Name = "tabPage10";
-            this.tabPage10.Size = new System.Drawing.Size(1062, 912);
+            this.tabPage10.Size = new System.Drawing.Size(799, 516);
             this.tabPage10.TabIndex = 2;
             this.tabPage10.Text = "Dropped";
             this.tabPage10.UseVisualStyleBackColor = true;
@@ -1368,29 +1420,29 @@
             this.panel1.Controls.Add(this.button_login);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Location = new System.Drawing.Point(2, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel1.Location = new System.Drawing.Point(1, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1252, 945);
+            this.panel1.Size = new System.Drawing.Size(835, 614);
             this.panel1.TabIndex = 13;
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.button18);
             this.panel2.Controls.Add(this.tabControl1);
-            this.panel2.Location = new System.Drawing.Point(2, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel2.Location = new System.Drawing.Point(1, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1433, 889);
+            this.panel2.Size = new System.Drawing.Size(955, 578);
             this.panel2.TabIndex = 13;
             this.panel2.Visible = false;
             // 
             // button18
             // 
-            this.button18.Location = new System.Drawing.Point(1280, 186);
-            this.button18.Margin = new System.Windows.Forms.Padding(3, 6, 3, 6);
+            this.button18.Location = new System.Drawing.Point(853, 121);
+            this.button18.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(129, 71);
+            this.button18.Size = new System.Drawing.Size(86, 46);
             this.button18.TabIndex = 47;
             this.button18.Text = "END SESSION";
             this.button18.UseVisualStyleBackColor = true;
@@ -1499,14 +1551,89 @@
             this.label21.Size = new System.Drawing.Size(60, 20);
             this.label21.TabIndex = 3;
             // 
+            // tableLayoutPanel9
+            // 
+            this.tableLayoutPanel9.AutoScroll = true;
+            this.tableLayoutPanel9.ColumnCount = 1;
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(16, 73);
+            this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
+            this.tableLayoutPanel9.RowCount = 1;
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(761, 432);
+            this.tableLayoutPanel9.TabIndex = 20;
+            // 
+            // tableLayoutPanel10
+            // 
+            this.tableLayoutPanel10.AutoScroll = true;
+            this.tableLayoutPanel10.ColumnCount = 1;
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel10.Location = new System.Drawing.Point(19, 42);
+            this.tableLayoutPanel10.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.tableLayoutPanel10.Name = "tableLayoutPanel10";
+            this.tableLayoutPanel10.RowCount = 1;
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(761, 432);
+            this.tableLayoutPanel10.TabIndex = 21;
+            // 
+            // tableLayoutPanel11
+            // 
+            this.tableLayoutPanel11.AutoScroll = true;
+            this.tableLayoutPanel11.ColumnCount = 1;
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel11.Location = new System.Drawing.Point(19, 42);
+            this.tableLayoutPanel11.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.tableLayoutPanel11.Name = "tableLayoutPanel11";
+            this.tableLayoutPanel11.RowCount = 1;
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(761, 432);
+            this.tableLayoutPanel11.TabIndex = 21;
+            // 
+            // tableLayoutPanel12
+            // 
+            this.tableLayoutPanel12.AutoScroll = true;
+            this.tableLayoutPanel12.ColumnCount = 1;
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel12.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel12.Location = new System.Drawing.Point(19, 42);
+            this.tableLayoutPanel12.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.tableLayoutPanel12.Name = "tableLayoutPanel12";
+            this.tableLayoutPanel12.RowCount = 1;
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel12.Size = new System.Drawing.Size(761, 432);
+            this.tableLayoutPanel12.TabIndex = 21;
+            // 
+            // tableLayoutPanel13
+            // 
+            this.tableLayoutPanel13.AutoScroll = true;
+            this.tableLayoutPanel13.ColumnCount = 1;
+            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel13.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel13.Location = new System.Drawing.Point(19, 42);
+            this.tableLayoutPanel13.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.tableLayoutPanel13.Name = "tableLayoutPanel13";
+            this.tableLayoutPanel13.RowCount = 1;
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(761, 432);
+            this.tableLayoutPanel13.TabIndex = 21;
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1461, 889);
+            this.ClientSize = new System.Drawing.Size(974, 578);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.Name = "Form1";
             this.Text = "GamesDB";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -1529,6 +1656,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPage7.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
+            this.tabPage9.ResumeLayout(false);
+            this.tabPage8.ResumeLayout(false);
+            this.tabPage11.ResumeLayout(false);
+            this.tabPage12.ResumeLayout(false);
+            this.tabPage10.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -1660,6 +1792,11 @@
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel13;
     }
 }
 
