@@ -1263,49 +1263,51 @@ namespace GamesDB
                 if (launch_date.Split('-').Length < 3)
                 {
                     MessageBox.Show("Invalid launch date! Format should be: yyyy-mm-dd", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    errorFound = true;
+                    error = true;
                 }
                 else if (!errorFound && (launch_date.Split('-')[0].Length < 4 || Convert.ToInt16(launch_date.Split('-')[0]) < 0))
                 {
                     MessageBox.Show("Invalid launch date: invalid YEAR! Format should be: yyyy-mm-dd", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    errorFound = true;
+                    error = true;
                 }
 
                 else if (!errorFound && (launch_date.Split('-')[1].Length < 2 || Convert.ToInt16(launch_date.Split('-')[1]) < 1 || Convert.ToInt16(launch_date.Split('-')[1]) > 12))
                 {
                     MessageBox.Show("Invalid launch date: invalid MONTH! Format should be: yyyy-mm-dd", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    errorFound = true;
+                    error = true;
                 }
 
                 else if (!errorFound && launch_date.Split('-')[2].Length < 2)
                 {
                     MessageBox.Show("Invalid launch date: invalid DAY! Format should be: yyyy-mm-dd", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    errorFound = true;
+                    error = true;
                 }
                 else
                 {
                     int month = Convert.ToInt16(launch_date.Split('-')[1]);
 
-                    if (!errorFound && (launch_date.Split('-')[2].Length < 2 || Convert.ToInt16(launch_date.Split('-')[2]) < 1 || Convert.ToInt16(launch_date.Split('-')[1]) > 12))
+                    if (!error && (launch_date.Split('-')[2].Length < 2 || Convert.ToInt16(launch_date.Split('-')[2]) < 1 || Convert.ToInt16(launch_date.Split('-')[1]) > 12))
                     {
                         MessageBox.Show("Invalid launch date: invalid DAY! Format should be: yyyy-mm-dd", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        error = true;
+
                     }
-                    else if (!errorFound && (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) && Convert.ToInt16(launch_date.Split('-')[2]) > 31)
+                    else if (!error && (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) && Convert.ToInt16(launch_date.Split('-')[2]) > 31)
                     {
 
                         MessageBox.Show("Invalid launch date: invalid DAY (month doesn't have that many days)! Format should be: yyyy-mm-dd", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        errorFound = true;
+                        error = true;
                     }
-                    else if (!errorFound && (month == 4 || month == 6 || month == 9 || month == 11) && Convert.ToInt16(launch_date.Split('-')[2]) > 30)
+                    else if (!error && (month == 4 || month == 6 || month == 9 || month == 11) && Convert.ToInt16(launch_date.Split('-')[2]) > 30)
                     {
                         MessageBox.Show("Invalid launch date: invalid DAY (month doesn't have that many days)! Format should be: yyyy-mm-dd", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        errorFound = true;
+                        error = true;
                     }
                     else if (!errorFound && month == 4 && Convert.ToInt16(launch_date.Split('-')[2]) > 28)
+                    {
                         MessageBox.Show("Invalid launch date: invalid DAY (month doesn't have that many days)! Format should be: yyyy-mm-dd", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                    if (errorFound)
                         error = true;
+                    }
                 }
             }
 
