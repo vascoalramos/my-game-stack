@@ -1428,7 +1428,7 @@ namespace GamesDB
         {
             if(comboBox6.Text != "None")
             {
-                textBox11.Text = textBox23.Text + comboBox6.Text + " ; ";
+                textBox11.Text = textBox11.Text + comboBox6.Text + " ; ";
             }
         }
 
